@@ -10,8 +10,8 @@
 	<target name="CreateJar" description="Create Jar file">
 		<mkdir dir="bin"/>
 		<jar jarfile="kon.jar" basedir="bin" />
-  	 	<exec executable="c:\Program Files\WinSCP\WinSCP.com">
+  	 	<!--exec executable="c:\Program Files\WinSCP\WinSCP.com">
   	      <arg value="/script=c:\Users\Ivan\Dropbox\work\Koncentrator\script.txt"/>
-  	    </exec>
+  	    </exec> -->
   </target>
 </project>
