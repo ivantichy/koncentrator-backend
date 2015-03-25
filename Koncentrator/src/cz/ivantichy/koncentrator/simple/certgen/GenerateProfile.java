@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import com.sun.org.apache.xml.internal.security.utils.Base64;
+import java.util.Base64;
 
 public class GenerateProfile {
 
@@ -19,8 +19,9 @@ public class GenerateProfile {
 		exec(cn, domain, days, path);
 
 		return "{ \"profile_content_base64\" : \""
-				+ Base64.encode(createProfileToString(cn, path, name)
-						.getBytes()) + "\" }";
+				+ new String(Base64.getEncoder().encode(
+						createProfileToString(cn, path, name).getBytes()))
+				+ "\" }";
 
 	}
 
@@ -50,7 +51,6 @@ public class GenerateProfile {
 		config = config.replaceAll("[{]cert[}]", crt);
 		config = config.replaceAll("[{]ta[}]", ta);
 		config = config.replaceAll("[{]subvpnname[}]", name);
-		
 
 		return config;
 

@@ -3,6 +3,8 @@
   <groupId>Koncentrator</groupId>
   <artifactId>Koncentrator</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  
   <build>
     <sourceDirectory>src</sourceDirectory>
     <resources>
@@ -20,8 +22,12 @@
         <configuration>
           <source>1.7</source>
           <target>1.7</target>
+          
         </configuration>
       </plugin>
+      
+      
+      
     </plugins>
   </build>
   <dependencies>
@@ -54,6 +60,11 @@
   			<groupId>org.apache.logging.log4j</groupId>
   			<artifactId>log4j-api</artifactId>
   			<version>2.2</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>com.sun</groupId>
+  			<artifactId>rt</artifactId>
+  			<version>1.5.0_06</version>
   		</dependency>
   	</dependencies>
   </dependencyManagement>

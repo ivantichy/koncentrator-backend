@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import com.sun.org.apache.xml.internal.security.utils.Base64;
+import java.util.Base64;
 
 public class GenerateServer {
 
@@ -55,7 +55,8 @@ public class GenerateServer {
 		conf = conf.replaceAll("[{]dh[}]", dh);
 
 		return "{" + "\"server_conf_base64\" : \""
-				+ Base64.encode(conf.getBytes()) + "\"}";
+				+ new String(Base64.getEncoder().encode(conf.getBytes()))
+				+ "\"}";
 
 	}
 

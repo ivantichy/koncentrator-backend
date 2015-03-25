@@ -4,8 +4,6 @@ import java.io.IOException;
 
 import org.json.JSONException;
 
-import com.sun.org.apache.xml.internal.security.exceptions.Base64DecodingException;
-
 import cz.ivantichy.support.JSON.JSONReader;
 
 public class JSONReaderTest {
@@ -18,11 +16,7 @@ public class JSONReaderTest {
 
 			e.printStackTrace();
 			System.exit(1);
-		} catch (Base64DecodingException e) {
-			System.exit(2);
-			e.printStackTrace();
+
 		}
-
 	}
-
 }

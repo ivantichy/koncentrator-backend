@@ -5,8 +5,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
-import com.sun.org.apache.xml.internal.security.utils.Base64;
+import java.util.Base64;
 
 public class CreateCa {
 
@@ -15,7 +14,7 @@ public class CreateCa {
 	public static synchronized String createCa(String type, String name,
 			String domain, int days) throws Exception {
 		String path = "generate/" + type;
-		
+
 		exec(path, type, name, domain, days);
 		path = "instances/" + type + "/" + name;
 		return createCaToJSON(path);
@@ -32,16 +31,18 @@ public class CreateCa {
 		String dh = new String(Files.readAllBytes(Paths.get(location + "/"
 				+ path + "/keys/dh2048.pem")));
 
-		return "{" + "\"ca_crt_base64\" : \"" + Base64.encode(ca.getBytes())
-				+ "\", \"ta_key_base64\" : \"" + Base64.encode(ta.getBytes())
-				+ "\", \"dh_pem_base64\" : \"" + Base64.encode(dh.getBytes())
-				+ "\"}";
+		return "{" + "\"ca_crt_base64\" : \""
+				+ new String(Base64.getEncoder().encode(ca.getBytes()))
+				+ "\", \"ta_key_base64\" : \""
+				+ new String(Base64.getEncoder().encode(ta.getBytes()))
+				+ "\", \"dh_pem_base64\" : \""
+				+ new String(Base64.getEncoder().encode(dh.getBytes())) + "\"}";
 
 	}
 
 	public static int exec(String path, String type, String name,
 			String domain, int days) throws Exception {
-		
+
 		if (new File(location + "/instances/" + type + "/" + name).exists())
 			throw new Exception("path exists");
 
