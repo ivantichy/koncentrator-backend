@@ -31,6 +31,9 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 
 	@Override
 	public Response handlePUT(PUTRequest req) throws IOException {
+
+		log.debug("PUT data: " + req.putdata);
+
 		log.info("going to handle PUT. Reading/parsing JSON.");
 		JSONObject json = readJSON(req.putdata);
 		log.info("JSON parsed. Going to test fields.");
@@ -75,6 +78,7 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 		if (configfile.exists() && !configfile.isDirectory()) {
 			throw new IOException("config file exists already");
 		}
+		
 		FileUtils.writeStringToFile(configfile, config);
 
 		return new Response("created", true);
