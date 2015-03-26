@@ -1,0 +1,19 @@
+{
+    "server_conf_base64": "abcdef",
+    "server_protocol" : "udp",
+    "server_port": "15000",
+    "management_port": "20000",
+    "device": "tun1",
+    "node": "1",
+    "subvpn_name": "tun-advanced-12345",
+    "subvpn_type": "tun-advanced",
+    "ta": "xxx",
+    "ca": "xxx",
+    "key": "xxx",
+    "cert": "xxx",
+    "dh": "xxx",
+    "dh_size": "2048",
+    "ip_server": "123.123.123.123",
+    "ip_mask": "123.123.123.123",
+    "commands": ""
+}
