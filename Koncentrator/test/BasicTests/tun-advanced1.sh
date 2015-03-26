@@ -6,5 +6,5 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handler
 
 sleep 10
 
-curl -v -f -X PUT 127.0.0.1:10001/test -d @Koncentrator/target/classes/cz/ivantichy/httpapi/handlers/vpnapi/test.json
+curl -v -f -X PUT 127.0.0.1:10001/test -d @./Koncentrator/test/BasicTests/test.json
 
