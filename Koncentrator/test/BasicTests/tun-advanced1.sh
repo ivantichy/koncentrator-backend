@@ -20,6 +20,7 @@ curl -v -f -X PUT 127.0.0.1:10001/test -d @$(dirname $BASH_SOURCE)/test.json
 [ $? = 0 ] && exit 1
 
 exit 0
+
  
 
 
