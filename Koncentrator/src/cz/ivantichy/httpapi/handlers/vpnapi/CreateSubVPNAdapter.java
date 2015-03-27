@@ -3,12 +3,14 @@ package cz.ivantichy.httpapi.handlers.vpnapi;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
+import cz.ivantichy.koncentrator.simple.certgen.SyncPipe;
 import cz.ivantichy.supersimple.restapi.handlers.interfaces.POSTHandlerInterface;
 import cz.ivantichy.supersimple.restapi.handlers.interfaces.PUTHandlerInterface;
 import cz.ivantichy.supersimple.restapi.server.PUTRequest;
@@ -62,7 +64,6 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 			throw new IOException(
 					"Destination path exists - subvpn probably exists already");
 		}
-		
 
 		FileUtils.copyDirectory(sourcefile, destinationfile);
 
@@ -80,6 +81,31 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 		}
 
 		FileUtils.writeStringToFile(configfile, config);
+
+		Runtime r = Runtime.getRuntime();
+
+		Process p = r.exec("bash");
+		new Thread(new SyncPipe(p.getErrorStream(), System.out)).start();
+		new Thread(new SyncPipe(p.getInputStream(), System.out)).start();
+
+		OutputStream o = p.getOutputStream();
+
+		o.write(("cd " + destination + Static.FOLDERSEPARATOR + "\n")
+				.getBytes());
+		o.write(("pwd\n").getBytes());
+
+		o.flush();
+		o.write(("exit\n").getBytes());
+		o.close();
+		try {
+			p.waitFor();
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+			throw new IOException(e.getMessage());
+		}
+		
+		
 
 		return new Response("created", true);
 	}
