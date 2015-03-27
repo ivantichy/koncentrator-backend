@@ -44,7 +44,7 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 				+ json.getString("subvpn_type") + Static.FOLDERSEPARATOR;
 		log.info("Source location:" + source);
 
-		String destination = Static.OPENVPNLOCATION + Static.GENERATEFOLDER
+		String destination = Static.OPENVPNLOCATION + Static.INSTANCESFOLDER
 				+ json.getString("subvpn_type") + Static.FOLDERSEPARATOR
 				+ json.getString("subvpn_name") + Static.FOLDERSEPARATOR;
 		log.info("Destination location:" + destination);
