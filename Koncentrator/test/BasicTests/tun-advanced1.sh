@@ -8,6 +8,9 @@ sleep 10
 
 curl -v -f -X PUT 127.0.0.1:10001/test -d @$(dirname $BASH_SOURCE)/test.json
 
+
+rm -R -f /etc/openvpn/instances/tun-advanced/*
+
 set +e
 
 curl -v -f -X PUT 127.0.0.1:10001/test -d @$(dirname $BASH_SOURCE)/test.json
