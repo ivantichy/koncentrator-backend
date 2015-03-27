@@ -41,8 +41,7 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 		log.info("Going to create config.");
 		String config = createConfig(json);
 		String source = Static.OPENVPNLOCATION + Static.GENERATEFOLDER
-				+ json.getString("subvpn_type") + Static.FOLDERSEPARATOR
-				+ json.getString("subvpn_name") + Static.FOLDERSEPARATOR;
+				+ json.getString("subvpn_type") + Static.FOLDERSEPARATOR;
 		log.info("Source location:" + source);
 
 		String destination = Static.OPENVPNLOCATION + Static.GENERATEFOLDER
@@ -78,7 +77,7 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 		if (configfile.exists() && !configfile.isDirectory()) {
 			throw new IOException("config file exists already");
 		}
-		
+
 		FileUtils.writeStringToFile(configfile, config);
 
 		return new Response("created", true);
