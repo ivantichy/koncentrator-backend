@@ -62,6 +62,7 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 			throw new IOException(
 					"Destination path exists - subvpn probably exists already");
 		}
+		
 
 		FileUtils.copyDirectory(sourcefile, destinationfile);
 
