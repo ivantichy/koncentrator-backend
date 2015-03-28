@@ -30,6 +30,9 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 				json.getString(fieldname));
 
 	}
+	
+	
+	
 
 	@Override
 	public Response handlePUT(PUTRequest req) throws IOException {
@@ -97,6 +100,8 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 		o.flush();
 		o.write(("exit\n").getBytes());
 		o.close();
+		
+		
 		try {
 			p.waitFor();
 		} catch (InterruptedException e) {
