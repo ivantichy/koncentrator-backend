@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Iterator;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -30,10 +31,6 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 				json.getString(fieldname));
 
 	}
-	
-	
-	
-	
 
 	@Override
 	public Response handlePUT(PUTRequest req) throws IOException {
@@ -94,15 +91,17 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 
 		OutputStream o = p.getOutputStream();
 
-		o.write(("cd " + destination + Static.FOLDERSEPARATOR + "\n")
+		o.write(("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n")
 				.getBytes());
-		o.write(("pwd\n").getBytes());
+
+		o.write((replaceAllFields(json,
+				"./createsubvpn.sh {subvpn_name} {subvpn_type} {ip_range}\n"))
+				.getBytes());
 
 		o.flush();
 		o.write(("exit\n").getBytes());
 		o.close();
-		
-		
+
 		try {
 			p.waitFor();
 		} catch (InterruptedException e) {
@@ -110,10 +109,25 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 			e.printStackTrace();
 			throw new IOException(e.getMessage());
 		}
-		
-		
 
 		return new Response("created", true);
+	}
+
+	private String replaceAllFields(JSONObject json, String input)
+			throws IOException {
+
+		for (Iterator<String> iterator = json.keys(); iterator.hasNext();) {
+			String key = iterator.next();
+			input = replaceField("[{]" + key + "[}]", input, json);
+
+		}
+
+		if (input.indexOf('{') > -1) {
+			log.error("Missing param " + input + "  JSON:" + json.toString());
+			throw new IOException("Missing parameter " + input);
+		}
+
+		return input;
 	}
 
 	private String createConfig(JSONObject json) {
