@@ -85,6 +85,7 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 
 		FileUtils.writeStringToFile(configfile, config);
 
+		log.debug("Config file written: \n" +config);
 		json.put(
 				"ip_range",
 				IPMaskConverter.maskToRange(json.getString("ip_server"),
