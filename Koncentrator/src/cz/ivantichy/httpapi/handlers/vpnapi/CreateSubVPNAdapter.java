@@ -102,6 +102,8 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 		o.write(("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n")
 				.getBytes());
 
+		o.write(("chmod +x ./createsubvpn.sh\n").getBytes());
+
 		o.write((replaceAllFields(json,
 				"./createsubvpn.sh {subvpn_name} {subvpn_type} {ip_range}\n"))
 				.getBytes());
