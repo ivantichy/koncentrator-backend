@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.file.Files;
 import java.util.Iterator;
 
 import org.apache.commons.io.FileUtils;
@@ -67,9 +68,9 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 					"Destination path exists - subvpn probably exists already");
 		}
 
-		FileUtils.copyDirectory(sourcefile, destinationfile);
+		// FileUtils.copyDirectory(sourcefile, destinationfile);
 
-		log.info("Folder copied.");
+		// log.info("Folder copied.");
 
 		String configpath = Static.OPENVPNLOCATION
 				+ json.getString("subvpn_type") + "_" + json.get("subvpn_name");
@@ -99,10 +100,12 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 
 		o.write(("set -ex \n").getBytes());
 		o.flush();
+		o.write(("cp -r -f " + source + " " + destination + "\n").getBytes());
+		o.flush();
 		o.write(("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n")
 				.getBytes());
 
-		o.write(("chmod +x ./createsubvpn.sh\n").getBytes());
+		// o.write(("chmod +x ./createsubvpn.sh\n").getBytes());
 
 		o.write((replaceAllFields(json,
 				"./createsubvpn.sh {subvpn_name} {subvpn_type} {ip_range}\n"))
