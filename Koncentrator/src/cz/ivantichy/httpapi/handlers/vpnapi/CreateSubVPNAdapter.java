@@ -120,6 +120,8 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 
 		for (Iterator<String> iterator = json.keys(); iterator.hasNext();) {
 			String key = iterator.next();
+
+			log.debug("Trying to replace: " + key);
 			input = replaceField("[{]" + key + "[}]", input, json);
 
 		}
