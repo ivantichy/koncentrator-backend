@@ -7,21 +7,31 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Base64;
 
+import org.json.JSONObject;
+
 public class CreateCa {
 
 	static String location = Constants.location;
 
-	public static synchronized String createCa(String type, String name,
-			String domain, int days) throws Exception {
-		String path = "generate/" + type;
+	public static synchronized String createCa(JSONObject json)
+			throws Exception {
+		String path = "generate/" + json.getString("subvpn_type");
 
-		exec(path, type, name, domain, days);
-		path = "instances/" + type + "/" + name;
-		return createCaToJSON(path);
+		// String type, String name, String domain, int days
+
+		exec(path, json.getString("subvpn_type"),
+				json.getString("subvpn_name"), json.getString("domain"),
+				Integer.parseInt(json.getString("valid_days")));
+		path = "instances/" + json.getString("subvpn_type") + "/"
+				+ json.getString("subvpn_name");
+
+		
+		return createCaToJSON(path, json).toString();
 
 	}
 
-	public static String createCaToJSON(String path) throws IOException {
+	private static JSONObject createCaToJSON(String path, JSONObject json)
+			throws IOException {
 
 		String ca = new String(Files.readAllBytes(Paths.get(location + "/"
 				+ path + "/keys/ca.crt")));
@@ -31,12 +41,11 @@ public class CreateCa {
 		String dh = new String(Files.readAllBytes(Paths.get(location + "/"
 				+ path + "/keys/dh2048.pem")));
 
-		return "{" + "\"ca_crt_base64\" : \""
-				+ new String(Base64.getEncoder().encode(ca.getBytes()))
-				+ "\", \"ta_key_base64\" : \""
-				+ new String(Base64.getEncoder().encode(ta.getBytes()))
-				+ "\", \"dh_pem_base64\" : \""
-				+ new String(Base64.getEncoder().encode(dh.getBytes())) + "\"}";
+		json.put("ta", ta);
+		json.put("ca", ca);
+		json.put("dh", dh);
+
+		return json;
 
 	}
 

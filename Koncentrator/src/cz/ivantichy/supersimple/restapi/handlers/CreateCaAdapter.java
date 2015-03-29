@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONObject;
 
 import cz.ivantichy.koncentrator.simple.certgen.CreateCa;
 import cz.ivantichy.supersimple.restapi.handlers.interfaces.PUTHandlerInterface;
@@ -11,22 +12,25 @@ import cz.ivantichy.supersimple.restapi.server.PUTRequest;
 import cz.ivantichy.supersimple.restapi.server.Response;
 import cz.ivantichy.supersimple.restapi.server.Server;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
+import cz.ivantichy.support.JSON.JSONReader;
 
 public class CreateCaAdapter implements PUTHandlerInterface {
-	private static final Logger log = LogManager.getLogger(CreateCaAdapter.class
-			.getName());
+	private static final Logger log = LogManager
+			.getLogger(CreateCaAdapter.class.getName());
 
 	@Override
 	public Response handlePUT(PUTRequest req) throws IOException {
 
 		try {
 
-			String domain = req.getparams.get("domain");
-			int days = Integer.valueOf(req.getparams.get("valid_days"));
-			String subvpn_name = req.getparams.get("subvpn_name");
-			String subvpn_type = req.getparams.get("subvpn_type");
+			JSONObject json = new JSONObject(req.putdata);
 
-			log.info("Receiver request to create ca:  " + domain + " " + days
+			String domain = json.getString("domain");
+			int days = Integer.valueOf(json.getString("valid_days"));
+			String subvpn_name = json.getString("subvpn_name");
+			String subvpn_type = json.getString("subvpn_type");
+
+			log.info("Received request to create ca:  " + domain + " " + days
 					+ " " + subvpn_name);
 
 			if (days < 1) {
@@ -56,8 +60,7 @@ public class CreateCaAdapter implements PUTHandlerInterface {
 				throw new IOException("Invalid character");
 			}
 
-			return new Response(CreateCa.createCa(subvpn_type, subvpn_name,
-					domain, days), true);
+			return new Response(CreateCa.createCa(json), true);
 
 		} catch (Exception e) {
 
