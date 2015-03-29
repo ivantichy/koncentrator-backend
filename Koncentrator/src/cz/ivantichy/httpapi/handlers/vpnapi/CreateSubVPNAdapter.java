@@ -91,6 +91,8 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 
 		OutputStream o = p.getOutputStream();
 
+		o.write(("set -ex \n").getBytes());
+		o.flush();
 		o.write(("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n")
 				.getBytes());
 
