@@ -118,6 +118,13 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 			throw new IOException(e.getMessage());
 		}
 
+		if (p.exitValue() != 0) {
+			throw new IOException("process exited with non zero code "
+					+ p.exitValue());
+		}
+
+		log.debug("Process exit code " + p.exitValue());
+
 		return new Response("created", true);
 	}
 
