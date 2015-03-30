@@ -24,7 +24,7 @@ public class CreateCaAdapterTest {
 		json.put("subvpn_name", name);
 		json.put("subvpn_type", type);
 		json.put("domain", domain);
-		json.put("valid_days", days);
+		json.put("ca_valid_days", days);
 
 		CreateCaAdapter cca = new CreateCaAdapter();
 
