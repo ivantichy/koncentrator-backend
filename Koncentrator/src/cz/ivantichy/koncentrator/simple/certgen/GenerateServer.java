@@ -72,6 +72,7 @@ public class GenerateServer {
 		json.put("cert", B64.encode(crt));
 		json.put("dh", B64.encode(dh));
 		json.put("dh_size", 2048);
+		
 		return json;
 
 	}

@@ -22,7 +22,8 @@ public class GenerateServerAdapterTest {
 		getparams.put("subvpn_name", "tun-advanced-12345");
 		getparams.put("subvpn_type", "tun-advanced");
 
-		gsa.handleGET(new GETRequest(getparams, null, null, null));
+		System.out.println(gsa.handleGET(new GETRequest(getparams, null, null,
+				null)));
 
 	}
 }

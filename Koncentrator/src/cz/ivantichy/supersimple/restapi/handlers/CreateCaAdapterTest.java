@@ -28,7 +28,8 @@ public class CreateCaAdapterTest {
 
 		CreateCaAdapter cca = new CreateCaAdapter();
 
-		cca.handlePUT(new PUTRequest(null, null, null, json.toString(), null));
+		System.out.println(cca.handlePUT(new PUTRequest(null, null, null, json.toString(), null)));
+		
 
 	}
 

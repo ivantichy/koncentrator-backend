@@ -5,8 +5,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
 import java.util.Base64;
+
+import org.json.JSONObject;
 
 public class GenerateProfile {
 
@@ -18,15 +19,19 @@ public class GenerateProfile {
 		String path = "instances/" + type + "/" + name;
 		exec(cn, domain, days, path);
 
-		return "{ \"profile_content_base64\" : \""
-				+ new String(Base64.getEncoder().encode(
-						createProfileToString(cn, path, name).getBytes()))
-				+ "\" }";
+		JSONObject json = new JSONObject();
+		json.put("common_name", cn);
+		json.put("subvpn_name", name);
+		json.put("subvpn_type", type);
+		json.put("domain", domain);
+		json.put("profile_valid_days", days);
+
+		return createProfileToString(json, cn, path, name).toString();
 
 	}
 
-	public static String createProfileToString(String cn, String path,
-			String name) throws IOException {
+	public static JSONObject createProfileToString(JSONObject json, String cn,
+			String path, String name) throws IOException {
 
 		String ca = new String(Files.readAllBytes(Paths.get(location + "/"
 				+ path + "/keys/ca.crt")));
@@ -38,21 +43,29 @@ public class GenerateProfile {
 		String crt = new String(Files.readAllBytes(Paths.get(location + "/"
 				+ path + "/keys/" + cn + ".crt")));
 
-		String config = new String(Files.readAllBytes(Paths.get(location + "/"
-				+ path + "/client.conf")));
+		// String config = new String(Files.readAllBytes(Paths.get(location +
+		// "/"
+		// + path + "/client.conf")));
 
 		Files.delete(Paths.get(location + "/" + path + "/keys/" + cn + ".key"));
 		Files.delete(Paths.get(location + "/" + path + "/keys/" + cn + ".crt"));
 		Files.delete(Paths.get(location + "/" + path + "/keys/" + cn + ".csr"));
 		Files.delete(Paths.get(location + "/" + path + "/keys/01.pem"));
 
-		config = config.replaceAll("[{]ca[}]", ca);
-		config = config.replaceAll("[{]key[}]", key);
-		config = config.replaceAll("[{]cert[}]", crt);
-		config = config.replaceAll("[{]ta[}]", ta);
-		config = config.replaceAll("[{]subvpnname[}]", name);
+		/*
+		 * config = config.replaceAll("[{]ca[}]", ca); config =
+		 * config.replaceAll("[{]key[}]", key); config =
+		 * config.replaceAll("[{]cert[}]", crt); config =
+		 * config.replaceAll("[{]ta[}]", ta); config =
+		 * config.replaceAll("[{]subvpnname[}]", name);
+		 */
 
-		return config;
+		json.put("ca", ca);
+		json.put("ta", ta);
+		json.put("key", key);
+		json.put("cert", crt);
+
+		return json;
 
 	}
 
