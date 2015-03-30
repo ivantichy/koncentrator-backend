@@ -15,8 +15,8 @@ public class DeleteCaAdapterTest {
 		
 		HashMap<String, String> getparams = new HashMap<String, String>();
 
-		getparams.put("subvpn_name", "tun-advanced-12345");
-		getparams.put("subvpn_type", "tun-advanced");
+		getparams.put("subvpn_name", "tun-basic-12345");
+		getparams.put("subvpn_type", "tun-basic");
 		
 		dca.handleDELETE(new DELETERequest(getparams, null, null, null));
 		
