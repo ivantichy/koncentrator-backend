@@ -28,7 +28,7 @@ public class DeleteCaAdapter implements DELETEHandlerInterface {
 			String subvpn_name = req.getparams.get("subvpn_name");
 			String subvpn_type = req.getparams.get("subvpn_type");
 
-			log.info("Receiver request to delete ca: " + subvpn_type + " "
+			log.info("Received request to delete ca: " + subvpn_type + " "
 					+ subvpn_name);
 
 			if (subvpn_name.length() == 0) {
