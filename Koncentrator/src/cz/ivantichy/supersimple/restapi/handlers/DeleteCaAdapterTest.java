@@ -18,7 +18,7 @@ public class DeleteCaAdapterTest {
 		getparams.put("subvpn_name", "tun-basic-12345");
 		getparams.put("subvpn_type", "tun-basic");
 		
-		dca.handleDELETE(new DELETERequest(getparams, null, null, null));
+		System.out.println(dca.handleDELETE(new DELETERequest(getparams, null, null, null)));
 		
 	}
 

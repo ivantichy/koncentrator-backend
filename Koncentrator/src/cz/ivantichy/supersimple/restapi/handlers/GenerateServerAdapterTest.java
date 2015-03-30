@@ -19,8 +19,8 @@ public class GenerateServerAdapterTest {
 		getparams.put("common_name", "test");
 		getparams.put("domain", "test");
 		getparams.put("server_valid_days", "3650");
-		getparams.put("subvpn_name", "tun-advanced-12345");
-		getparams.put("subvpn_type", "tun-advanced");
+		getparams.put("subvpn_name", "tun-basic-12345");
+		getparams.put("subvpn_type", "tun-basic");
 
 		System.out.println(gsa.handleGET(new GETRequest(getparams, null, null,
 				null)));
