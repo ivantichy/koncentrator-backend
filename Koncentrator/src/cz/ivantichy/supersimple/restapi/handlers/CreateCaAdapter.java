@@ -26,7 +26,7 @@ public class CreateCaAdapter implements PUTHandlerInterface {
 			JSONObject json = new JSONObject(req.putdata);
 
 			String domain = json.getString("domain");
-			int days = Integer.valueOf(json.getString("valid_days"));
+			int days = json.getInt("valid_days");
 			String subvpn_name = json.getString("subvpn_name");
 			String subvpn_type = json.getString("subvpn_type");
 

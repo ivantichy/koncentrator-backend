@@ -23,7 +23,7 @@ public class GenerateServerAdapter implements GETHandlerInterface {
 
 			String cn = req.getparams.get("common_name");
 			String domain = req.getparams.get("domain");
-			int days = Integer.valueOf(req.getparams.get("valid_days"));
+			int days = Integer.valueOf(req.getparams.get("server_valid_days"));
 			String subvpn_name = req.getparams.get("subvpn_name");
 			String subvpn_type = req.getparams.get("subvpn_type");
 

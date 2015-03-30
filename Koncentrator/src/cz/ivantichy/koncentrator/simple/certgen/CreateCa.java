@@ -21,7 +21,7 @@ public class CreateCa {
 
 		exec(path, json.getString("subvpn_type"),
 				json.getString("subvpn_name"), json.getString("domain"),
-				Integer.parseInt(json.getString("valid_days")));
+				json.getInt("ca_valid_days"));
 		path = "instances/" + json.getString("subvpn_type") + "/"
 				+ json.getString("subvpn_name");
 

@@ -2,6 +2,8 @@ package cz.ivantichy.httpapi.handlers.vpnapi;
 
 import java.io.IOException;
 
+import org.testng.annotations.Test;
+
 import cz.ivantichy.supersimple.restapi.handlers.CreateCaAdapter;
 import cz.ivantichy.supersimple.restapi.handlers.DeleteCaAdapter;
 import cz.ivantichy.supersimple.restapi.handlers.GenerateProfileAdapter;
@@ -31,7 +33,9 @@ public class CreateSubVPNAdapterTest {
 		}
 	}
 
-	public static void main(String[] args) throws IOException {
+	@Test()
+	public static void main(String[] args) throws IOException,
+			InterruptedException {
 		System.out.println("main");
 
 		Server s = new Server();
@@ -51,9 +55,8 @@ public class CreateSubVPNAdapterTest {
 
 		(new Runner(s, port)).start();
 
-		
-		
-	//	System.exit(0);
+		Thread.sleep(10000);
+		System.exit(0);
 
 	}
 }

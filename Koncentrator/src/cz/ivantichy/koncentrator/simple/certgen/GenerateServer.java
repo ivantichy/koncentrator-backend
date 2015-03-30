@@ -5,8 +5,11 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
 import java.util.Base64;
+
+import org.json.JSONObject;
+
+import cz.ivantichy.base64.B64;
 
 public class GenerateServer {
 
@@ -16,15 +19,22 @@ public class GenerateServer {
 			String domain, int days, String common_name) throws Exception {
 		String path = "instances/" + type + "/" + name;
 		exec(path, type, name, domain, days, common_name);
-		return createServerToJSON(common_name, path);
+		JSONObject json = new JSONObject();
+		json.put("common_name", common_name);
+		json.put("subvpn_name", name);
+		json.put("subvpn_type", type);
+		json.put("domain", domain);
+		json.put("server_valid_days", days);
+
+		return createServerToJSON(json, common_name, path).toString();
 
 	}
 
-	public static String createServerToJSON(String common_name, String path)
-			throws IOException {
+	public static JSONObject createServerToJSON(JSONObject json,
+			String common_name, String path) throws IOException {
 
-		String conf = new String(Files.readAllBytes(Paths.get(location + "/"
-				+ path + "/server.conf")));
+		// String conf = new String(Files.readAllBytes(Paths.get(location + "/"
+		// + path + "/server.conf")));
 
 		String ca = new String(Files.readAllBytes(Paths.get(location + "/"
 				+ path + "/keys/" + "ca.crt")));
@@ -48,15 +58,21 @@ public class GenerateServer {
 		Files.delete(Paths.get(location + "/" + path + "/keys/" + common_name
 				+ ".csr"));
 
-		conf = conf.replaceAll("[{]ca[}]", ca);
-		conf = conf.replaceAll("[{]key[}]", key);
-		conf = conf.replaceAll("[{]cert[}]", crt);
-		conf = conf.replaceAll("[{]ta[}]", ta);
-		conf = conf.replaceAll("[{]dh[}]", dh);
+		/*
+		 * conf = conf.replaceAll("[{]ca[}]", ca); conf =
+		 * conf.replaceAll("[{]key[}]", key); conf =
+		 * conf.replaceAll("[{]cert[}]", crt); conf =
+		 * conf.replaceAll("[{]ta[}]", ta); conf = conf.replaceAll("[{]dh[}]",
+		 * dh);
+		 */
 
-		return "{" + "\"server_conf_base64\" : \""
-				+ new String(Base64.getEncoder().encode(conf.getBytes()))
-				+ "\"}";
+		json.put("ca", B64.encode(ca));
+		json.put("ta", B64.encode(ta));
+		json.put("key", B64.encode(key));
+		json.put("cert", B64.encode(crt));
+		json.put("dh", B64.encode(dh));
+		json.put("dh_size", 2048);
+		return json;
 
 	}
 
