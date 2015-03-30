@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.Base64;
 
 import org.json.JSONObject;
-
+import cz.ivantichy.base64.*;
 public class GenerateProfile {
 
 	static String location = Constants.location;
@@ -60,10 +60,10 @@ public class GenerateProfile {
 		 * config.replaceAll("[{]subvpnname[}]", name);
 		 */
 
-		json.put("ca", ca);
-		json.put("ta", ta);
-		json.put("key", key);
-		json.put("cert", crt);
+		json.put("ca", B64.encode(ca));
+		json.put("ta", B64.encode(ta));
+		json.put("key", B64.encode(key));
+		json.put("cert", B64.encode(crt));
 
 		return json;
 
