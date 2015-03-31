@@ -85,7 +85,7 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 
 		FileUtils.writeStringToFile(configfile, config);
 
-		log.debug("Config file written: \n" +config);
+		log.debug("Config file written: \n" + config);
 		json.put(
 				"ip_range",
 				IPMaskConverter.maskToRange(json.getString("ip_server"),
@@ -101,7 +101,10 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 
 		o.write(("set -ex \n").getBytes());
 		o.flush();
-		o.write(("cp -r -f -v " + source + " " + destination + "\n").getBytes());
+		o.write(("mkdir -p " + destination + " \n").getBytes());
+		o.flush();
+		o.write(("cp -r -f -v " + source + "/* " + destination + "\n")
+				.getBytes());
 		o.flush();
 		o.write(("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n")
 				.getBytes());

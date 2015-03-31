@@ -36,15 +36,16 @@ public class Static {
 	public static final String OUTPUT_TEXT = "TEXT";
 	public static final String OUTPUT_JSON = "JSON";
 
-	public static final long EXECUTIONTIMEOUT = 60000;
+	public static final long EXECUTIONTIMEOUT = 180000;
 
 	public static final Pattern SPACE = Pattern.compile("[ ]");
-	public final static int BACKLOG = 100;
-	public final static int TIMEOUT = 60000;
+	public final static int BACKLOG = 20;
+	public final static int TIMEOUT = 180000;
 	public final static String ENCODING = "UTF-8";
 	public final static String OPENVPNLOCATION = "/etc/openvpn/";
 	public final static String FOLDERSEPARATOR = "/";
 	public final static String GENERATEFOLDER = "generate/";
 	public final static String INSTANCESFOLDER = "instances/";
+	public static final String RSALOCATION = "/etc/openvpn/easy-rsa/2.0/";
 
 }

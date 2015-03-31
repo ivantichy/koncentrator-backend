@@ -18,6 +18,8 @@ public class SyncPipe implements Runnable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		System.out.println("SyncPipe thread exiting.");
 	}
 
 	private final OutputStream ostrm_;

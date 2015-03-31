@@ -72,7 +72,7 @@ public class GenerateServer {
 		json.put("cert", B64.encode(crt));
 		json.put("dh", B64.encode(dh));
 		json.put("dh_size", 2048);
-		
+
 		return json;
 
 	}
@@ -86,8 +86,8 @@ public class GenerateServer {
 		Runtime r = Runtime.getRuntime();
 
 		Process p = r.exec("bash");
-		new Thread(new SyncPipe(p.getErrorStream(), System.out)).start();
-		new Thread(new SyncPipe(p.getInputStream(), System.out)).start();
+		new Thread(new ErrorLogSyncPipe(p.getErrorStream(), log)).start();
+		new Thread(new LogSyncPipe(p.getInputStream(), log)).start();
 
 		OutputStream o = p.getOutputStream();
 
