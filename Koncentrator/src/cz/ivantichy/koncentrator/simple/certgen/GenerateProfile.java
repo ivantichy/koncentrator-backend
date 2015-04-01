@@ -9,10 +9,9 @@ import java.nio.file.Paths;
 import org.json.JSONObject;
 
 import cz.ivantichy.base64.B64;
-public class GenerateProfile {
+public class GenerateProfile extends CommandExecutor {
 
-	static String location = Constants.location;
-
+	
 	public static synchronized String generateProfile(String cn, String domain,
 			int days, String name, String type) throws Exception {
 

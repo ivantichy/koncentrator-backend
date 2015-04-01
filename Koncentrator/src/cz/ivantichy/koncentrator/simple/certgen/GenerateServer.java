@@ -10,9 +10,7 @@ import org.json.JSONObject;
 
 import cz.ivantichy.base64.B64;
 
-public class GenerateServer {
-
-	static String location = Constants.location;
+public class GenerateServer extends CommandExecutor {
 
 	public static synchronized String generateServer(String type, String name,
 			String domain, int days, String common_name) throws Exception {
