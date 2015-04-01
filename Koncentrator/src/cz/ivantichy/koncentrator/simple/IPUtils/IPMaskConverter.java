@@ -1,6 +1,5 @@
 package cz.ivantichy.koncentrator.simple.IPUtils;
 
-import java.io.IOError;
 import java.io.IOException;
 
 public class IPMaskConverter {

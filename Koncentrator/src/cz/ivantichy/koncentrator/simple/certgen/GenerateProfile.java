@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Base64;
 
 import org.json.JSONObject;
-import cz.ivantichy.base64.*;
+
+import cz.ivantichy.base64.B64;
 public class GenerateProfile {
 
 	static String location = Constants.location;

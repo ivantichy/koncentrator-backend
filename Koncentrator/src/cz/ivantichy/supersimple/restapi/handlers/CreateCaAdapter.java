@@ -10,9 +10,7 @@ import cz.ivantichy.koncentrator.simple.certgen.CreateCa;
 import cz.ivantichy.supersimple.restapi.handlers.interfaces.PUTHandlerInterface;
 import cz.ivantichy.supersimple.restapi.server.PUTRequest;
 import cz.ivantichy.supersimple.restapi.server.Response;
-import cz.ivantichy.supersimple.restapi.server.Server;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
-import cz.ivantichy.support.JSON.JSONReader;
 
 public class CreateCaAdapter implements PUTHandlerInterface {
 	private static final Logger log = LogManager

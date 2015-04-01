@@ -9,7 +9,6 @@ import cz.ivantichy.koncentrator.simple.certgen.DeleteCa;
 import cz.ivantichy.supersimple.restapi.handlers.interfaces.DELETEHandlerInterface;
 import cz.ivantichy.supersimple.restapi.server.DELETERequest;
 import cz.ivantichy.supersimple.restapi.server.Response;
-import cz.ivantichy.supersimple.restapi.server.Server;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
 public class DeleteCaAdapter implements DELETEHandlerInterface {

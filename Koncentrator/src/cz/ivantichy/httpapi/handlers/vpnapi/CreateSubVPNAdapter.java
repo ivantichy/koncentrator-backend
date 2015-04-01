@@ -1,10 +1,8 @@
 package cz.ivantichy.httpapi.handlers.vpnapi;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.nio.file.Files;
 import java.util.Iterator;
 
 import org.apache.commons.io.FileUtils;
@@ -14,13 +12,10 @@ import org.json.JSONObject;
 
 import cz.ivantichy.koncentrator.simple.IPUtils.IPMaskConverter;
 import cz.ivantichy.koncentrator.simple.certgen.SyncPipe;
-import cz.ivantichy.supersimple.restapi.handlers.interfaces.POSTHandlerInterface;
 import cz.ivantichy.supersimple.restapi.handlers.interfaces.PUTHandlerInterface;
 import cz.ivantichy.supersimple.restapi.server.PUTRequest;
 import cz.ivantichy.supersimple.restapi.server.Response;
-import cz.ivantichy.supersimple.restapi.server.Server;
-import cz.ivantichy.support.JSON.JSONReader;
-import cz.ivantichy.supersimple.restapi.staticvariables.*;
+import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
 public class CreateSubVPNAdapter implements PUTHandlerInterface {
 	private static final Logger log = LogManager

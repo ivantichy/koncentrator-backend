@@ -9,7 +9,6 @@ import cz.ivantichy.koncentrator.simple.certgen.GenerateServer;
 import cz.ivantichy.supersimple.restapi.handlers.interfaces.GETHandlerInterface;
 import cz.ivantichy.supersimple.restapi.server.GETRequest;
 import cz.ivantichy.supersimple.restapi.server.Response;
-import cz.ivantichy.supersimple.restapi.server.Server;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
 public class GenerateServerAdapter implements GETHandlerInterface {

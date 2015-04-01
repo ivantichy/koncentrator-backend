@@ -3,11 +3,9 @@ package cz.ivantichy.supersimple.restapi.handlers;
 import java.io.IOException;
 
 import org.json.JSONObject;
+import org.testng.annotations.Test;
 
 import cz.ivantichy.supersimple.restapi.server.PUTRequest;
-
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
 public class CreateCaAdapterTest {
 

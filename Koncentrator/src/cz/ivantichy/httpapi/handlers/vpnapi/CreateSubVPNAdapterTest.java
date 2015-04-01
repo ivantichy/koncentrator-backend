@@ -4,10 +4,6 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import cz.ivantichy.supersimple.restapi.handlers.CreateCaAdapter;
-import cz.ivantichy.supersimple.restapi.handlers.DeleteCaAdapter;
-import cz.ivantichy.supersimple.restapi.handlers.GenerateProfileAdapter;
-import cz.ivantichy.supersimple.restapi.handlers.GenerateServerAdapter;
 import cz.ivantichy.supersimple.restapi.server.Server;
 
 public class CreateSubVPNAdapterTest {

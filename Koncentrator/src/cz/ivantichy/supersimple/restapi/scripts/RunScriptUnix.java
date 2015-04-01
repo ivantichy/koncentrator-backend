@@ -1,6 +1,5 @@
 package cz.ivantichy.supersimple.restapi.scripts;
 
-import java.io.File;
 import java.io.OutputStream;
 
 import org.apache.logging.log4j.LogManager;

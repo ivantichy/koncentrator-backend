@@ -1,29 +1,17 @@
 package cz.ivantichy.koncentrator.simple.certgen;
 
-import java.io.File;
+import cz.ivantichy.fileutils.FileWork;
+import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
-import org.apache.commons.io.FileUtils;
-
-public class DeleteCa {
-
-	static String location = Constants.location;
+public class DeleteCa extends CommandExecutor {
 
 	public static synchronized String deleteCa(String type, String name)
 			throws Exception {
-		String path = "instances/" + type + "/" + name;
-		exec(path);
+		String path = location + slash + Static.INSTANCESFOLDER + slash + type
+				+ slash + name;
+		FileWork.deleteFolder(path);
 		return "";
 
 	}
 
-	public static int exec(String path) throws Exception {
-
-		if (!new File(location + "/" + path).exists())
-			throw new Exception("path does not exist");
-
-		FileUtils.deleteDirectory(new File(location + "/" + path));
-
-		return 0;
-
-	}
 }
