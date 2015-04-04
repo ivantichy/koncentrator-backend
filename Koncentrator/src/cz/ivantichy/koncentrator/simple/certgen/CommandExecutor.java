@@ -24,8 +24,8 @@ public abstract class CommandExecutor {
 	protected static String replaceField(String fieldname, String input,
 			JSONObject json) {
 
-		return input.replaceAll("[{]" + fieldname + "[}]",
-				json.get(fieldname).toString());
+		return input.replaceAll("[{]" + fieldname + "[}]", json.get(fieldname)
+				.toString());
 
 	}
 
@@ -63,9 +63,12 @@ public abstract class CommandExecutor {
 	}
 
 	protected static void exec(JSONObject json) throws IOException {
-				appendLine("exit");
+		appendLine("exit");
 
 		String cmds = replaceAllFields(json, buff.toString());
+
+		log.info("Going to execute: " + cmds);
+
 		Runtime r = Runtime.getRuntime();
 
 		Process p = r.exec("bash");
