@@ -46,7 +46,7 @@ public class CreateCa extends CommandExecutor {
 		appendLine("export PKCS11_MODULE_PATH=");
 		appendLine("export PKCS11_PIN=");
 		appendLine("./createca.sh {subvpn_type} {subvpn_name}");
-
+		log.debug("JSON: " + json);
 		exec(json);
 		log.info("Executed");
 
