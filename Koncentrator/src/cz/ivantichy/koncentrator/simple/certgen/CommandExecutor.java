@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
@@ -14,7 +15,8 @@ import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
 public abstract class CommandExecutor {
 
-	protected static Logger log;
+	protected static Logger log = LogManager.getLogger(CommandExecutor.class
+			.getName());;
 	private static StringBuffer buff = new StringBuffer(1024);
 	protected static String location = Static.RSALOCATION;
 	protected static String slash = Static.FOLDERSEPARATOR;
@@ -61,8 +63,7 @@ public abstract class CommandExecutor {
 	}
 
 	protected static void exec(JSONObject json) throws IOException {
-		log.debug("JSON: " + json);
-		appendLine("exit");
+				appendLine("exit");
 
 		String cmds = replaceAllFields(json, buff.toString());
 		Runtime r = Runtime.getRuntime();

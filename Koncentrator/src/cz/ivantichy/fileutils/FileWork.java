@@ -60,7 +60,7 @@ public class FileWork {
 		o.flush();
 		o.write(("mkdir -p " + destination + " \n").getBytes());
 		o.flush();
-		o.write(("cp -r -f -v " + source + "/* " + destination + "\n")
+		o.write(("cp -r -f " + source + "/* " + destination + "\n")
 				.getBytes());
 		o.flush();
 		o.write(("cd " + destination + "\n").getBytes());
