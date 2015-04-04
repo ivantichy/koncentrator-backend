@@ -47,6 +47,7 @@ public class CreateCa extends CommandExecutor {
 		appendLine("./createca.sh {subvpn_type} {subvpn_name}");
 		log.debug("JSON: " + json);
 		exec(json);
+
 		log.info("Executed");
 
 		readFileToJSON(json, destination + "/keys/ca.crt", "ca");

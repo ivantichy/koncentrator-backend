@@ -25,7 +25,7 @@ public abstract class CommandExecutor {
 			JSONObject json) {
 
 		return input.replaceAll("[{]" + fieldname + "[}]",
-				json.getString(fieldname));
+				json.get(fieldname).toString());
 
 	}
 
