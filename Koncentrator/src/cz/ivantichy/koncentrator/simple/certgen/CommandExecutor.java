@@ -30,6 +30,8 @@ public abstract class CommandExecutor {
 	protected static String replaceAllFields(JSONObject json, String input)
 			throws IOException {
 
+		log.debug("Replace all fields - JSON: " + json.toString());
+		log.debug("Replace all fields - input: " + input);
 		for (Iterator<String> iterator = json.keys(); iterator.hasNext();) {
 			String key = iterator.next();
 
