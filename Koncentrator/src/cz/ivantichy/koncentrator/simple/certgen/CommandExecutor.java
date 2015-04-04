@@ -61,7 +61,7 @@ public abstract class CommandExecutor {
 	}
 
 	protected static void exec(JSONObject json) throws IOException {
-
+		log.debug("JSON: " + json);
 		appendLine("exit");
 
 		String cmds = replaceAllFields(json, buff.toString());

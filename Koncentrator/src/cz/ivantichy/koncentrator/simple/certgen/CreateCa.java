@@ -26,7 +26,6 @@ public class CreateCa extends CommandExecutor {
 		json.put("destination", destination);
 
 		log.info("CreateCa json data parsed");
-		log.debug("JSON: " + json.toString());
 		FileWork.checkFolder(source, destination);
 		FileWork.copyFolder(source, destination);
 		log.info("Folders created and copied");
