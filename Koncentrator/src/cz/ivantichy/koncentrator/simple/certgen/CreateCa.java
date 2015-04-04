@@ -30,9 +30,9 @@ public class CreateCa extends CommandExecutor {
 		FileWork.copyFolder(source, destination);
 		log.info("Folders created and copied");
 
-		appendLine("set -ex");
+		appendLine("set -e");
 		appendLine("cd {destination}");
-		appendLine("source ./vars ");
+		appendLine("source ./vars");
 		appendLine("export KEY_EXPIRE={ca_valid_days}");
 		appendLine("export KEY_COUNTRY=CZ");
 		appendLine("export KEY_PROVINCE=CZ");
