@@ -1,19 +1,5 @@
 #!/bin/bash
 
-set -ex 
-set -o pipefail
-
-rm -R -f /etc/openvpn/*
-cp -r -f -v Koncentrator/FS/VPN/* / 
-cd /etc/openvpn
-find . -type f | grep .sh | xargs  -n1 chmod +x $1 -v
-
-cd $WORKSPACE
-
-sudo iptables-restore /etc/iptables/rules.v4.backup
-
-pwd
-
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter server.json ip_server 123.123.123.123
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter server.json ip_mask 255.255.0.0
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter server.json node 1
