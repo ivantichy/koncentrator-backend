@@ -8,7 +8,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import cz.ivantichy.koncentrator.simple.certgen.ErrorLogSyncPipe;
+import cz.ivantichy.koncentrator.simple.certgen.E_rrorLogSyncPipe;
 import cz.ivantichy.koncentrator.simple.certgen.LogSyncPipe;
 
 public class FileWork {
@@ -51,7 +51,7 @@ public class FileWork {
 		Runtime r = Runtime.getRuntime();
 
 		Process p = r.exec("bash");
-		new Thread(new ErrorLogSyncPipe(p.getErrorStream(), log)).start();
+		new Thread(new E_rrorLogSyncPipe(p.getErrorStream(), log)).start();
 		new Thread(new LogSyncPipe(p.getInputStream(), log)).start();
 
 		OutputStream o = p.getOutputStream();

@@ -72,7 +72,7 @@ public abstract class CommandExecutor {
 		Runtime r = Runtime.getRuntime();
 
 		Process p = r.exec("bash");
-		new Thread(new ErrorLogSyncPipe(p.getErrorStream(), log)).start();
+		new Thread(new E_rrorLogSyncPipe(p.getErrorStream(), log)).start();
 		new Thread(new LogSyncPipe(p.getInputStream(), log)).start();
 
 		OutputStream o = p.getOutputStream();

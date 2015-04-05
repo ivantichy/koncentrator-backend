@@ -4,9 +4,9 @@ import java.io.InputStream;
 
 import org.apache.logging.log4j.Logger;
 
-public class ErrorLogSyncPipe implements Runnable {
+public class E_rrorLogSyncPipe implements Runnable {
 
-	public ErrorLogSyncPipe(InputStream istrm, Logger log) {
+	public E_rrorLogSyncPipe(InputStream istrm, Logger log) {
 		istrm_ = istrm;
 		this.log = log;
 	}
