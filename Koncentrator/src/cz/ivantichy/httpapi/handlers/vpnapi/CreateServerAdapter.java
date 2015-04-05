@@ -70,8 +70,8 @@ public class CreateServerAdapter extends CommandExecutor implements
 		json.put("server_conf_base64", B64.encode(config));
 
 		storeJSON(json,
-				destination + slash + json.getString("subvpn_name_server")
-						+ ".json");
+				destination + slash + json.getString("subvpn_name")
+						+ "_server.json");
 
 		log.info("JSON stored");
 		log.debug("Stored JSON: " + json.toString());
