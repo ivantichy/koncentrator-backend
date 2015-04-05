@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import cz.ivantichy.fileutils.FileWork;
+import cz.ivantichy.koncentrator.simple.IPUtils.IPMaskConverter;
 import cz.ivantichy.koncentrator.simple.certgen.CommandExecutor;
 import cz.ivantichy.supersimple.restapi.handlers.interfaces.PUTHandlerInterface;
 import cz.ivantichy.supersimple.restapi.server.PUTRequest;
@@ -25,6 +26,10 @@ public class CreateSubVPNAdapter extends CommandExecutor implements
 
 		log.info("going to handle PUT. Reading/parsing JSON.");
 		JSONObject json = new JSONObject(req.putdata);
+		json.put(
+				"ip_range",
+				IPMaskConverter.maskToRange(json.getString("ip_server"),
+						json.getString("ip_mask")));
 
 		String source = Static.OPENVPNLOCATION + Static.GENERATEFOLDER
 				+ json.getString("subvpn_type") + Static.FOLDERSEPARATOR;
