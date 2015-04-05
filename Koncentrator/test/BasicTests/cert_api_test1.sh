@@ -3,10 +3,15 @@
 set -ex 
 set -o pipefail
 
+sudo -i -u java << EOF
+cd $WORKSPACE
+
 rm -R -f /etc/openvpn/*
 cp -r -f -v Koncentrator/FS/VPN/* / 
 
 sudo iptables-restore /etc/iptables/rules.v4
+
+EOF
 
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter server.json ip_server 123.123.123.123
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter server.json ip_mask 255.255.0.0
