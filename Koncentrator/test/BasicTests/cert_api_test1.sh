@@ -4,7 +4,7 @@ set -ex
 set -o pipefail
 
 rm -R -f /etc/openvpn/*
-cp -r -f -v Koncentrator/FS/* / 
+cp -r -f -v Koncentrator/FS/VPN/* / 
 
 sudo iptables-restore /etc/iptables/rules.v4
 
