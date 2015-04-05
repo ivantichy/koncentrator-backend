@@ -32,11 +32,13 @@ public class CreateSubVPNAdapter extends CommandExecutor implements
 		log.debug("PUT data: " + req.putdata);
 
 		log.info("going to handle PUT. Reading/parsing JSON.");
-		JSONObject json = readJSON(req.putdata);
-		log.info("JSON parsed. Going to test fields.");
+		JSONObject json = new JSONObject(req.putdata);
 
-		log.info("Going to create config.");
-		String config = createConfig(json);
+		json.put(
+				"ip_range",
+				IPMaskConverter.maskToRange(json.getString("ip_server"),
+						json.getString("ip_mask")));
+
 		String source = Static.OPENVPNLOCATION + Static.GENERATEFOLDER
 				+ json.getString("subvpn_type") + Static.FOLDERSEPARATOR;
 		log.info("Source location:" + source);
@@ -48,24 +50,22 @@ public class CreateSubVPNAdapter extends CommandExecutor implements
 
 		FileWork.copyFolder(source, destination);
 
-		String configpath = Static.OPENVPNLOCATION
+		String sourceconfigpath = destination + slash + "server.conf";
+		log.info("Going to read config: " + sourceconfigpath);
+		String config = FileWork.readFile(sourceconfigpath);
+		log.debug("Config read: " + config);
+
+		log.info("Going to fill config templace");
+
+		config = fillConfig(config, json);
+
+		String destconfigpath = Static.OPENVPNLOCATION
 				+ json.getString("subvpn_type") + "_" + json.get("subvpn_name");
 
-		log.info("Config file path: " + configpath);
-
-		File configfile = new File(configpath);
-
-		if (configfile.exists() && !configfile.isDirectory()) {
-			throw new IOException("config file exists already");
-		}
-
-		FileWork.saveFile(configpath, config);
+		log.info("Destination config file path: " + destconfigpath);
+		FileWork.saveFile(destconfigpath, config);
 
 		log.debug("Config file written: \n" + config);
-		json.put(
-				"ip_range",
-				IPMaskConverter.maskToRange(json.getString("ip_server"),
-						json.getString("ip_mask")));
 
 		appendLine("set -ex \n");
 		appendLine("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n");
@@ -73,19 +73,17 @@ public class CreateSubVPNAdapter extends CommandExecutor implements
 		exec(json);
 		json.put("destination", destination.replaceAll("//", "/"));
 		json.put("source", source.replaceAll("//", "/"));
-		json.put("server_config", B64.encode(config));
-		
+		json.put("server_conf_base64", B64.encode(config));
+
 		storeJSON(json, destination + slash + json.getString("subvpn_type")
 				+ ".json");
-				log.info("JSON stored");
+		log.info("JSON stored");
 		log.debug("Stored JSON: " + json.toString());
 
 		return new Response(json.toString(), true);
 	}
 
-	private String createConfig(JSONObject json) {
-
-		String config = json.getString("server_conf_base64");
+	private String fillConfig(String config, JSONObject json) {
 
 		config = replaceField("server_port", config, json);
 		config = replaceField("server_protocol", config, json);
@@ -106,12 +104,6 @@ public class CreateSubVPNAdapter extends CommandExecutor implements
 						System.lineSeparator());
 
 		return config;
-
-	}
-
-	private JSONObject readJSON(String data) {
-
-		return new JSONObject(data);
 
 	}
 
