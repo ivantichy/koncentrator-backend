@@ -1,6 +1,7 @@
 package cz.ivantichy.httpapi.handlers.vpnapi;
 
 import java.io.File;
+import cz.ivantichy.fileutils.*;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Iterator;
@@ -9,6 +10,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
+import cz.ivantichy.koncentrator.simple.certgen.*;
 
 import cz.ivantichy.koncentrator.simple.IPUtils.IPMaskConverter;
 import cz.ivantichy.koncentrator.simple.certgen.SyncPipe;
@@ -16,18 +18,13 @@ import cz.ivantichy.supersimple.restapi.handlers.interfaces.PUTHandlerInterface;
 import cz.ivantichy.supersimple.restapi.server.PUTRequest;
 import cz.ivantichy.supersimple.restapi.server.Response;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
+import cz.ivantichy.httpapi.*;
+import cz.ivantichy.base64.*;
 
-public class CreateSubVPNAdapter implements PUTHandlerInterface {
+public class CreateSubVPNAdapter extends CommandExecutor implements
+		PUTHandlerInterface {
 	private static final Logger log = LogManager
 			.getLogger(CreateSubVPNAdapter.class.getName());
-
-	public static String replaceField(String fieldname, String input,
-			JSONObject json) {
-
-		return input.replaceAll("[{]" + fieldname + "[}]",
-				json.getString(fieldname));
-
-	}
 
 	@Override
 	public Response handlePUT(PUTRequest req) throws IOException {
@@ -37,7 +34,7 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 		log.info("going to handle PUT. Reading/parsing JSON.");
 		JSONObject json = readJSON(req.putdata);
 		log.info("JSON parsed. Going to test fields.");
-		testFields(json);
+
 		log.info("Going to create config.");
 		String config = createConfig(json);
 		String source = Static.OPENVPNLOCATION + Static.GENERATEFOLDER
@@ -49,23 +46,7 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 				+ json.getString("subvpn_name") + Static.FOLDERSEPARATOR;
 		log.info("Destination location:" + destination);
 
-		File sourcefile = new File(source);
-		File destinationfile = new File(destination);
-
-		if (!sourcefile.exists() || !sourcefile.isDirectory()) {
-
-			throw new IOException("Source dir path wrong");
-		}
-
-		if (destinationfile.exists() && destinationfile.isDirectory()) {
-
-			throw new IOException(
-					"Destination path exists - subvpn probably exists already");
-		}
-
-		// FileUtils.copyDirectory(sourcefile, destinationfile);
-
-		// log.info("Folder copied.");
+		FileWork.copyFolder(source, destination);
 
 		String configpath = Static.OPENVPNLOCATION
 				+ json.getString("subvpn_type") + "_" + json.get("subvpn_name");
@@ -78,7 +59,7 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 			throw new IOException("config file exists already");
 		}
 
-		FileUtils.writeStringToFile(configfile, config);
+		FileWork.saveFile(configpath, config);
 
 		log.debug("Config file written: \n" + config);
 		json.put(
@@ -86,69 +67,20 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 				IPMaskConverter.maskToRange(json.getString("ip_server"),
 						json.getString("ip_mask")));
 
-		Runtime r = Runtime.getRuntime();
+		appendLine("set -ex \n");
+		appendLine("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n");
+		appendLine("./createsubvpn.sh {subvpn_name} {subvpn_type} {ip_range}\n");
+		exec(json);
+		json.put("destination", destination.replaceAll("//", "/"));
+		json.put("source", source.replaceAll("//", "/"));
+		json.put("server_config", B64.encode(config));
+		
+		storeJSON(json, destination + slash + json.getString("subvpn_type")
+				+ ".json");
+				log.info("JSON stored");
+		log.debug("Stored JSON: " + json.toString());
 
-		Process p = r.exec("bash");
-		new Thread(new SyncPipe(p.getErrorStream(), System.out)).start();
-		new Thread(new SyncPipe(p.getInputStream(), System.out)).start();
-
-		OutputStream o = p.getOutputStream();
-
-		o.write(("set -ex \n").getBytes());
-		o.flush();
-		o.write(("mkdir -p " + destination + " \n").getBytes());
-		o.flush();
-		o.write(("cp -r -f -v " + source + "/* " + destination + "\n")
-				.getBytes());
-		o.flush();
-		o.write(("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n")
-				.getBytes());
-
-		// o.write(("chmod +x ./createsubvpn.sh\n").getBytes());
-
-		o.write((replaceAllFields(json,
-				"./createsubvpn.sh {subvpn_name} {subvpn_type} {ip_range}\n"))
-				.getBytes());
-
-		o.flush();
-		o.write(("exit\n").getBytes());
-		o.close();
-
-		try {
-			p.waitFor();
-		} catch (InterruptedException e) {
-
-			e.printStackTrace();
-			throw new IOException(e.getMessage());
-		}
-
-		if (p.exitValue() != 0) {
-			throw new IOException("process exited with non zero code "
-					+ p.exitValue());
-		}
-
-		log.debug("Process exit code " + p.exitValue());
-
-		return new Response("created", true);
-	}
-
-	private String replaceAllFields(JSONObject json, String input)
-			throws IOException {
-
-		for (Iterator<String> iterator = json.keys(); iterator.hasNext();) {
-			String key = iterator.next();
-
-			log.debug("Trying to replace: " + key);
-			input = replaceField(key, input, json);
-
-		}
-
-		if (input.indexOf('{') > -1) {
-			log.error("Missing param " + input + "  JSON:" + json.toString());
-			throw new IOException("Missing parameter " + input);
-		}
-
-		return input;
+		return new Response(json.toString(), true);
 	}
 
 	private String createConfig(JSONObject json) {
@@ -180,17 +112,6 @@ public class CreateSubVPNAdapter implements PUTHandlerInterface {
 	private JSONObject readJSON(String data) {
 
 		return new JSONObject(data);
-
-	}
-
-	private void testFields(JSONObject json) {
-		/*
-		 * 
-		 * { "server_conf_base64": "", "server_port": "", "server_protocol": "",
-		 * "management_port": "", "device": "", "node": "", "subvpn_name": "",
-		 * "subvpn_type": "", "ta": "", "ca": "", "key": "", "cert": "", "dh":
-		 * "", "dh_size": "", "ip_server": "", "ip_mask": "", "commands": "" }
-		 */
 
 	}
 

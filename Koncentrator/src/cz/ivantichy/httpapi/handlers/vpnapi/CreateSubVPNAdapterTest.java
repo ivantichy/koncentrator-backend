@@ -32,6 +32,14 @@ public class CreateSubVPNAdapterTest {
 	@Test()
 	public static void main(String[] args) throws IOException,
 			InterruptedException {
+
+		
+		
+		
+		
+		
+		
+		
 		System.out.println("main");
 
 		Server s = new Server();
