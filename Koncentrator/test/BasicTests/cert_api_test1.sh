@@ -5,6 +5,10 @@ set -o pipefail
 
 rm -R -f /etc/openvpn/*
 cp -r -f -v Koncentrator/FS/VPN/* / 
+cd /etc/openvpn
+find . -type f | grep .sh | xargs  -n1 chmod +x $1 -v
+
+cd $WORKSPACE
 
 sudo iptables-restore /etc/iptables/rules.v4.backup
 
