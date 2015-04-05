@@ -14,11 +14,11 @@ public class CreateServerAdapterTest {
 	@Test()
 	public static void main(String[] args) throws IOException {
 
-		CreateSubVPNAdapter csvpna = new CreateSubVPNAdapter();
+		CreateServerAdapter csa = new CreateServerAdapter();
 
 		String json = FileWork.readFile(args[0]);
 
-		csvpna.handlePUT(new PUTRequest(null, null, null, json, null));
+		csa.handlePUT(new PUTRequest(null, null, null, json, null));
 
 	}
 }
