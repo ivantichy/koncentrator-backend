@@ -53,7 +53,7 @@ public class CreateCa extends CommandExecutor {
 		readFileToJSON(json, destination + "/keys/ca.crt", "ca");
 		readFileToJSON(json, destination + "/keys/ta.key", "ta");
 		readFileToJSON(json, destination + "/keys/dh2048.pem", "dh");
-		log.info("Files read");
+		log.info("Output files read");
 		storeJSON(json, destination + slash + name + ".json");
 		log.info("JSON stored");
 		log.debug("Stored JSON: " + json.toString());

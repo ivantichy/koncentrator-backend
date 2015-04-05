@@ -5,6 +5,7 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
+import cz.ivantichy.fileutils.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -101,7 +102,7 @@ public abstract class CommandExecutor {
 	protected static void readFileToJSON(JSONObject json, String path,
 			String name) throws IOException {
 
-		String f = new String(Files.readAllBytes(Paths.get(path)));
+		String f = new String(FileWork.readFile(path));
 
 		json.put(name, B64.encode(f));
 	}
@@ -109,7 +110,7 @@ public abstract class CommandExecutor {
 	protected static void storeJSON(JSONObject json, String path)
 			throws IOException {
 
-		Files.write(Paths.get(path), json.toString().getBytes());
+		FileWork.saveFile(path, json.toString());
 
 	}
 

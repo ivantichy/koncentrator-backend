@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import org.testng.annotations.Test;
 
 import cz.ivantichy.supersimple.restapi.server.PUTRequest;
-
+import cz.ivantichy.fileutils.*;
 public class CreateCaAdapterTest {
 
 	@Test()
@@ -26,7 +26,7 @@ public class CreateCaAdapterTest {
 
 		CreateCaAdapter cca = new CreateCaAdapter();
 
-		System.out.println(cca.handlePUT(new PUTRequest(null, null, null, json.toString(), null)));
+		FileWork.saveFile("ca.json",cca.handlePUT(new PUTRequest(null, null, null, json.toString(), null)).toString());
 		
 
 	}

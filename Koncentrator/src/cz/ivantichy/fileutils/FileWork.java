@@ -13,6 +13,17 @@ import cz.ivantichy.koncentrator.simple.certgen.LogSyncPipe;
 
 public class FileWork {
 
+	public static String readFile(String file) throws IOException {
+
+		return FileUtils.readFileToString(new File(file));
+
+	}
+
+	public static void saveFile(String file, String data) throws IOException {
+
+		FileUtils.writeStringToFile(new File(file), data);
+	}
+
 	private static final Logger log = LogManager.getLogger(FileWork.class
 			.getName());
 
@@ -60,8 +71,7 @@ public class FileWork {
 		o.flush();
 		o.write(("mkdir -p " + destination + " \n").getBytes());
 		o.flush();
-		o.write(("cp -r -f " + source + "/* " + destination + "\n")
-				.getBytes());
+		o.write(("cp -r -f " + source + "/* " + destination + "\n").getBytes());
 		o.flush();
 		o.write(("cd " + destination + "\n").getBytes());
 		o.write(("exit \n").getBytes());

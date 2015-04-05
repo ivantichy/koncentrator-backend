@@ -1,8 +1,11 @@
 package cz.ivantichy.supersimple.restapi.handlers;
 
+import java.io.File;
+import cz.ivantichy.fileutils.*;
 import java.io.IOException;
 import java.util.HashMap;
 
+import org.apache.commons.io.FileUtils;
 import org.testng.annotations.Test;
 
 import cz.ivantichy.supersimple.restapi.server.GETRequest;
@@ -22,8 +25,9 @@ public class GenerateServerAdapterTest {
 		getparams.put("subvpn_name", "tun-basic-12345");
 		getparams.put("subvpn_type", "tun-basic");
 
-		System.out.println(gsa.handleGET(new GETRequest(getparams, null, null,
-				null)));
+		FileWork.saveFile("sever",
+				gsa.handleGET(new GETRequest(getparams, null, null, null))
+						.toString());
 
 	}
 }
