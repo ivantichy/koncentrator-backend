@@ -9,7 +9,7 @@ import cz.ivantichy.supersimple.restapi.server.Server;
 
 import cz.ivantichy.fileutils.*;
 
-public class CreateSubVPNAdapterTest2 {
+public class CreateServerVPNAdapterTest {
 
 	@Test()
 	public static void main(String[] args) throws IOException {
