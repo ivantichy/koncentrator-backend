@@ -6,7 +6,7 @@ set -o pipefail
 rm -R -f /etc/openvpn/*
 cp -r -f -v Koncentrator/FS/VPN/* / 
 
-sudo iptables-restore /etc/iptables/rules.v4
+sudo iptables-restore /etc/iptables/rules.v4.backup
 
 
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter server.json ip_server 123.123.123.123
