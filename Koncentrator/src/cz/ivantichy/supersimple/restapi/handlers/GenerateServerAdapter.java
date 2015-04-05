@@ -26,7 +26,7 @@ public class GenerateServerAdapter implements GETHandlerInterface {
 			String subvpn_name = req.getparams.get("subvpn_name");
 			String subvpn_type = req.getparams.get("subvpn_type");
 
-			log.info("Receiver request to generate server: " + cn + " "
+			log.info("Received request to generate server: " + cn + " "
 					+ domain + " " + days + " " + subvpn_name);
 
 			if (cn.length() == 0) {

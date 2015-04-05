@@ -25,7 +25,7 @@ public class GenerateServerAdapterTest {
 		getparams.put("subvpn_name", "tun-basic-12345");
 		getparams.put("subvpn_type", "tun-basic");
 
-		FileWork.saveFile("sever",
+		FileWork.saveFile("sever.json",
 				gsa.handleGET(new GETRequest(getparams, null, null, null))
 						.toString());
 
