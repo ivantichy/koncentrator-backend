@@ -22,8 +22,8 @@ public class CreateCa extends CommandExecutor {
 		String destination = location + slash + Static.INSTANCESFOLDER + slash
 				+ type + slash + name;
 
-		json.put("source", source);
-		json.put("destination", destination);
+		json.put("source", source.replaceAll("//", "/"));
+		json.put("destination", destination.replaceAll("//", "/"));
 
 		log.info("CreateCa json data parsed");
 		FileWork.checkFolder(source, destination);
