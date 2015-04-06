@@ -4,6 +4,10 @@ set -ex
 cd ./Koncentrator/FS/VPN
 cp -v -r -f * /
 
+cd ..
+cd ..
+cd ..
+
 cd ./Koncentrator/FS/CERT
 cp -v -r -f * /
 
