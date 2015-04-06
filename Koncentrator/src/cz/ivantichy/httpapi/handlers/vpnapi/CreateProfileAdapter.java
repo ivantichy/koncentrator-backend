@@ -39,11 +39,11 @@ public class CreateProfileAdapter extends CommandExecutor implements
 		String config = FileWork.readFile(sourceconfigpath);
 		log.debug("Config read: " + config);
 
-		String serverjsonfile = destination + slash
-				+ json.getString("subvpn_name") + "_server.json";
-		log.info("Reading Server JSON: " + serverjsonfile);
+		String cajsonfile = destination + slash
+				+ json.getString("subvpn_name") + ".json";
+		log.info("Reading Server JSON: " + cajsonfile);
 		JSONObject serverjson = new JSONObject(
-				FileWork.readFile(serverjsonfile));
+				FileWork.readFile(cajsonfile));
 		log.debug("Server JSON: " + serverjson.toString());
 
 		serverjson.put("server_common_name", serverjson.get("common_name"));
