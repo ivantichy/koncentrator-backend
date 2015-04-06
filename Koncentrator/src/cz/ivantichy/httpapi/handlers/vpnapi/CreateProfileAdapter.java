@@ -46,11 +46,9 @@ public class CreateProfileAdapter extends CommandExecutor implements
 				FileWork.readFile(serverjsonfile));
 		log.debug("Server JSON: " + serverjson.toString());
 
-		json.put("server_common_name", serverjson.get("common_name"));
-		json.put("server_protocol", serverjson.get("server_protocol"));
-		json.put("server_domain_name", serverjson.get("server_domain_name"));
-		json.put("server_port", serverjson.get("server_port"));
-
+		serverjson.put("server_common_name", serverjson.get("common_name"));
+		serverjson.remove("common_name");
+		json.merge(serverjson);
 		log.info("Going to fill config templace");
 
 		config = fillConfig(config, json);

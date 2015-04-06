@@ -52,6 +52,14 @@ public class CreateServerAdapter extends CommandExecutor implements
 		String config = FileWork.readFile(sourceconfigpath);
 		log.debug("Config read: " + config);
 
+		String cajsonfile = destination + slash + json.getString("subvpn_name")
+				+ ".json";
+		log.info("Reading CA JSON: " + cajsonfile);
+		JSONObject cajson = new JSONObject(FileWork.readFile(cajsonfile));
+		log.debug("CA JSON: " + cajson.toString());
+
+		json.merge(cajson);
+
 		log.info("Going to fill config templace");
 
 		config = fillConfig(config, json);
@@ -74,10 +82,10 @@ public class CreateServerAdapter extends CommandExecutor implements
 		json.put("server_conf_base64", B64.encode(config));
 
 		storeJSON(json, destination + slash + json.getString("subvpn_name")
-				+ "_server.json");
+				+ ".json");
 
 		log.info("JSON stored");
-		log.debug("Stored JSON: " + json.toString());
+		log.debug("Stored CA/Server JSON: " + json.toString());
 
 		return new Response(json.toString(), true);
 	}
@@ -86,8 +94,8 @@ public class CreateServerAdapter extends CommandExecutor implements
 
 		config = replaceField("server_port", config, json);
 		config = replaceField("server_protocol", config, json);
-		config = replaceField("management_port", config, json);
-		config = replaceField("device", config, json);
+		config = replaceField("server_management_port", config, json);
+		config = replaceField("server_device", config, json);
 		config = replaceField("subvpn_name", config, json);
 		config = replaceField("subvpn_type", config, json);
 		config = replaceField("ta", config, json);
