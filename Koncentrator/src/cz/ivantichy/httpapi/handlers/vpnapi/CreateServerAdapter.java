@@ -37,11 +37,6 @@ public class CreateServerAdapter extends CommandExecutor implements
 		log.info("going to handle PUT. Reading/parsing JSON.");
 		JSONObject json = new JSONObject(req.putdata);
 
-		json.put(
-				"ip_range",
-				IPMaskConverter.maskToRange(json.getString("ip_server"),
-						json.getString("ip_mask")));
-
 		String destination = Static.OPENVPNLOCATION + Static.INSTANCESFOLDER
 				+ json.getString("subvpn_type") + Static.FOLDERSEPARATOR
 				+ json.getString("subvpn_name") + Static.FOLDERSEPARATOR;
@@ -59,7 +54,13 @@ public class CreateServerAdapter extends CommandExecutor implements
 		log.debug("CA JSON: " + cajson.toString());
 
 		json.merge(cajson);
+		
+		json.put(
+				"ip_range",
+				IPMaskConverter.maskToRange(json.getString("ip_server"),
+						json.getString("ip_mask")));
 
+		
 		log.info("Going to fill config templace");
 
 		config = fillConfig(config, json);
@@ -74,7 +75,6 @@ public class CreateServerAdapter extends CommandExecutor implements
 
 		appendLine("set -ex \n");
 		appendLine("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n");
-		appendLine("./createsubvpn.sh {subvpn_name} {subvpn_type} {ip_range}\n");
 
 		exec(json);
 		json.put("destination", destination.replaceAll("//", "/"));

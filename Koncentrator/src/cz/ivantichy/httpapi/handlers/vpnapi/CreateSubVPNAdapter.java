@@ -26,6 +26,12 @@ public class CreateSubVPNAdapter extends CommandExecutor implements
 
 		log.info("going to handle PUT. Reading/parsing JSON.");
 		JSONObject json = new JSONObject(req.putdata);
+		
+		json.put(
+				"ip_range",
+				IPMaskConverter.maskToRange(json.getString("ip_server"),
+						json.getString("ip_mask")));
+
 
 		String source = Static.OPENVPNLOCATION + Static.GENERATEFOLDER
 				+ json.getString("subvpn_type") + Static.FOLDERSEPARATOR;
@@ -41,6 +47,7 @@ public class CreateSubVPNAdapter extends CommandExecutor implements
 
 		appendLine("set -ex \n");
 		appendLine("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n");
+		appendLine("./createsubvpn.sh {subvpn_name} {subvpn_type} {ip_range}\n");
 		
 		exec(json);
 

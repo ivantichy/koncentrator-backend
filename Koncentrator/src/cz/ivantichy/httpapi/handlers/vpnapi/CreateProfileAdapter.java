@@ -48,6 +48,7 @@ public class CreateProfileAdapter extends CommandExecutor implements
 
 		serverjson.put("server_common_name", serverjson.get("common_name"));
 		serverjson.remove("common_name");
+		
 		json.merge(serverjson);
 		log.info("Going to fill config templace");
 
