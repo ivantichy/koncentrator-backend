@@ -34,12 +34,6 @@ public class CreateSubVPNAdapterTest {
 			InterruptedException {
 
 		
-		
-		
-		
-		
-		
-		
 		System.out.println("main");
 
 		Server s = new Server();

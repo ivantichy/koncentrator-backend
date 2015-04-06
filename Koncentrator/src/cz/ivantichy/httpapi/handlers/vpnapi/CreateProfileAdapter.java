@@ -1,35 +1,26 @@
 package cz.ivantichy.httpapi.handlers.vpnapi;
 
-import java.io.File;
-
-import cz.ivantichy.fileutils.*;
-
 import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Iterator;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import cz.ivantichy.koncentrator.simple.certgen.*;
+import cz.ivantichy.base64.B64;
+import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.koncentrator.simple.IPUtils.IPMaskConverter;
-import cz.ivantichy.koncentrator.simple.certgen.SyncPipe;
+import cz.ivantichy.koncentrator.simple.certgen.*;
 import cz.ivantichy.supersimple.restapi.handlers.interfaces.PUTHandlerInterface;
 import cz.ivantichy.supersimple.restapi.server.PUTRequest;
 import cz.ivantichy.supersimple.restapi.server.Response;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
-import cz.ivantichy.httpapi.*;
-import cz.ivantichy.base64.*;
 
-public class CreateServerAdapter extends CommandExecutor implements
+public class CreateProfileAdapter extends CommandExecutor implements
 		PUTHandlerInterface {
-	private static final Logger log = LogManager
-			.getLogger(CreateServerAdapter.class.getName());
 
-	
+	private static final Logger log = LogManager
+			.getLogger(CreateProfileAdapter.class.getName());
+
 	@Override
 	public Response handlePUT(PUTRequest req) throws IOException {
 
@@ -38,20 +29,27 @@ public class CreateServerAdapter extends CommandExecutor implements
 		log.info("going to handle PUT. Reading/parsing JSON.");
 		JSONObject json = new JSONObject(req.putdata);
 
-		json.put(
-				"ip_range",
-				IPMaskConverter.maskToRange(json.getString("ip_server"),
-						json.getString("ip_mask")));
-
 		String destination = Static.OPENVPNLOCATION + Static.INSTANCESFOLDER
 				+ json.getString("subvpn_type") + Static.FOLDERSEPARATOR
 				+ json.getString("subvpn_name") + Static.FOLDERSEPARATOR;
 		log.info("Destination location:" + destination);
 
-		String sourceconfigpath = destination + slash + "server.conf";
+		String sourceconfigpath = destination + slash + "client.conf";
 		log.info("Going to read config: " + sourceconfigpath);
 		String config = FileWork.readFile(sourceconfigpath);
 		log.debug("Config read: " + config);
+
+		String serverjsonfile = destination + slash
+				+ json.getString("subvpn_name") + "_server.json";
+		log.info("Reading Server JSON: " + serverjsonfile);
+		JSONObject serverjson = new JSONObject(
+				FileWork.readFile(serverjsonfile));
+		log.debug("Server JSON: " + serverjson.toString());
+
+		json.put("server_common_name", serverjson.get("common_name"));
+		json.put("server_protocol", serverjson.get("server_protocol"));
+		json.put("server_domain_name", serverjson.get("server_domain_name"));
+		json.put("server_port", serverjson.get("server_port"));
 
 		log.info("Going to fill config templace");
 
@@ -71,10 +69,12 @@ public class CreateServerAdapter extends CommandExecutor implements
 		exec(json);
 		json.put("destination", destination.replaceAll("//", "/"));
 
-		json.put("server_conf_base64", B64.encode(config));
+		json.put("client_conf_base64", B64.encode(config));
 
-		storeJSON(json, destination + slash + json.getString("subvpn_name")
-				+ "_server.json");
+		storeJSON(
+				json,
+				destination + slash + "profiles" + slash
+						+ json.getString("common_name") + "_profile.json");
 
 		log.info("JSON stored");
 		log.debug("Stored JSON: " + json.toString());
@@ -86,18 +86,14 @@ public class CreateServerAdapter extends CommandExecutor implements
 
 		config = replaceField("server_port", config, json);
 		config = replaceField("server_protocol", config, json);
-		config = replaceField("management_port", config, json);
-		config = replaceField("device", config, json);
+		config = replaceField("server_domain_name", config, json);
+		config = replaceField("server_common_name", config, json);
 		config = replaceField("subvpn_name", config, json);
 		config = replaceField("subvpn_type", config, json);
 		config = replaceField("ta", config, json);
 		config = replaceField("ca", config, json);
 		config = replaceField("key", config, json);
 		config = replaceField("cert", config, json);
-		config = replaceField("dh", config, json);
-		config = replaceField("dh_size", config, json);
-		config = replaceField("ip_server", config, json);
-		config = replaceField("ip_mask", config, json);
 		config += System.lineSeparator()
 				+ json.getString("commands").replaceAll("[,]",
 						System.lineSeparator());
