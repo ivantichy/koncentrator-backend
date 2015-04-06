@@ -29,7 +29,6 @@ public class CreateServerAdapter extends CommandExecutor implements
 	private static final Logger log = LogManager
 			.getLogger(CreateServerAdapter.class.getName());
 
-	
 	@Override
 	public Response handlePUT(PUTRequest req) throws IOException {
 
@@ -67,7 +66,8 @@ public class CreateServerAdapter extends CommandExecutor implements
 
 		appendLine("set -ex \n");
 		appendLine("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n");
-		// appendLine("./createsubvpn.sh {subvpn_name} {subvpn_type} {ip_range}\n");
+		appendLine("./createsubvpn.sh {subvpn_name} {subvpn_type} {ip_range}\n");
+
 		exec(json);
 		json.put("destination", destination.replaceAll("//", "/"));
 
