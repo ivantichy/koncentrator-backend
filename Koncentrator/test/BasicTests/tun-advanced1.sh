@@ -2,10 +2,6 @@
 
 set -ex
 
-rm -R -f /etc/openvpn/tun-advanced_tun-advanced-12345
-rm -R -f /etc/openvpn/instances/tun-advanced/*
-
-
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest &
 
 sleep 10

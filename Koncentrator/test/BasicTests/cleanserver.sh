@@ -1,6 +1,7 @@
 #!/bin/bash
 set -ex
 
+rm -r -f /etc/openvpn/*
 cd ./Koncentrator/FS/VPN
 cp -v -r -f * /
 
