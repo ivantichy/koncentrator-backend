@@ -27,19 +27,19 @@ if [ ! -d "$rootdir/generate/$type_name" ]
   exit 1
 fi
 
-if [ -d "$rootdir/instances/$type_name/$name" ]
-  then
-  echo "name already exist"
-  exit 1
-fi
+#if [ -d "$rootdir/instances/$type_name/$name" ]
+#  then
+#  echo "name already exist"
+#  exit 1
+#fi
 
 
 cd "$rootdir/generate/$type_name"
 
 #. ./vars
 #./clean-all
-mkdir -p "$rootdir/instances/$type_name/$name"
-cp -r -f $rootdir/generate/$type_name/* $rootdir/instances/$type_name/$name
+#mkdir -p "$rootdir/instances/$type_name/$name"
+#cp -r -f $rootdir/generate/$type_name/* $rootdir/instances/$type_name/$name
 
 cd $rootdir/instances/$type_name/$name
 
