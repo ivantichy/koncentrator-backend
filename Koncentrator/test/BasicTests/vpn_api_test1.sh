@@ -3,9 +3,6 @@ set -ex
 set -o pipefail
 
 
-chmod 666 server.json
-chmod 666 profile.json
-
 # toto to server.json prida parametr a ulozi to zase jako server.json
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter server.json ip_server 123.123.123.123
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter server.json ip_mask 255.255.0.0
