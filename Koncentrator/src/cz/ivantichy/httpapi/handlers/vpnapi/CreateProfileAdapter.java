@@ -94,7 +94,7 @@ public class CreateProfileAdapter extends CommandExecutor implements
 		config = replaceField("key", config, json);
 		config = replaceField("cert", config, json);
 		config += System.lineSeparator()
-				+ json.getString("commands").replaceAll("[,]",
+				+ json.getString("profile_commands").replaceAll("[,]",
 						System.lineSeparator());
 
 		return config;

@@ -107,7 +107,7 @@ public class CreateServerAdapter extends CommandExecutor implements
 		config = replaceField("ip_server", config, json);
 		config = replaceField("ip_mask", config, json);
 		config += System.lineSeparator()
-				+ json.getString("commands").replaceAll("[,]",
+				+ json.getString("server_commands").replaceAll("[,]",
 						System.lineSeparator());
 
 		return config;
