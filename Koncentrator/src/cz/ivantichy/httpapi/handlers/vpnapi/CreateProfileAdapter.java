@@ -23,6 +23,7 @@ public class CreateProfileAdapter extends CommandExecutor implements
 
 	@Override
 	public Response handlePUT(PUTRequest req) throws IOException {
+		clear();
 
 		log.debug("PUT data: " + req.putdata);
 

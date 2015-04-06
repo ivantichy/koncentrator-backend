@@ -14,6 +14,7 @@ public class GenerateServer extends CommandExecutor {
 
 	public static synchronized String generateServer(String type, String name,
 			String domain, int days, String common_name) throws Exception {
+		clear();
 		String path = "instances/" + type + "/" + name;
 		exec(path, type, name, domain, days, common_name);
 		JSONObject json = new JSONObject();

@@ -14,6 +14,7 @@ public class GenerateProfile extends CommandExecutor {
 	
 	public static synchronized String generateProfile(String cn, String domain,
 			int days, String name, String type) throws Exception {
+		clear();
 
 		String path = "instances/" + type + "/" + name;
 		exec(cn, domain, days, path);
