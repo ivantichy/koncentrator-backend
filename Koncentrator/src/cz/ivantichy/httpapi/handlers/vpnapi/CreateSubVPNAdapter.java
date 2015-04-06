@@ -39,7 +39,8 @@ public class CreateSubVPNAdapter extends CommandExecutor implements
 				+ json.getString("subvpn_type") + Static.FOLDERSEPARATOR
 				+ json.getString("subvpn_name") + Static.FOLDERSEPARATOR;
 		log.info("Destination location:" + destination);
-
+		
+		FileWork.checkFolder(source, destination);
 		FileWork.copyFolder(source, destination);
 
 		appendLine("set -ex \n");
