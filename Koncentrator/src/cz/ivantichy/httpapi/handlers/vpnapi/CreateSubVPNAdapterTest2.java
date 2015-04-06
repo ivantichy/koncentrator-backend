@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 
 import cz.ivantichy.supersimple.restapi.server.PUTRequest;
 import cz.ivantichy.supersimple.restapi.server.Server;
-
 import cz.ivantichy.fileutils.*;
 
 public class CreateSubVPNAdapterTest2 {
@@ -18,7 +17,7 @@ public class CreateSubVPNAdapterTest2 {
 
 		String json = FileWork.readFile(args[0]);
 
-		csvpna.handlePUT(new PUTRequest(null, null, null, json, null));
+		FileWork.saveFile(args[0], csvpna.handlePUT(new PUTRequest(null, null, null, json, null)).toString());
 
 	}
 }
