@@ -3,6 +3,10 @@ set -ex
 
 cd ./Koncentrator/FS/VPN
 cp -v -r -f * /
+
+cd ./Koncentrator/FS/CERT
+cp -v -r -f * /
+
 cd /etc/openvpn
 find . -type f | grep .sh | xargs  -n1 chmod +x $1 -v
 
