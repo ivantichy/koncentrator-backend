@@ -3,9 +3,9 @@
 set -ex 
 set -o pipefail
 
-
+set +e
 pkill -e -f ".*cz.ivantichy.httpapi.handlers.vpnapi.*"
-
+set -e
 
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.RunnerVPN &
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.RunnerCERT &
