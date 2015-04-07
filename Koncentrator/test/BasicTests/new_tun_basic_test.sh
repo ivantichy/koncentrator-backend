@@ -14,7 +14,7 @@ sleep 5
 
 
 #CERT createCa 
-curl -v -X PUT "http://127.0.0.1:10001/createca" --data '{"subvpn_name" : "tun-basic-12345", "subvpn_type" : "tun-basic", "domain" : "tun-basic-12345.tun-basic.koncentrator.cz", "ca_valid_days" : 3650}'
+curl -v -X PUT "http://127.0.0.1:10001/createca" --data '{"subvpn_name" : "tun-basic-12345", "subvpn_type" : "tun-basic", "domain" : "tun-basic-12345.tun-basic.koncentrator.cz", "ca_valid_days" : 3650}' -o ca.json
 
 #CERT generateServer
 wget "http://127.0.0.1:10001/generateserver/?subvpn_name=tun-basic-12345&subvpn_type=tun-basic&common_name=tun-basic-12345&domain=koncentrator.cz&server_valid_days=3650" -O server.json
