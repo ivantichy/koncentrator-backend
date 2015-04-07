@@ -1,9 +1,27 @@
 #!/bin/bash
+
 set -ex 
 set -o pipefail
 
 
-# toto to server.json prida parametr a ulozi to zase jako ca.json
+
+java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.RunnerVPN &
+java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.RunnerCERT &
+
+sleep 5
+
+
+#CERT createCa 
+curl -v -X PUT "http://127.0.0.1:10001/createca" --data '{"subvpn_name" : "tun-basic-12345", "subvpn_type" : "tun-basic", "domain" : "tun-basic-12345.tun-basic.koncentrator.cz", "ca_valid_days" : 3650}'
+
+#CERT generateServer
+wget "http://127.0.0.1:10001/generateserver/?subvpn_name=tun-basic-12345&subvpn_type=tun-basic&common_name=tun-basic-12345&domain=koncentrator.cz&server_valid_days=3650" -O server.json
+
+#CERT generateProfile
+wget "http://127.0.0.1:10001/generateprofile/?subvpn_name=tun-basic-12345&subvpn_type=tun-basic&common_name=test1&domain=koncentrator.cz&profile_valid_days=90" -O profile.json -T 10
+
+
+
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter ca.json ip_server 123.123.123.123
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter ca.json ip_mask 255.255.0.0
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter ca.json node 1
@@ -15,18 +33,31 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.te
 
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter server.json server_commands ""
 
-java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest2 ca.json
-
-java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.CreateServerAdapterTest server.json
-
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter profile.json remote_ip 10.10.10.10
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter profile.json local_ip 10.10.10.11
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter profile.json profile_commands ""
 
-java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.CreateProfileAdapterTest profile.json
 
 
-java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.RunnerCERT
+#VPN createCa 
+curl -v -X PUT "http://127.0.0.1:10002/createsubvpn" -d @ca.json
+
+#VPN createServer
+curl -v -X PUT "http://127.0.0.1:10002/createserver" -d @server.json
+
+#VPN createProfile
+curl -v -X PUT "http://127.0.0.1:10002/createprofile" -d @profile.json
+
+
+
+#CERT deleteCa
+curl -v -X DELETE "http://127.0.0.1:10001/deleteca?subvpn_name=tun-basic-12345&subvpn_type=tun-basic"
+
+
+
+
+
+
 
 
 

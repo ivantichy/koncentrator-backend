@@ -24,6 +24,11 @@ public class FileWork {
 		FileUtils.writeStringToFile(new File(file), data);
 	}
 
+	public static void deleteFile(String file) {
+
+		(new File(file)).delete();
+	}
+
 	private static final Logger log = LogManager.getLogger(FileWork.class
 			.getName());
 
