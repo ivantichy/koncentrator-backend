@@ -4,7 +4,7 @@ set -ex
 set -o pipefail
 
 
-pkill -e -f ".*cz.ivantichy.httpapi.handlers.vpnapi.*"
+#pkill -e -f ".*cz.ivantichy.httpapi.handlers.vpnapi.*"
 
 
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.RunnerVPN &
@@ -55,7 +55,7 @@ curl -v -X PUT "http://127.0.0.1:10002/createprofile" -d @profile.json
 #CERT deleteCa
 curl -v -X DELETE "http://127.0.0.1:10001/deleteca?subvpn_name=tun-basic-12345&subvpn_type=tun-basic"
 
-pkill -e -f ".*cz.ivantichy.httpapi.handlers.vpnapi.*"
+#pkill -e -f ".*cz.ivantichy.httpapi.handlers.vpnapi.*"
 
 
 
