@@ -36,7 +36,11 @@ curl -v -X PUT "http://digitalocean.ivantichy.cz:10002/createsubvpn" -d @ca.json
 
 #VPN createServer
 curl -v -X PUT "http://digitalocean.ivantichy.cz:10002/createserver" -d @server.json
+#VPN createServer
+curl -v -X PUT "http://digitalocean.ivantichy.cz:10002/createserver" -d @server.json
 
+#VPN createProfile
+curl -v -X PUT "http://digitalocean.ivantichy.cz:10002/createprofile" -d @profile.json
 #VPN createProfile
 curl -v -X PUT "http://digitalocean.ivantichy.cz:10002/createprofile" -d @profile.json
 
