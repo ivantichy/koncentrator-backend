@@ -1,13 +1,11 @@
 package cz.ivantichy.supersimple.restapi.handlers;
 
-import java.io.File;
-import cz.ivantichy.fileutils.*;
 import java.io.IOException;
 import java.util.HashMap;
 
-import org.apache.commons.io.FileUtils;
 import org.testng.annotations.Test;
 
+import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.supersimple.restapi.server.GETRequest;
 
 public class GenerateServerAdapterTest {

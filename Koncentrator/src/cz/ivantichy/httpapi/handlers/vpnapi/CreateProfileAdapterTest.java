@@ -4,9 +4,8 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
+import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.supersimple.restapi.server.PUTRequest;
-import cz.ivantichy.supersimple.restapi.server.Server;
-import cz.ivantichy.fileutils.*;
 
 public class CreateProfileAdapterTest {
 

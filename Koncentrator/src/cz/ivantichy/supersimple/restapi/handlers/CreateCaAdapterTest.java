@@ -5,8 +5,8 @@ import java.io.IOException;
 import org.json.JSONObject;
 import org.testng.annotations.Test;
 
+import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.supersimple.restapi.server.PUTRequest;
-import cz.ivantichy.fileutils.*;
 public class CreateCaAdapterTest {
 
 	@Test()

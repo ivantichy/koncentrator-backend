@@ -1,11 +1,11 @@
 package cz.ivantichy.supersimple.restapi.handlers;
 
 import java.io.IOException;
-import cz.ivantichy.fileutils.*;
 import java.util.HashMap;
 
 import org.testng.annotations.Test;
 
+import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.supersimple.restapi.server.GETRequest;
 
 public class GenerateProfileAdapterTest {

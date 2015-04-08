@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.json.JSONObject;
 
-import cz.ivantichy.base64.B64;
 import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.koncentrator.simple.certgen.CommandExecutor;
 import cz.ivantichy.supersimple.restapi.handlers.interfaces.POSTHandlerInterface;

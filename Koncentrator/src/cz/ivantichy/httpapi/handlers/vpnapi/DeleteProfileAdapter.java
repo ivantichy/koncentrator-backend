@@ -4,33 +4,30 @@ import java.io.IOException;
 
 import org.json.JSONObject;
 
-import cz.ivantichy.base64.B64;
 import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.koncentrator.simple.certgen.CommandExecutor;
-import cz.ivantichy.supersimple.restapi.handlers.interfaces.POSTHandlerInterface;
-import cz.ivantichy.supersimple.restapi.server.POSTRequest;
+import cz.ivantichy.supersimple.restapi.handlers.interfaces.DELETEHandlerInterface;
+import cz.ivantichy.supersimple.restapi.server.DELETERequest;
 import cz.ivantichy.supersimple.restapi.server.Response;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
 public class DeleteProfileAdapter extends CommandExecutor implements
-		POSTHandlerInterface {
+		DELETEHandlerInterface {
 
 	@Override
-	public Response handlePOST(POSTRequest req) throws IOException {
+	public Response handleDELETE(DELETERequest req) throws IOException {
 
 		clear();
 
-		log.debug("POST data: " + req.postdata);
-
-		JSONObject json = new JSONObject(req.postdata);
+		log.debug("DELETE GET data: " + req.getparams);
 
 		String destination = Static.OPENVPNLOCATION + Static.INSTANCESFOLDER
-				+ json.getString("subvpn_type") + Static.FOLDERSEPARATOR
-				+ json.getString("subvpn_name") + Static.FOLDERSEPARATOR;
+				+ req.getparams.get("subvpn_type") + Static.FOLDERSEPARATOR
+				+ req.getparams.get("subvpn_name") + Static.FOLDERSEPARATOR;
 		log.info("Destination location:" + destination);
 
 		String profilejsonfile = destination + slash + "profiles" + slash
-				+ json.getString("common_name") + "_profile.json";
+				+ req.getparams.get("common_name") + "_profile.json";
 
 		log.info("About to load existing profile JSON:" + profilejsonfile);
 

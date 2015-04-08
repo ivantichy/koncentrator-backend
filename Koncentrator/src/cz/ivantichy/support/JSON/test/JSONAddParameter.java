@@ -2,10 +2,11 @@ package cz.ivantichy.support.JSON.test;
 
 import java.io.IOException;
 
-import cz.ivantichy.fileutils.*;
-
-import org.json.*;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.testng.annotations.Test;
+
+import cz.ivantichy.fileutils.FileWork;
 
 public class JSONAddParameter {
 

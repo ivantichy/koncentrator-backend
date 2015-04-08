@@ -2,10 +2,6 @@ package cz.ivantichy.httpapi.handlers.vpnapi;
 
 import java.io.IOException;
 
-import cz.ivantichy.supersimple.restapi.handlers.CreateCaAdapter;
-import cz.ivantichy.supersimple.restapi.handlers.DeleteCaAdapter;
-import cz.ivantichy.supersimple.restapi.handlers.GenerateProfileAdapter;
-import cz.ivantichy.supersimple.restapi.handlers.GenerateServerAdapter;
 import cz.ivantichy.supersimple.restapi.server.Server;
 
 public class RunnerVPN {
@@ -18,6 +14,8 @@ public class RunnerVPN {
 	s.registerPUTHandler("/createsubvpn/", new CreateSubVPNAdapter());
 	s.registerPUTHandler("/createserver/", new  CreateServerAdapter());
 	s.registerPUTHandler("/createprofile/", new CreateProfileAdapter());
+	s.registerPOSTHandler("/blockprofile/", new BlockProfileAdapter());
+	s.registerDELETEHandler("/deleteprofile/", new DeleteProfileAdapter());
 	
 	s.listen(10002);
 	

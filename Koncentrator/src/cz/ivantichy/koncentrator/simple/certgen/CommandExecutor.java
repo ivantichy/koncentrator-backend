@@ -2,16 +2,14 @@ package cz.ivantichy.koncentrator.simple.certgen;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Iterator;
-import cz.ivantichy.fileutils.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import cz.ivantichy.base64.B64;
+import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
 public abstract class CommandExecutor {
