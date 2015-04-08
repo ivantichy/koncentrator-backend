@@ -42,13 +42,17 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.te
 
 
 #VPN createCa 
-curl -v -X PUT "http://127.0.0.1:10002/createsubvpn" -d @ca.json
+curl -v -X PUT "http://digitalocean.ivantichy.cz:10002/createsubvpn" -d @ca.json
 
 #VPN createServer
-curl -v -X PUT "http://127.0.0.1:10002/createserver" -d @server.json
+curl -v -X PUT "http://digitalocean.ivantichy.cz:10002/createserver" -d @server.json
+#VPN createServer
+curl -v -X PUT "http://digitalocean.ivantichy.cz:10002/createserver" -d @server.json
 
 #VPN createProfile
-curl -v -X PUT "http://127.0.0.1:10002/createprofile" -d @profile.json
+curl -v -X PUT "http://digitalocean.ivantichy.cz:10002/createprofile" -d @profile.json
+#VPN createProfile
+curl -v -X PUT "http://digitalocean.ivantichy.cz:10002/createprofile" -d @profile.json
 
 
 
