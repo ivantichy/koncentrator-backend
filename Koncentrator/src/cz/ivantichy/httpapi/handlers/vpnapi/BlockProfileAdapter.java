@@ -16,7 +16,6 @@ public class BlockProfileAdapter extends CommandExecutor implements
 
 	@Override
 	public Response handlePOST(POSTRequest req) throws IOException {
-
 		clear();
 
 		log.debug("POST data: " + req.postdata);
@@ -38,19 +37,20 @@ public class BlockProfileAdapter extends CommandExecutor implements
 
 		log.debug("Profile JSON: " + profilejson.toString());
 
-		if (!!profilejson.keySet().contains("blocked")
-				|| !profilejson.getString("blocked").equalsIgnoreCase("y")) {
-			throw new IOException("Profile must be blocked to be deleted.");
+		if (profilejson.keySet().contains("blocked")) {
+			if (profilejson.getString("blocked").equalsIgnoreCase("y"))
+				throw new IOException("Profile allready blocked.");
 
 		}
+		profilejson.put("blocked", "y");
 		appendLine("set -ex");
 		appendLine("cd " + destination + Static.FOLDERSEPARATOR + "cmds");
-		appendLine("./deleteprofile.sh {common_name} {subvpn_name}");
+		appendLine("./blockprofile.sh {common_name} {subvpn_name}");
 		exec(profilejson);
 
-		FileWork.deleteFile(profilejsonfile);
+		storeJSON(profilejson, profilejsonfile);
 
-		log.info("JSON deleted");
+		log.info("JSON updated");
 
 		return new Response(profilejson.toString(), true);
 

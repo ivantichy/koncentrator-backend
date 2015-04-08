@@ -28,7 +28,6 @@ public class DeleteProfileAdapter extends CommandExecutor implements
 
 		String profilejsonfile = destination + slash + "profiles" + slash
 				+ req.getparams.get("common_name") + "_profile.json";
-
 		log.info("About to load existing profile JSON:" + profilejsonfile);
 
 		JSONObject profilejson = new JSONObject(
@@ -36,20 +35,19 @@ public class DeleteProfileAdapter extends CommandExecutor implements
 
 		log.debug("Profile JSON: " + profilejson.toString());
 
-		if (profilejson.keySet().contains("blocked")) {
-			if (profilejson.getString("blocked").equalsIgnoreCase("y"))
-				throw new IOException("Profile allready blocked.");
+		if (!!profilejson.keySet().contains("blocked")
+				|| !profilejson.getString("blocked").equalsIgnoreCase("y")) {
+			throw new IOException("Profile must be blocked to be deleted.");
 
 		}
-		profilejson.put("blocked", "y");
 		appendLine("set -ex");
 		appendLine("cd " + destination + Static.FOLDERSEPARATOR + "cmds");
-		appendLine("./blockprofile.sh {common_name} {subvpn_name}");
+		appendLine("./deleteprofile.sh {common_name} {subvpn_name}");
 		exec(profilejson);
 
-		storeJSON(profilejson, profilejsonfile);
+		FileWork.deleteFile(profilejsonfile);
 
-		log.info("JSON updated");
+		log.info("JSON deleted");
 
 		return new Response(profilejson.toString(), true);
 
