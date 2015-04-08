@@ -44,14 +44,3 @@ curl -v -X PUT "http://digitalocean.ivantichy.cz:10002/createprofile" -d @profil
 
 #CERT deleteCa
 curl -v -X DELETE "http://digitalocean.ivantichy.cz:10001/deleteca?subvpn_name=tun-basic-12345&subvpn_type=tun-basic"
-
-pkill -e -f ".*cz.ivantichy.httpapi.handlers.vpnapi.*"
-
-
-
-
-
-
-
-
-
