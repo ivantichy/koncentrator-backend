@@ -64,7 +64,7 @@ public class CreateProfileAdapter extends CommandExecutor implements
 
 		appendLine("set -ex \n");
 		appendLine("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n");
-		// appendLine("./createsubvpn.sh {subvpn_name} {subvpn_type} {ip_range}\n");
+		appendLine("./createprofile.sh {common_name} {subvpn_name} {subvpn_type}\n");
 		exec(json);
 		json.put("destination", destination.replaceAll("//", "/"));
 
