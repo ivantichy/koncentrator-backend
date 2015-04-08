@@ -28,6 +28,7 @@ public class DeleteProfileAdapter extends CommandExecutor implements
 
 		String profilejsonfile = destination + slash + "profiles" + slash
 				+ req.getparams.get("common_name") + "_profile.json";
+		
 		log.info("About to load existing profile JSON:" + profilejsonfile);
 
 		JSONObject profilejson = new JSONObject(
@@ -42,7 +43,7 @@ public class DeleteProfileAdapter extends CommandExecutor implements
 		}
 		appendLine("set -ex");
 		appendLine("cd " + destination + Static.FOLDERSEPARATOR + "cmds");
-		appendLine("./deleteprofile.sh {common_name} {subvpn_name}");
+		appendLine("./deleteprofile.sh {common_name} {subvpn_name} {subvpn_type}");
 		exec(profilejson);
 
 		FileWork.deleteFile(profilejsonfile);

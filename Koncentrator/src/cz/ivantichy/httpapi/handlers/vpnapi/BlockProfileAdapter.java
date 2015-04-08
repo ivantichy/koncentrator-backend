@@ -45,7 +45,7 @@ public class BlockProfileAdapter extends CommandExecutor implements
 		profilejson.put("blocked", "y");
 		appendLine("set -ex");
 		appendLine("cd " + destination + Static.FOLDERSEPARATOR + "cmds");
-		appendLine("./blockprofile.sh {common_name} {subvpn_name}");
+		appendLine("./blockprofile.sh {common_name} {subvpn_name} {subvpn_type}");
 		exec(profilejson);
 
 		storeJSON(profilejson, profilejsonfile);

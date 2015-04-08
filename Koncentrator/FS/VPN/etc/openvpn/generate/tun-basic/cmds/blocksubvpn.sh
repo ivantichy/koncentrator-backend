@@ -1,7 +1,7 @@
 #!/bin/bash
 # subvpn_name subvpn_type ip_range1
 echo $1 $2 $3
-device=`cat /etc/openvpn/$2/$1/device`
+device=`cat /etc/openvpn/instances/$2/$1/device`
 fail=0
 
 sudo iptables -C FORWARD -i $device -o $device -s $3 -d $3 -j ACCEPT
