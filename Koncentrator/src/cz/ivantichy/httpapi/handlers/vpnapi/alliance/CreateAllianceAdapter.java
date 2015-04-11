@@ -37,8 +37,8 @@ public class CreateAllianceAdapter extends CommandExecutor implements
 				+ json.getString("subvpn_name2") + Static.FOLDERSEPARATOR;
 		log.info("Destination2 location:" + destination2);
 
-		String cajsonfile = destination + slash + json.getString("subvpn_name1")
-				+ ".json";
+		String cajsonfile = destination + slash
+				+ json.getString("subvpn_name1") + ".json";
 		log.info("Reading CA/Server JSON: " + cajsonfile);
 		JSONObject cajson = new JSONObject(FileWork.readFile(cajsonfile));
 		log.debug("SA/Server JSON: " + cajson.toString());
@@ -65,7 +65,8 @@ public class CreateAllianceAdapter extends CommandExecutor implements
 		storeJSON(
 				json,
 				destination + slash + "alliances" + slash
-						+ json.getString("subvpn_type2")+slash+json.getString("subvpn_name2") + ".json");
+						+ json.getString("subvpn_type2") + slash
+						+ json.getString("subvpn_name2") + ".json");
 
 		log.info("JSON stored");
 		log.debug("Stored alliance JSON: " + json.toString());
