@@ -65,7 +65,7 @@ public class CreateAllianceAdapter extends CommandExecutor implements
 		storeJSON(
 				json,
 				destination + slash + "alliances" + slash
-						+ json.getString("subvpn_name2") + ".json");
+						+ json.getString("subvpn_type2")+slash+json.getString("subvpn_name2") + ".json");
 
 		log.info("JSON stored");
 		log.debug("Stored alliance JSON: " + json.toString());
