@@ -1,0 +1,10 @@
+{
+
+"subvpn_name1" : "tun-basic-12345",
+"subvpn_name2" : "tun-basic-123456",
+
+"subvpn_type1" : "tun-basic",
+"subvpn_type2" : "tun-basic"
+
+
+}
