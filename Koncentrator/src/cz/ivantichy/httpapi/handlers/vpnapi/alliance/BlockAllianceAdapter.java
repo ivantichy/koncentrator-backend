@@ -62,6 +62,7 @@ public class BlockAllianceAdapter extends CommandExecutor implements
 		log.debug("Alliance JSON: " + alliancejson.toString());
 
 		// json.merge(cajson);
+		json.put("blocked", "y");
 
 		appendLine("set -ex \n");
 		appendLine("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n");

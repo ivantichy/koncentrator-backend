@@ -30,6 +30,7 @@ public class DeleteAllianceAdapter extends CommandExecutor implements
 
 		log.info("going to handle DELETE. Reading/parsing JSON.");
 		JSONObject json = new JSONObject(req.getparams);
+		log.debug("Parsed JSON: " + json);
 
 		String destination = Static.OPENVPNLOCATION + Static.INSTANCESFOLDER
 				+ json.getString("subvpn_type1") + Static.FOLDERSEPARATOR
