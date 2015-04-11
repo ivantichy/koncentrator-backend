@@ -29,7 +29,7 @@ public class DeleteAllianceAdapter extends CommandExecutor implements
 		log.debug("DELETE GET data: " + req.getparams);
 
 		log.info("going to handle DELETE. Reading/parsing JSON.");
-		JSONObject json = new JSONObject(req.getparams);
+		JSONObject json = new JSONObject((Map)req.getparams);
 		log.debug("Parsed JSON: " + json);
 
 		String destination = Static.OPENVPNLOCATION + Static.INSTANCESFOLDER
