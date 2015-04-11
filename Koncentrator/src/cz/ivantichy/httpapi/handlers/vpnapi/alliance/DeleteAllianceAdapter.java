@@ -68,7 +68,7 @@ public class DeleteAllianceAdapter extends CommandExecutor implements
 
 		// json.merge(cajson);
 
-		if (!!alliancejson.keySet().contains("blocked")
+		if (!alliancejson.keySet().contains("blocked") 
 				|| !alliancejson.getString("blocked").equalsIgnoreCase("y")) {
 			throw new IOException("Alliance must be blocked to be deleted.");
 

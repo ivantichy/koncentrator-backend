@@ -36,7 +36,7 @@ public class DeleteProfileAdapter extends CommandExecutor implements
 
 		log.debug("Profile JSON: " + profilejson.toString());
 
-		if (!!profilejson.keySet().contains("blocked")
+		if (!profilejson.keySet().contains("blocked")
 				|| !profilejson.getString("blocked").equalsIgnoreCase("y")) {
 			throw new IOException("Profile must be blocked to be deleted.");
 
