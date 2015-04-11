@@ -1,6 +1,7 @@
 package cz.ivantichy.httpapi.handlers.vpnapi.alliance;
 
 import java.io.IOException;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,6 +30,7 @@ public class DeleteAllianceAdapter extends CommandExecutor implements
 		log.debug("DELETE GET data: " + req.getparams);
 
 		log.info("going to handle DELETE. Reading/parsing JSON.");
+		@SuppressWarnings("unchecked")
 		JSONObject json = new JSONObject((Map)req.getparams);
 		log.debug("Parsed JSON: " + json);
 
