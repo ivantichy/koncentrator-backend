@@ -4,6 +4,7 @@ echo $1 $2 $3 $4 $5 $6
 device=`cat /etc/openvpn/instances/$2/$1/device`
 fail=0
 
+exit 0
 sudo iptables -C FORWARD -i $device -o $device -s $5 -d $6 -j ACCEPT
 if [ $? -eq 0 ]; then fail=1;
   else
