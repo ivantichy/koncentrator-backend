@@ -66,6 +66,12 @@ public class DeleteAllianceAdapter extends CommandExecutor implements
 
 		// json.merge(cajson);
 
+		if (!!alliancejson.keySet().contains("blocked")
+				|| !alliancejson.getString("blocked").equalsIgnoreCase("y")) {
+			throw new IOException("Alliance must be blocked to be deleted.");
+
+		}
+
 		appendLine("set -ex \n");
 		appendLine("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n");
 		// # subvpn_name1 subvpn_type1 subvpn_name2 subvpn_type2 ip_range1

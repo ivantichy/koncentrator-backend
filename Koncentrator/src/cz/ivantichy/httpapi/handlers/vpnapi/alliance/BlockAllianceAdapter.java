@@ -60,6 +60,11 @@ public class BlockAllianceAdapter extends CommandExecutor implements
 		JSONObject alliancejson = new JSONObject(
 				FileWork.readFile(alliancejsonpath));
 		log.debug("Alliance JSON: " + alliancejson.toString());
+		if (alliancejson.keySet().contains("blocked")) {
+			if (alliancejson.getString("blocked").equalsIgnoreCase("y"))
+				throw new IOException("Alliance allready blocked.");
+
+		}
 
 		// json.merge(cajson);
 		json.put("blocked", "y");
