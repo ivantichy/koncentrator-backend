@@ -6,4 +6,4 @@ mv -f /etc/openvpn/instances/$3/$2/profiles/$1 /etc/openvpn/instances/$3/$2/prof
 
 if [ $? -ne 0 ]; then exit 1;  fi
 
-(echo kill $1; echo exit) | nc localhost 12345
+#(echo kill $1; echo exit) | nc localhost 12345
