@@ -28,7 +28,7 @@ public class DeleteProfileAdapter extends CommandExecutor implements
 
 		String profilejsonfile = destination + slash + "profiles" + slash
 				+ req.getparams.get("common_name") + "_profile.json";
-		
+
 		log.info("About to load existing profile JSON:" + profilejsonfile);
 
 		JSONObject profilejson = new JSONObject(
@@ -50,7 +50,7 @@ public class DeleteProfileAdapter extends CommandExecutor implements
 
 		log.info("JSON deleted");
 
-		return new Response(profilejson.toString(), true);
+		return new Response("", true);
 
 	}
 

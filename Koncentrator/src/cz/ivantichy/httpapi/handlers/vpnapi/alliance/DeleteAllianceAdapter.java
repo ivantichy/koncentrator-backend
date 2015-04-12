@@ -26,9 +26,9 @@ public class DeleteAllianceAdapter extends CommandExecutor implements
 		log.debug("DELETE GET data: " + req.getparams);
 
 		log.info("going to handle DELETE. Reading/parsing JSON.");
-		
+
 		@SuppressWarnings({ "unchecked", "rawtypes" })
-		JSONObject json = new JSONObject((Map)req.getparams);
+		JSONObject json = new JSONObject((Map) req.getparams);
 		log.debug("Parsed JSON: " + json);
 
 		String destination = Static.OPENVPNLOCATION + Static.INSTANCESFOLDER
@@ -65,7 +65,7 @@ public class DeleteAllianceAdapter extends CommandExecutor implements
 
 		// json.merge(cajson);
 
-		if (!alliancejson.keySet().contains("blocked") 
+		if (!alliancejson.keySet().contains("blocked")
 				|| !alliancejson.getString("blocked").equalsIgnoreCase("y")) {
 			throw new IOException("Alliance must be blocked to be deleted.");
 
@@ -83,7 +83,7 @@ public class DeleteAllianceAdapter extends CommandExecutor implements
 
 		log.info("JSON deleted");
 
-		return new Response(json.toString(), true);
+		return new Response("", true);
 	}
 
 }
