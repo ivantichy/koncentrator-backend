@@ -10,11 +10,7 @@ import org.json.JSONObject;
 import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.koncentrator.simple.certgen.CommandExecutor;
 import cz.ivantichy.supersimple.restapi.handlers.interfaces.DELETEHandlerInterface;
-import cz.ivantichy.supersimple.restapi.handlers.interfaces.POSTHandlerInterface;
-import cz.ivantichy.supersimple.restapi.handlers.interfaces.PUTHandlerInterface;
 import cz.ivantichy.supersimple.restapi.server.DELETERequest;
-import cz.ivantichy.supersimple.restapi.server.POSTRequest;
-import cz.ivantichy.supersimple.restapi.server.PUTRequest;
 import cz.ivantichy.supersimple.restapi.server.Response;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
@@ -30,7 +26,8 @@ public class DeleteAllianceAdapter extends CommandExecutor implements
 		log.debug("DELETE GET data: " + req.getparams);
 
 		log.info("going to handle DELETE. Reading/parsing JSON.");
-		@SuppressWarnings("unchecked")
+		
+		@SuppressWarnings({ "unchecked", "rawtypes" })
 		JSONObject json = new JSONObject((Map)req.getparams);
 		log.debug("Parsed JSON: " + json);
 

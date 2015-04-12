@@ -9,7 +9,6 @@ import org.testng.annotations.Test;
 
 import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.supersimple.restapi.server.DELETERequest;
-import cz.ivantichy.supersimple.restapi.server.PUTRequest;
 
 public class DeleteAllianceAdapterTest {
 

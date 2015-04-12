@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 
 import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.supersimple.restapi.server.POSTRequest;
-import cz.ivantichy.supersimple.restapi.server.PUTRequest;
 
 public class BlockAllianceAdapterTest {
 

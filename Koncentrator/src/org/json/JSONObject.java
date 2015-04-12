@@ -239,6 +239,8 @@ public class JSONObject {
 	 *            the JSONObject.
 	 * @throws JSONException
 	 */
+
+	
 	public JSONObject(Map<String, Object> map) {
 		this.map = new HashMap<String, Object>();
 		if (map != null) {
