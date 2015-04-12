@@ -242,16 +242,13 @@ public class JSONObject {
 	public JSONObject(Map<String, Object> map) {
 		this.map = new HashMap<String, Object>();
 		if (map != null) {
-
-			for (Iterator<String> iterator = map.keySet().iterator(); iterator
-					.hasNext();) {
-				String key = iterator.next();
-				Object value = map.get(key);
-
+			Iterator<Entry<String, Object>> i = map.entrySet().iterator();
+			while (i.hasNext()) {
+				Entry<String, Object> entry = i.next();
+				Object value = entry.getValue();
 				if (value != null) {
-					this.map.put(key, wrap(value));
+					this.map.put(entry.getKey(), wrap(value));
 				}
-
 			}
 		}
 	}
