@@ -25,7 +25,7 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.te
 
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.CreateProfileAdapterTest profile.json
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.BlockProfileAdapterTest profile.json
-java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.DeleteProfileAdapterTest test tun-basic-12345 tun-basic
+java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.DeleteProfileAdapterTest tun-basic-12345 tun-basic test
 
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.BlockSubVPNAdapterTest ca.json
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.DeleteSubVPNAdapterTest tun-basic-12345 tun-basic
