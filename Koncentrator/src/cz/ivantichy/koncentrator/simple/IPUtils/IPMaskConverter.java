@@ -34,6 +34,8 @@ public class IPMaskConverter {
 			return "255.255.255.240";
 		case "26":
 			return "255.255.255.192";
+		case "25":
+			return "255.255.255.128";
 		case "24":
 			return "255.255.255.0";
 		case "16":
@@ -59,6 +61,8 @@ public class IPMaskConverter {
 			return "28";
 		case "255.255.255.192":
 			return "26";
+		case "255.255.255.128":
+			return "25";
 		case "255.255.255.0":
 			return "24";
 		case "255.255.0.0":
