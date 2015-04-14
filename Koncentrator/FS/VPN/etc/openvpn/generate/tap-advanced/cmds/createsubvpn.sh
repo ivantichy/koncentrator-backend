@@ -2,6 +2,7 @@
 # subvpn_name subvpntype ip_range1
 set -x
 
+exit 0
 echo $1 $2 $3
 device=`cat /etc/openvpn/$2/$1/device`
 fail=0
