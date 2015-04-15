@@ -9,25 +9,25 @@ import org.json.JSONObject;
 import cz.ivantichy.base64.B64;
 import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.koncentrator.simple.certgen.CommandExecutor;
-import cz.ivantichy.supersimple.restapi.handlers.interfaces.PUTHandlerInterface;
-import cz.ivantichy.supersimple.restapi.server.PUTRequest;
+import cz.ivantichy.supersimple.restapi.handlers.interfaces.POSTHandlerInterface;
+import cz.ivantichy.supersimple.restapi.server.POSTRequest;
 import cz.ivantichy.supersimple.restapi.server.Response;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
-public class CreateProfileAdapter extends CommandExecutor implements
-		PUTHandlerInterface {
+public class UpdateProfileAdapter extends CommandExecutor implements
+		POSTHandlerInterface {
 
 	private static final Logger log = LogManager
-			.getLogger(CreateProfileAdapter.class.getName());
+			.getLogger(UpdateProfileAdapter.class.getName());
 
 	@Override
-	public Response handlePUT(PUTRequest req) throws IOException {
+	public Response handlePOST(POSTRequest req) throws IOException {
 		clear();
 
-		log.debug("PUT data: " + req.putdata);
+		log.debug("PUT data: " + req.postdata);
 
 		log.info("going to handle PUT. Reading/parsing JSON.");
-		JSONObject json = new JSONObject(req.putdata);
+		JSONObject json = new JSONObject(req.postdata);
 
 		String destination = Static.OPENVPNLOCATION + Static.INSTANCESFOLDER
 				+ json.getString("subvpn_type") + Static.FOLDERSEPARATOR
@@ -39,17 +39,17 @@ public class CreateProfileAdapter extends CommandExecutor implements
 		String config = FileWork.readFile(sourceconfigpath);
 		log.debug("Config read: " + config);
 
-		String cajsonfile = destination + slash
-				+ json.getString("subvpn_name") + ".json";
+		String cajsonfile = destination + slash + json.getString("subvpn_name")
+				+ ".json";
 		log.info("Reading Server JSON: " + cajsonfile);
-		JSONObject serverjson = new JSONObject(
-				FileWork.readFile(cajsonfile));
+		JSONObject serverjson = new JSONObject(FileWork.readFile(cajsonfile));
 		log.debug("Server JSON: " + serverjson.toString());
 
+		// schvalne, zda to zde upadne
 		serverjson.put("server_common_name", serverjson.get("common_name"));
 		serverjson.remove("common_name");
-		
-		json.merge(serverjson);
+
+		json = serverjson.merge(json);
 		log.info("Going to fill config templace");
 
 		config = fillConfig(config, json);
@@ -58,10 +58,12 @@ public class CreateProfileAdapter extends CommandExecutor implements
 
 		appendLine("set -ex \n");
 		appendLine("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n");
+
+		// # common_name ip_remote ip_local subvpn_name subvpn_type
+		// # $1 $2 $3 $4 $5
+		//appendLine("./createprofile.sh {common_name} {ip_remote} {ip_local} {subvpn_name} {subvpn_type}\n");
+		// update profile
 		
-		//# common_name ip_remote ip_local subvpn_name subvpn_type
-		//# $1                    $2       $3      $4 $5
-		appendLine("./createprofile.sh {common_name} {ip_remote} {ip_local} {subvpn_name} {subvpn_type}\n");
 		exec(json);
 		json.put("destination", destination.replaceAll("//", "/"));
 
