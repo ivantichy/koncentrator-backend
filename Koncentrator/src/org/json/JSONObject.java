@@ -1687,7 +1687,13 @@ public class JSONObject {
 			throw new JSONException(exception);
 		}
 	}
-
+/**
+ * 
+ * Take input json, iterate it and replace all top level fields of <i>this</i> (actual) object.
+ * All fields on actual object are replaced with fields from input json. Missing fields are left intact.
+ * @param json
+ * @return merged product s JSONObject (<i>this</i>)
+ */
 	public JSONObject merge(JSONObject json) {
 
 		// TODO multilevel merge
@@ -1700,7 +1706,7 @@ public class JSONObject {
 
 		}
 
-		return json;
+		return this;
 	}
 
 }
