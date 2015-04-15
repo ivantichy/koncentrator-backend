@@ -18,9 +18,10 @@ wget "http://127.0.0.1:10001/generateprofile/?subvpn_name=tap-advanced-12345&sub
 
 chmod 666 *.json
 
-./zablokovani_profilu_TAP-ADVANCED-UDP.sh
-./smazani_profilu_TAP-ADVANCED-UDP.sh
+
+./Koncentrator/test/Scenarios/zablokovani_profilu_TAP-ADVANCED-UDP.sh
+./Koncentrator/test/Scenarios/smazani_profilu_TAP-ADVANCED-UDP.sh
 # pokud nedoslo ke zmene IP adresy (pokud ano -> wait)
-./vytvoreni_profilu_TAP-ADVANCED-UDP.sh
+./Koncentrator/test/Scenarios/vytvoreni_profilu_TAP-ADVANCED-UDP.sh
 
 pkill -e -f ".*cz.ivantichy.httpapi.handlers.vpnapi.*"

@@ -23,7 +23,7 @@ curl -v -X PUT "http://127.0.0.1:10002/createserver" -d @server.json
 
 pkill -e -f ".*cz.ivantichy.httpapi.handlers.vpnapi.*"
 
-## zmìna IP u profilù!
+
 
 
 
