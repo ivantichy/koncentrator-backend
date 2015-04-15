@@ -46,8 +46,8 @@ public class UpdateProfileAdapter extends CommandExecutor implements
 		log.debug("Server JSON: " + serverjson.toString());
 
 		// schvalne, zda to zde upadne
-		serverjson.put("server_common_name", serverjson.get("common_name"));
-		serverjson.remove("common_name");
+		// serverjson.put("server_common_name", serverjson.get("common_name"));
+		// serverjson.remove("common_name");
 
 		json = serverjson.merge(json);
 		log.info("Going to fill config templace");
@@ -61,9 +61,9 @@ public class UpdateProfileAdapter extends CommandExecutor implements
 
 		// # common_name ip_remote ip_local subvpn_name subvpn_type
 		// # $1 $2 $3 $4 $5
-		//appendLine("./createprofile.sh {common_name} {ip_remote} {ip_local} {subvpn_name} {subvpn_type}\n");
+		// appendLine("./createprofile.sh {common_name} {ip_remote} {ip_local} {subvpn_name} {subvpn_type}\n");
 		// update profile
-		
+
 		exec(json);
 		json.put("destination", destination.replaceAll("//", "/"));
 
