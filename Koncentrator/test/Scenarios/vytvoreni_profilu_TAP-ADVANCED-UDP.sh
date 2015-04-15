@@ -18,7 +18,12 @@ wget "http://127.0.0.1:10001/generateprofile/?subvpn_name=tap-advanced-12345&sub
 
 chmod 666 *.json
 
+java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter profile.json remote_ip 10.10.10.10
+java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter profile.json local_ip 10.10.10.11
+java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter profile.json profile_commands ""
+
+
 #VPN createProfile
-curl -v -X PUT "http://digitalocean.ivantichy.cz:10002/createprofile" -d @profile.json
+curl -v -X PUT "http://127.0.0.1:10002/createprofile" -d @profile.json
 
 pkill -e -f ".*cz.ivantichy.httpapi.handlers.vpnapi.*"
