@@ -12,10 +12,10 @@ public class UpdateServerAdapterTest {
 	@Test()
 	public static void main(String[] args) throws IOException {
 
-		UpdateProfileAdapter upa = new UpdateProfileAdapter();
+		UpdateServerAdapter usa = new UpdateServerAdapter();
 
 		String json = FileWork.readFile(args[0]);
-		upa.handlePOST(new POSTRequest(null, null, null, json, null));
+		usa.handlePOST(new POSTRequest(null, null, null, json, null));
 
 	}
 }
