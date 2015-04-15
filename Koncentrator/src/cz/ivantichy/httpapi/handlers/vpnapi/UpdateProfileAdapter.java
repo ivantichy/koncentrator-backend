@@ -46,10 +46,12 @@ public class UpdateProfileAdapter extends CommandExecutor implements
 		log.debug("Server JSON: " + serverjson.toString());
 
 		// schvalne, zda to zde upadne
-		// serverjson.put("server_common_name", serverjson.get("common_name"));
-		// serverjson.remove("common_name");
+		serverjson.put("server_common_name", serverjson.get("common_name"));
+		serverjson.remove("common_name");
 
 		json = serverjson.merge(json);
+		
+		log.debug("Merged JSON: " + serverjson.toString());
 		log.info("Going to fill config templace");
 
 		config = fillConfig(config, json);
