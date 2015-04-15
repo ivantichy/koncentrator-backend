@@ -39,18 +39,20 @@ public class UpdateProfileAdapter extends CommandExecutor implements
 		String config = FileWork.readFile(sourceconfigpath);
 		log.debug("Config read: " + config);
 
-		String cajsonfile = destination + slash + json.getString("subvpn_name")
-				+ ".json";
-		log.info("Reading Server JSON: " + cajsonfile);
-		JSONObject serverjson = new JSONObject(FileWork.readFile(cajsonfile));
-		log.debug("Server JSON: " + serverjson.toString());
+		String oldprofilejsonfile = destination + slash + "profiles" + slash
+				+ json.getString("common_name") + "_profile.json";
+
+		log.info("Reading Old Profile JSON: " + oldprofilejsonfile);
+		JSONObject oldprofilejson = new JSONObject(
+				FileWork.readFile(oldprofilejsonfile));
+		log.debug("Old profile JSON: " + oldprofilejson.toString());
 
 		// schvalne, zda to zde upadne
-		serverjson.put("server_common_name", serverjson.get("common_name"));
-		serverjson.remove("common_name");
+		// serverjson.put("server_common_name", serverjson.get("common_name"));
+		// serverjson.remove("common_name");
 
-		json = serverjson.merge(json);
-		
+		json = oldprofilejson.merge(json);
+
 		log.debug("Merged JSON: " + json.toString());
 		log.info("Going to fill config templace");
 
