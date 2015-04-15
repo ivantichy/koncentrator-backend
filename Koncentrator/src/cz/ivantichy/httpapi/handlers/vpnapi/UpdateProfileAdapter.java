@@ -51,7 +51,7 @@ public class UpdateProfileAdapter extends CommandExecutor implements
 
 		json = serverjson.merge(json);
 		
-		log.debug("Merged JSON: " + serverjson.toString());
+		log.debug("Merged JSON: " + json.toString());
 		log.info("Going to fill config templace");
 
 		config = fillConfig(config, json);
