@@ -21,6 +21,8 @@ public class FileWork {
 
 	public static void saveFile(String file, String data) throws IOException {
 
+		log.debug("Going to save file: " + file);
+
 		FileUtils.writeStringToFile(new File(file), data);
 	}
 
