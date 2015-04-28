@@ -1,4 +1,4 @@
-package cz.ivantichy.koncentrator.simple.certgen;
+package cz.ivantichy.httpapi.executors;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -10,6 +10,8 @@ import org.json.JSONObject;
 
 import cz.ivantichy.base64.B64;
 import cz.ivantichy.fileutils.FileWork;
+import cz.ivantichy.koncentrator.simple.certgen.E_rrorLogSyncPipe;
+import cz.ivantichy.koncentrator.simple.certgen.LogSyncPipe;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
 public abstract class CommandExecutor {

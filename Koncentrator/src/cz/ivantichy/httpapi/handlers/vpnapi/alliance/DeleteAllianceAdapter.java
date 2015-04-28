@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import cz.ivantichy.fileutils.FileWork;
-import cz.ivantichy.koncentrator.simple.certgen.CommandExecutor;
+import cz.ivantichy.httpapi.executors.CommandExecutor;
 import cz.ivantichy.supersimple.restapi.handlers.interfaces.DELETEHandlerInterface;
 import cz.ivantichy.supersimple.restapi.server.DELETERequest;
 import cz.ivantichy.supersimple.restapi.server.Response;

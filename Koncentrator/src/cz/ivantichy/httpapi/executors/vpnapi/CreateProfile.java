@@ -1,4 +1,4 @@
-package cz.ivantichy.httpapi.handlers.vpnapi;
+package cz.ivantichy.httpapi.executors.vpnapi;
 
 import java.io.IOException;
 
@@ -9,25 +9,20 @@ import org.json.JSONObject;
 import cz.ivantichy.base64.B64;
 import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.httpapi.executors.CommandExecutor;
-import cz.ivantichy.supersimple.restapi.handlers.interfaces.POSTHandlerInterface;
-import cz.ivantichy.supersimple.restapi.server.POSTRequest;
+import cz.ivantichy.supersimple.restapi.handlers.interfaces.PUTHandlerInterface;
+import cz.ivantichy.supersimple.restapi.server.PUTRequest;
 import cz.ivantichy.supersimple.restapi.server.Response;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
-public class UpdateProfileAdapter extends CommandExecutor implements
-		POSTHandlerInterface {
+public class CreateProfile extends CommandExecutor {
 
-	private static final Logger log = LogManager
-			.getLogger(UpdateProfileAdapter.class.getName());
+	private static final Logger log = LogManager.getLogger(CreateProfile.class
+			.getName());
 
-	@Override
-	public Response handlePOST(POSTRequest req) throws IOException {
+	public static JSONObject createProfileTapAdvanced(JSONObject json)
+			throws IOException {
+
 		clear();
-
-		log.debug("PUT data: " + req.postdata);
-
-		log.info("going to handle PUT. Reading/parsing JSON.");
-		JSONObject json = new JSONObject(req.postdata);
 
 		String destination = Static.OPENVPNLOCATION + Static.INSTANCESFOLDER
 				+ json.getString("subvpn_type") + Static.FOLDERSEPARATOR
@@ -39,21 +34,16 @@ public class UpdateProfileAdapter extends CommandExecutor implements
 		String config = FileWork.readFile(sourceconfigpath);
 		log.debug("Config read: " + config);
 
-		String oldprofilejsonfile = destination + slash + "profiles" + slash
-				+ json.getString("common_name") + "_profile.json";
+		String cajsonfile = destination + slash + json.getString("subvpn_name")
+				+ ".json";
+		log.info("Reading Server JSON: " + cajsonfile);
+		JSONObject serverjson = new JSONObject(FileWork.readFile(cajsonfile));
+		log.debug("Server JSON: " + serverjson.toString());
 
-		log.info("Reading Old Profile JSON: " + oldprofilejsonfile);
-		JSONObject oldprofilejson = new JSONObject(
-				FileWork.readFile(oldprofilejsonfile));
-		log.debug("Old profile JSON: " + oldprofilejson.toString());
+		serverjson.put("server_common_name", serverjson.get("common_name"));
+		serverjson.remove("common_name");
 
-		// schvalne, zda to zde upadne
-		// serverjson.put("server_common_name", serverjson.get("common_name"));
-		// serverjson.remove("common_name");
-
-		json = oldprofilejson.merge(json);
-
-		log.debug("Merged JSON: " + json.toString());
+		json.merge(serverjson);
 		log.info("Going to fill config templace");
 
 		config = fillConfig(config, json);
@@ -65,9 +55,7 @@ public class UpdateProfileAdapter extends CommandExecutor implements
 
 		// # common_name ip_remote ip_local subvpn_name subvpn_type
 		// # $1 $2 $3 $4 $5
-		// appendLine("./createprofile.sh {common_name} {ip_remote} {ip_local} {subvpn_name} {subvpn_type}\n");
-		// update profile
-
+		appendLine("./createprofile.sh {common_name} {ip_remote} {ip_local} {subvpn_name} {subvpn_type}\n");
 		exec(json);
 		json.put("destination", destination.replaceAll("//", "/"));
 
@@ -81,10 +69,10 @@ public class UpdateProfileAdapter extends CommandExecutor implements
 		log.info("JSON stored");
 		log.debug("Stored JSON: " + json.toString());
 
-		return new Response(json.toString(), true);
+		return json;
 	}
 
-	private String fillConfig(String config, JSONObject json) {
+	private static String fillConfig(String config, JSONObject json) {
 
 		config = replaceField("server_port", config, json);
 		config = replaceField("server_protocol", config, json);
@@ -101,6 +89,15 @@ public class UpdateProfileAdapter extends CommandExecutor implements
 						System.lineSeparator());
 
 		return config;
+
+	}
+
+	public static JSONObject createProfileTunBasic(JSONObject json)
+			throws IOException {
+		clear();
+
+		throw new IOException("not implemented");
+		//return json;
 
 	}
 

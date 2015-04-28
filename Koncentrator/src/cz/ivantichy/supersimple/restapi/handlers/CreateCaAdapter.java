@@ -56,9 +56,18 @@ public class CreateCaAdapter implements PUTHandlerInterface {
 
 			if (!Static.SAFE_STRING_TYPE_CHECK.matcher(subvpn_type).matches()) {
 				throw new IOException("Invalid character");
+
 			}
 
-			return new Response(CreateCa.createCa(json), true);
+			if (subvpn_type.equalsIgnoreCase(Static.TUN_BASIC_TYPE)) {
+				return new Response(CreateCa.createCaTunBasic(json), true);
+
+			}
+			if (subvpn_type.equalsIgnoreCase(Static.TAP_ADVANCED_TYPE)) {
+				return new Response(CreateCa.createCaTapAdvanced(json), true);
+			}
+
+			throw new IOException("unsuported subvpn_type");
 
 		} catch (Exception e) {
 

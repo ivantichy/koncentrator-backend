@@ -1,4 +1,4 @@
-package cz.ivantichy.httpapi.handlers.vpnapi;
+package cz.ivantichy.httpapi.executors.vpnapi;
 
 import java.io.IOException;
 
@@ -7,26 +7,21 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import cz.ivantichy.fileutils.FileWork;
+import cz.ivantichy.httpapi.executors.CommandExecutor;
+import cz.ivantichy.httpapi.executors.Create;
 import cz.ivantichy.koncentrator.simple.IPUtils.IPMaskConverter;
-import cz.ivantichy.koncentrator.simple.certgen.CommandExecutor;
 import cz.ivantichy.supersimple.restapi.handlers.interfaces.PUTHandlerInterface;
 import cz.ivantichy.supersimple.restapi.server.PUTRequest;
 import cz.ivantichy.supersimple.restapi.server.Response;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
-public class CreateSubVPNAdapter extends CommandExecutor implements
-		PUTHandlerInterface {
-	private static final Logger log = LogManager
-			.getLogger(CreateSubVPNAdapter.class.getName());
+public class CreateSubVPN extends CommandExecutor implements Create {
+	private static final Logger log = LogManager.getLogger(CreateSubVPN.class
+			.getName());
 
-	@Override
-	public Response handlePUT(PUTRequest req) throws IOException {
+	private static JSONObject createSubVPNTapAdvanced(JSONObject json)
+			throws IOException {
 		clear();
-
-		log.debug("PUT data: " + req.putdata);
-
-		log.info("going to handle PUT. Reading/parsing JSON.");
-		JSONObject json = new JSONObject(req.putdata);
 
 		if (json.keySet().contains("ip_range")) {
 
@@ -59,6 +54,22 @@ public class CreateSubVPNAdapter extends CommandExecutor implements
 		log.info("JSON stored");
 		log.debug("Stored JSON: " + json.toString());
 
-		return new Response(json.toString(), true);
+		return json;
+	}
+
+	public static JSONObject createSubVPNTunBasic(JSONObject json)
+			throws IOException {
+
+		return createSubVPNTapAdvanced(json);
+	}
+
+	@Override
+	public JSONObject createForTunBasic(JSONObject json) throws IOException {
+		return createSubVPNTapAdvanced(json);
+	}
+
+	@Override
+	public JSONObject createForTapAdvanced(JSONObject json) throws IOException {
+		return createSubVPNTapAdvanced(json);
 	}
 }

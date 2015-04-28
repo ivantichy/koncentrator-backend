@@ -1,17 +1,20 @@
 package cz.ivantichy.koncentrator.simple.certgen;
 
+import java.io.IOException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import cz.ivantichy.fileutils.FileWork;
+import cz.ivantichy.httpapi.executors.CommandExecutor;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
 public class CreateCa extends CommandExecutor {
 	private static final Logger log = LogManager.getLogger(CreateCa.class
 			.getName());
 
-	public static synchronized String createCa(JSONObject json)
+	public static synchronized String createCaTapAdvanced(JSONObject json)
 			throws Exception {
 		log.info("CreateCa started");
 		clear();
@@ -61,4 +64,15 @@ public class CreateCa extends CommandExecutor {
 		return json.toString();
 
 	}
+	
+	public static synchronized String createCaTunBasic(JSONObject json) throws IOException{
+		
+		throw new IOException ("Cannot create CA for tun-basic.");
+		
+		
+	}
+	
+	
+	
+	
 }

@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
+import cz.ivantichy.httpapi.executors.CreateAdapter;
+import cz.ivantichy.httpapi.executors.vpnapi.CreateSubVPN;
 import cz.ivantichy.supersimple.restapi.server.Server;
 
 public class CreateSubVPNAdapterTest {
@@ -38,7 +40,7 @@ public class CreateSubVPNAdapterTest {
 
 		Server s = new Server();
 
-		s.registerPUTHandler("/test/", new CreateSubVPNAdapter());
+		s.registerPUTHandler("/test/", new CreateAdapter(new CreateSubVPN()));
 
 		int port;
 

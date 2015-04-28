@@ -2,6 +2,8 @@ package cz.ivantichy.supersimple.restapi.staticvariables;
 
 import java.util.regex.Pattern;
 
+import org.json.JSONObject;
+
 public class Static {
 
 	public static final Pattern STRING_TYPE_CHECK = Pattern
@@ -47,5 +49,6 @@ public class Static {
 	public final static String GENERATEFOLDER = "generate/";
 	public final static String INSTANCESFOLDER = "instances/";
 	public static final String RSALOCATION = "/etc/openvpn/easy-rsa/2.0/";
-
+	public static final String TUN_BASIC_TYPE = "tun-basic";
+	public static final String TAP_ADVANCED_TYPE = "tap-advanced";
 }

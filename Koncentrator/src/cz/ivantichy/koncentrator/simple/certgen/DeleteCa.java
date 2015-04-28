@@ -1,6 +1,7 @@
 package cz.ivantichy.koncentrator.simple.certgen;
 
 import cz.ivantichy.fileutils.FileWork;
+import cz.ivantichy.httpapi.executors.CommandExecutor;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
 public class DeleteCa extends CommandExecutor {

@@ -9,6 +9,7 @@ import java.nio.file.Paths;
 import org.json.JSONObject;
 
 import cz.ivantichy.base64.B64;
+import cz.ivantichy.httpapi.executors.CommandExecutor;
 public class GenerateProfile extends CommandExecutor {
 
 	
