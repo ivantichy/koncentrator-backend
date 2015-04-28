@@ -64,15 +64,17 @@ public class CreateCa extends CommandExecutor {
 		return json.toString();
 
 	}
-	
-	public static synchronized String createCaTunBasic(JSONObject json) throws IOException{
-		
-		throw new IOException ("Cannot create CA for tun-basic.");
-		
-		
+
+	public static synchronized String createCaTunBasic(JSONObject json)
+			throws IOException {
+
+		if (!json.keySet().contains("override")) {
+			throw new IOException(
+					"Invalid operation. Cannot create CA for tun-basic.");
+		}
+
+		return createCaTunBasic(json);
+
 	}
-	
-	
-	
-	
+
 }
