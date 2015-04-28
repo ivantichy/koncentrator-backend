@@ -32,7 +32,7 @@ public class CreateCaAdapterTest {
 		json.put("domain", domain);
 		json.put("ca_valid_days", days);
 
-		if (args[2].equalsIgnoreCase("override")) {
+		if (args.length > 2 && args[2].equalsIgnoreCase("override")) {
 			json.put("override", "y");
 		}
 		CreateCaAdapter cca = new CreateCaAdapter();
