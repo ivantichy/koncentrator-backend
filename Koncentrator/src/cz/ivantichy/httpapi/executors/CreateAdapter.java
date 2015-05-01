@@ -2,6 +2,7 @@ package cz.ivantichy.httpapi.executors;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -37,10 +38,13 @@ public class CreateAdapter implements PUTHandlerInterface {
 				Static.TUN_BASIC_TYPE)) {
 
 			try {
-				Class.forName(creator.getClass().getName())
-						.getDeclaredMethod("createForTunBasic",
-								JSONObject.class)
-						.invoke(null, new Object[] { json });
+				
+				Class<?> c = Class.forName(creator.getClass().getName());
+				
+						Method m = c.getDeclaredMethod("createForTunBasic",
+								JSONObject.class);
+								
+						m.invoke(null, new Object[] { json });
 			} catch (NoSuchMethodException | SecurityException
 					| ClassNotFoundException | IllegalAccessException
 					| IllegalArgumentException | InvocationTargetException e) {
