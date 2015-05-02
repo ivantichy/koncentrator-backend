@@ -56,18 +56,15 @@ public class CreateAdapter implements PUTHandlerInterface {
 
 				}
 
-				m.invoke(null, new Object[] { json });
-			} catch (NoSuchMethodException | SecurityException
-					| ClassNotFoundException | IllegalAccessException
-					| IllegalArgumentException | InvocationTargetException e) {
+				m.invoke(c.newInstance(), new Object[] { json });
+			} catch (Exception e) {
 				log.error(e.getStackTrace());
 				throw new IOException("Create handling failed.");
-
 			}
 			return new Response(creator.createForTunBasic(json).toString(),
 					true);
-
 		}
+
 		if (json.getString("subvpn_type").equalsIgnoreCase(
 				Static.TAP_ADVANCED_TYPE)) {
 			return new Response(creator.createForTapAdvanced(json).toString(),
