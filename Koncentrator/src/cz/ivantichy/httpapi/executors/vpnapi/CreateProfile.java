@@ -95,10 +95,9 @@ public class CreateProfile extends CommandExecutor {
 	public static JSONObject createProfileTunBasic(JSONObject json)
 			throws IOException {
 		clear();
-
-		throw new IOException("not implemented");
-		//return json;
-
+		// TODO not implemented
+		// throw new IOException("not implemented");
+		return createProfileTapAdvanced(json);
 	}
 
 }
