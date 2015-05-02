@@ -11,7 +11,7 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.supersimple.res
 
 
 # toto do ca.json prida parametr a ulozi to zase jako ca.json
-touch ca.json
+(echo {}) >  ca.json
 chmod 666 ca.json
 
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter ca.json subvpn_type tun-basic
