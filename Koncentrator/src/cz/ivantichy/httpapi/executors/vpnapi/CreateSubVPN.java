@@ -39,7 +39,6 @@ public class CreateSubVPN extends CommandExecutor implements Create {
 		log.info("Destination location:" + destination);
 		
 		FileWork.checkFolder(source, destination);
-		System.exit(0);
 		FileWork.copyFolder(source, destination);
 
 		
