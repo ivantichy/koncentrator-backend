@@ -5,14 +5,14 @@ home=`pwd`
 
 rm -r -f /etc/openvpn/*
 cd ./Koncentrator/FS/VPN
-cp -v -r -f * /
+cp  -r -f * /
 
 cd ..
 cd ..
 cd ..
 
 cd ./Koncentrator/FS/CERT
-cp -v -r -f * /
+cp -r -f * /
 
 cd /etc/openvpn
 #find . -type f | grep .sh | xargs  -n1 chmod +x $1 -v
