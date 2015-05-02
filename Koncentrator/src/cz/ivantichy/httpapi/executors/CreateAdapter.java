@@ -49,7 +49,7 @@ public class CreateAdapter implements PUTHandlerInterface {
 
 				for (int i = 0; i < ms.length; i++) {
 					log.debug("name " + ms[i].getName());
-					log.debug("name " + ms[i].getParameters()[0].getName());
+					log.debug("name " + ms[i].getParameters()[0].getType().getName());
 
 				}
 
