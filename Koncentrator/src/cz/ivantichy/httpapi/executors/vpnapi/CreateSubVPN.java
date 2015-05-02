@@ -40,8 +40,7 @@ public class CreateSubVPN extends CommandExecutor implements Create {
 		
 		FileWork.checkFolder(source, destination);
 		FileWork.copyFolder(source, destination);
-
-		
+	
 
 		appendLine("set -ex \n");
 		appendLine("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n");

@@ -44,13 +44,13 @@ public class CreateAdapter implements PUTHandlerInterface {
 				Method m = c.getDeclaredMethod("createForTunBasic",
 						JSONObject.class);
 
-				m.invoke(c.newInstance(), new Object[] { json });
+				return new Response(m.invoke(c.newInstance(),
+						new Object[] { json }).toString(), true);
 			} catch (Exception e) {
 				log.error(e.getStackTrace());
 				throw new IOException("Create handling failed.");
 			}
-			return new Response(creator.createForTunBasic(json).toString(),
-					true);
+
 		}
 
 		if (json.getString("subvpn_type").equalsIgnoreCase(
