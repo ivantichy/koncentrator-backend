@@ -65,9 +65,11 @@ public class CreateSubVPN extends CommandExecutor implements Create {
 
 	@Override
 	public JSONObject createForTunBasic(JSONObject json) throws IOException {
-		//return createSubVPNTapAdvanced(json);
 		
-		return json;
+		// TODO not implemented
+		return createSubVPNTapAdvanced(json);
+		
+		//return json;
 	}
 
 	@Override

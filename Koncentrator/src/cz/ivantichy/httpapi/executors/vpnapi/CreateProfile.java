@@ -97,6 +97,7 @@ public class CreateProfile extends CommandExecutor {
 		clear();
 		// TODO not implemented
 		// throw new IOException("not implemented");
+		
 		return createProfileTapAdvanced(json);
 	}
 
