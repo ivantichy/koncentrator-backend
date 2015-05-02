@@ -43,6 +43,12 @@ public class CreateAdapter implements PUTHandlerInterface {
 				
 						Method m = c.getMethod("createForTunBasic",
 								JSONObject.class);
+						
+					Method[] ms = c.getDeclaredMethods();
+					
+					for (int i = 0; i < ms.length; i++) {
+						log.debug(ms[i].getName());
+					}
 								
 						m.invoke(null, new Object[] { json });
 			} catch (NoSuchMethodException | SecurityException
