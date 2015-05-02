@@ -37,7 +37,12 @@ public class CreateSubVPN extends CommandExecutor implements Create {
 				+ json.getString("subvpn_type") + Static.FOLDERSEPARATOR
 				+ json.getString("subvpn_name") + Static.FOLDERSEPARATOR;
 		log.info("Destination location:" + destination);
-
+		try {
+			Thread.sleep(20000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		FileWork.checkFolder(source, destination);
 		FileWork.copyFolder(source, destination);
 
@@ -57,19 +62,13 @@ public class CreateSubVPN extends CommandExecutor implements Create {
 		return json;
 	}
 
-	public JSONObject createSubVPNTunBasic(JSONObject json)
-			throws IOException {
-
-		return createSubVPNTapAdvanced(json);
-	}
-
 	@Override
 	public JSONObject createForTunBasic(JSONObject json) throws IOException {
-		
+
 		// TODO not implemented
 		return createSubVPNTapAdvanced(json);
-		
-//		return json;
+
+		// return json;
 	}
 
 	@Override
