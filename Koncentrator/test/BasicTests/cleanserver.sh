@@ -15,8 +15,8 @@ cd ./Koncentrator/FS/CERT
 cp -r -f * /
 
 cd /etc/openvpn
-#find . -type f | grep .sh | xargs  -n1 chmod +x $1 -v
-find . -type f | xargs  -n1 chmod +x $1 -v
+#find . -type f | grep .sh | xargs  -n1 chmod +x $1
+find . -type f | xargs  -n1 chmod +x $1
 
 sudo iptables-restore /etc/iptables/rules.v4.backup
 
