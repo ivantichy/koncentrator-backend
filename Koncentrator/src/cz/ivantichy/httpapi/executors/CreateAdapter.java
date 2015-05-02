@@ -46,8 +46,10 @@ public class CreateAdapter implements PUTHandlerInterface {
 				Method[] ms = c.getDeclaredMethods();
 				log.debug("Size " + ms.length);
 
+				
+				
 				for (int i = 0; i < ms.length; i++) {
-					log.debug(ms[i].getName());
+					log.debug("name "+ms[i].getName());
 				}
 
 				m.invoke(null, new Object[] { json });
