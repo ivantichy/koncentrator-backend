@@ -7,7 +7,6 @@ set -o pipefail
 
 echo tun-basic
 
-java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.supersimple.restapi.handlers.CreateCaAdapterTest tun-basic-12345 tun-basic
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.supersimple.restapi.handlers.GenerateProfileAdapterTest test tun-basic-12345 tun-basic 
 
 # toto do ca.json prida parametr a ulozi to zase jako ca.json
