@@ -37,8 +37,9 @@ public class CreateSubVPN extends CommandExecutor implements Create {
 				+ json.getString("subvpn_type") + Static.FOLDERSEPARATOR
 				+ json.getString("subvpn_name") + Static.FOLDERSEPARATOR;
 		log.info("Destination location:" + destination);
-		System.exit(1);
+		
 		FileWork.checkFolder(source, destination);
+		System.exit(0);
 		FileWork.copyFolder(source, destination);
 
 		
