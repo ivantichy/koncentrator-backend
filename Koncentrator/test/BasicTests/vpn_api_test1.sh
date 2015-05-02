@@ -1,6 +1,7 @@
 #!/bin/bash
 set -ex 
 set -o pipefail
+rm *.json
 
 
 ## tap-advanced
