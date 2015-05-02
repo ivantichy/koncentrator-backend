@@ -19,7 +19,7 @@ public class CreateSubVPN extends CommandExecutor implements Create {
 	private static final Logger log = LogManager.getLogger(CreateSubVPN.class
 			.getName());
 
-	private static JSONObject createSubVPNTapAdvanced(JSONObject json)
+	private JSONObject createSubVPNTapAdvanced(JSONObject json)
 			throws IOException {
 		clear();
 
@@ -57,7 +57,7 @@ public class CreateSubVPN extends CommandExecutor implements Create {
 		return json;
 	}
 
-	public static JSONObject createSubVPNTunBasic(JSONObject json)
+	public JSONObject createSubVPNTunBasic(JSONObject json)
 			throws IOException {
 
 		return createSubVPNTapAdvanced(json);

@@ -6,7 +6,9 @@ import org.json.JSONObject;
 
 public interface Create {
 
-	public JSONObject createForTunBasic(JSONObject json) throws IOException;
+	public abstract JSONObject createForTunBasic(JSONObject json)
+			throws IOException;
 
-	public JSONObject createForTapAdvanced(JSONObject json) throws IOException;
+	public abstract JSONObject createForTapAdvanced(JSONObject json)
+			throws IOException;
 }
