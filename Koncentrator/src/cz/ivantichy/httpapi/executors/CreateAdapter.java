@@ -44,12 +44,15 @@ public class CreateAdapter implements PUTHandlerInterface {
 				Method m = c.getDeclaredMethod("createForTunBasic",
 						JSONObject.class);
 
+				log.debug("j " + JSONObject.class.getName());
+
 				Method[] ms = c.getDeclaredMethods();
 				log.debug("Size " + ms.length);
 
 				for (int i = 0; i < ms.length; i++) {
 					log.debug("name " + ms[i].getName());
-					log.debug("name " + ms[i].getParameters()[0].getType().getName());
+					log.debug("name "
+							+ ms[i].getParameters()[0].getType().getName());
 
 				}
 
