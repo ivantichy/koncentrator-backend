@@ -4,7 +4,6 @@ set -o pipefail
 
 
 ## tun-basic
-
 echo tun-basic
 
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.supersimple.restapi.handlers.GenerateProfileAdapterTest test tun-basic-12345 tun-basic 
