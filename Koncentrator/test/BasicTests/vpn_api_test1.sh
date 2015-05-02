@@ -27,8 +27,6 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.te
 
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest2 ca.json
 
-exit
-
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.CreateServerAdapterTest server.json
 
 
