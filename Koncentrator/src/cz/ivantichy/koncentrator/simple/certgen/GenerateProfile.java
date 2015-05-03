@@ -25,7 +25,6 @@ public class GenerateProfile extends CommandExecutor {
 			name = "tun-basic-node-" + 1;
 
 			// TODO implementace multinode
-
 		}
 
 		String path = "instances/" + type + "/" + name;
