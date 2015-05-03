@@ -10,9 +10,10 @@ import org.json.JSONObject;
 
 import cz.ivantichy.base64.B64;
 import cz.ivantichy.httpapi.executors.CommandExecutor;
+import cz.ivantichy.supersimple.restapi.staticvariables.Static;
+
 public class GenerateProfile extends CommandExecutor {
 
-	
 	public static synchronized String generateProfile(String cn, String domain,
 			int days, String name, String type) throws Exception {
 		clear();
@@ -27,7 +28,14 @@ public class GenerateProfile extends CommandExecutor {
 		json.put("domain", domain);
 		json.put("profile_valid_days", days);
 
-		return createProfileToString(json, cn, path, name).toString();
+		if (type.equalsIgnoreCase(Static.TUN_BASIC_TYPE)) {
+			json.put("subvpn_name", "tun-basic-node-" + json.getInt("node"));
+
+		}
+
+		json = createProfileToString(json, cn, path, name);
+		json.put("subvpn_name", name);
+		return json.toString();
 
 	}
 
