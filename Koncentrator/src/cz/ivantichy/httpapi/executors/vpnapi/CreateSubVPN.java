@@ -23,7 +23,7 @@ public class CreateSubVPN extends CommandExecutor implements Create {
 			throws IOException {
 		clear();
 
-		if (json.keySet().contains("ip_range")) {
+		if (json.keySet().contains("ip_server")) {
 
 			json.put("ip_range", IPMaskConverter.maskToRange(
 					json.getString("ip_server"), json.getString("ip_mask")));

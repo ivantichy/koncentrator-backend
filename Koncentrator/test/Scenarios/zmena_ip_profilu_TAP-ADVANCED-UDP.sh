@@ -18,7 +18,7 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.te
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter profile.json local_ip 10.10.10.15
 
 #VPN createProfile
-curl -v -X PUT "http://127.0.0.1:10002/createprofile" -d @profile.json
+curl -v -X PUT "http://127.0.0.1:10002/updateprofile" -d @profile.json
 
 pkill -e -f ".*cz.ivantichy.httpapi.handlers.vpnapi.*"
 
