@@ -15,7 +15,7 @@ import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 public class GenerateProfile extends CommandExecutor {
 
 	public static synchronized String generateProfile(String cn, String domain,
-			int days, String name, String type, int node) throws Exception {
+			int days, String name, String type) throws Exception {
 		clear();
 		String orgname = name;
 
