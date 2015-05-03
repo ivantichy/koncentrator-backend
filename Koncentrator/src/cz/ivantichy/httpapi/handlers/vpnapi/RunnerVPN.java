@@ -24,7 +24,7 @@ public class RunnerVPN {
 
 		s.registerPUTHandler("/createprofile/", new CreateProfileAdapter());
 		
-		s.registerPOSTHandler("/udpateserver/", new UpdateServerAdapter());
+		s.registerPOSTHandler("/updateserver/", new UpdateServerAdapter());
 
 		s.registerPOSTHandler("/updateprofile/", new UpdateProfileAdapter());
 
