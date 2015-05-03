@@ -14,7 +14,7 @@ sleep 5
 
 #VPN delete subvpn
 
-curl -v -X DELETE "http://127.0.0.1:10002/deletesubvpn?subvpn_name=tap-advanced-12345&subvpn_type=tap-advanced"
+curl -f -v -X DELETE "http://127.0.0.1:10002/deletesubvpn?subvpn_name=tap-advanced-12345&subvpn_type=tap-advanced"
 
 pkill -e -f ".*cz.ivantichy.httpapi.handlers.vpnapi.*"
 

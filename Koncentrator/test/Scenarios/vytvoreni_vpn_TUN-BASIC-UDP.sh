@@ -27,7 +27,7 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.te
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter ca.json node 1
 
 #VPN createsubvpn
-curl -v -X PUT "http://127.0.0.1:10002/createsubvpn" -d @ca.json
+curl -f -v -X PUT "http://127.0.0.1:10002/createsubvpn" -d @ca.json
 
 
 #kill api servers

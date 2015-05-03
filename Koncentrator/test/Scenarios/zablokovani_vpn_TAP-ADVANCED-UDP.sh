@@ -13,7 +13,7 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handler
 sleep 5
 
 #VPN block subvpn
-curl -v -X POST "http://127.0.0.1:10002/blocksubvpnn" --data '{"subvpn_name" : "tap-advanced-12345", "subvpn_type" : "tap-advanced"}'
+curl -f -v -X POST "http://127.0.0.1:10002/blocksubvpnn" --data '{"subvpn_name" : "tap-advanced-12345", "subvpn_type" : "tap-advanced"}'
 
 pkill -e -f ".*cz.ivantichy.httpapi.handlers.vpnapi.*"
 

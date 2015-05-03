@@ -12,7 +12,7 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handler
 
 sleep 5
 
-curl -v -X DELETE "http://127.0.0.1:10002/deleteprofile?subvpn_name=tap-advanced-12345&subvpn_type=tap-advanced&common_name=test-hash-1111"
+curl -f -v -X DELETE "http://127.0.0.1:10002/deleteprofile?subvpn_name=tap-advanced-12345&subvpn_type=tap-advanced&common_name=test-hash-1111"
 
 pkill -e -f ".*cz.ivantichy.httpapi.handlers.vpnapi.*"
 

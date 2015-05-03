@@ -19,7 +19,7 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.te
 
 
 #VPN updateServer
-curl -v -X PUT "http://127.0.0.1:10002/updateserver" -d @server.json
+curl -f -v -X POST "http://127.0.0.1:10002/updateserver" -d @server.json
 
 pkill -e -f ".*cz.ivantichy.httpapi.handlers.vpnapi.*"
 

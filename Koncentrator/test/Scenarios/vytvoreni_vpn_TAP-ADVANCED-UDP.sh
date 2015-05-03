@@ -14,7 +14,7 @@ sleep 5
 
 
 #CERT createCa 
-curl -v -X PUT "http://127.0.0.1:10001/createca" --data '{"subvpn_name" : "tap-advanced-12345", "subvpn_type" : "tap-advanced", "domain" : "tap-advanced-12345.tap-advanced.koncentrator.cz", "ca_valid_days" : 3650}' -o ca.json
+curl -f -v -X PUT "http://127.0.0.1:10001/createca" --data '{"subvpn_name" : "tap-advanced-12345", "subvpn_type" : "tap-advanced", "domain" : "tap-advanced-12345.tap-advanced.koncentrator.cz", "ca_valid_days" : 3650}' -o ca.json
 
 #CERT generateServer
 wget "http://127.0.0.1:10001/generateserver/?subvpn_name=tap-advanced-12345&subvpn_type=tap-advanced&common_name=tap-advanced-12345&domain=tap-advanced-12345.tap-advanced.koncentrator.cz&server_valid_days=3650" -O server.json
@@ -33,10 +33,10 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.te
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter server.json server_commands ""
 
 #VPN createCa 
-curl -v -X PUT "http://127.0.0.1:10002/createsubvpn" -d @ca.json
+curl -f -v -X PUT "http://127.0.0.1:10002/createsubvpn" -d @ca.json
 
 #VPN createServer
-curl -v -X PUT "http://127.0.0.1:10002/createserver" -d @server.json
+curl -f -v -X PUT "http://127.0.0.1:10002/createserver" -d @server.json
 
 pkill -e -f ".*cz.ivantichy.httpapi.handlers.vpnapi.*"
 
