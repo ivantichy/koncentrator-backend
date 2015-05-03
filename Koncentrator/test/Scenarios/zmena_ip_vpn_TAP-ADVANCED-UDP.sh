@@ -18,7 +18,7 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.te
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter server.json ip_mask 255.255.255.128
 
 
-#VPN createServer
+#VPN updateServer
 curl -v -X PUT "http://127.0.0.1:10002/updateserver" -d @server.json
 
 pkill -e -f ".*cz.ivantichy.httpapi.handlers.vpnapi.*"
