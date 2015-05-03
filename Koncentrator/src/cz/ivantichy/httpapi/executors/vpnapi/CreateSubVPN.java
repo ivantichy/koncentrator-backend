@@ -61,7 +61,7 @@ public class CreateSubVPN extends CommandExecutor implements Create {
 	public JSONObject createForTunBasic(JSONObject json) throws IOException {
 
 		// TODO not implemented
-		json.put("common_name", json.getString("domain"));
+		json.put("common_name", json.getString("subvpn_type"));
 		return createSubVPNTapAdvanced(json);
 
 		// return json;
