@@ -72,7 +72,6 @@ public class CreateCa extends CommandExecutor {
 		json.put("subvpn_name", "tun-basic-node-" + json.getInt("node"));
 
 		json.put("subvpn_name", "tun-basic-node-" + json.getInt("node"));
-
 		if (!json.keySet().contains("override")) {
 			throw new IOException(
 					"Invalid operation. Cannot create CA for tun-basic.");
