@@ -47,8 +47,8 @@ public class CreateAdapter implements PUTHandlerInterface {
 				return new Response(m.invoke(c.newInstance(),
 						new Object[] { json }).toString(), true);
 			} catch (Exception e) {
-				log.error(e.getMessage());
-				log.error(e.getStackTrace().toString());
+				
+				log.error(e);
 
 				throw new IOException("Create handling failed.");
 			}
