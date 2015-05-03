@@ -68,12 +68,21 @@ public class CreateCa extends CommandExecutor {
 	public static synchronized String createCaTunBasic(JSONObject json)
 			throws Exception {
 
+		String orgname = json.getString("subvpn_name");
+		json.put("subvpn_name", "tun-basic-node-" + json.getInt("node"));
+
+		json.put("subvpn_name", "tun-basic-node-" + json.getInt("node"));
+
 		if (!json.keySet().contains("override")) {
 			throw new IOException(
 					"Invalid operation. Cannot create CA for tun-basic.");
 		}
 
-		return createCaTapAdvanced(json);
+		json = new JSONObject(json);
+
+		json.put("subvpn_name", orgname);
+
+		return json.toString();
 
 	}
 
