@@ -1,7 +1,9 @@
 package cz.ivantichy.httpapi.handlers.vpnapi;
 
+import java.io.File;
 import java.io.IOException;
 
+import org.apache.commons.io.FileUtils;
 import org.json.JSONObject;
 
 import cz.ivantichy.fileutils.FileWork;
@@ -25,6 +27,13 @@ public class DeleteProfileAdapter extends CommandExecutor implements
 				+ req.getparams.get("subvpn_type") + Static.FOLDERSEPARATOR
 				+ req.getparams.get("subvpn_name") + Static.FOLDERSEPARATOR;
 		log.info("Destination location:" + destination);
+
+		if (!FileWork.folderExists(destination)) {
+
+			log.error("Deleting profile and subvpn does not exist - long term profile delete not implemented");
+			return new Response("", true);
+
+		}
 
 		String profilejsonfile = destination + slash + "profiles" + slash
 				+ req.getparams.get("common_name") + "_profile.json";

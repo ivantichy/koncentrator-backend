@@ -100,4 +100,14 @@ public class FileWork {
 		log.info("Copy process exit code " + p.exitValue());
 
 	}
+
+	public static boolean folderExists(String path) {
+
+		log.info("Testing path: " + path);
+
+		File d = new File(path);
+
+		return (d.exists() && d.isDirectory());
+
+	}
 }
