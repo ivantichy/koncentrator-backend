@@ -37,15 +37,6 @@ public class GenerateProfile extends CommandExecutor {
 		json.put("domain", domain);
 		json.put("profile_valid_days", days);
 
-		log.debug("jsem zde");
-		log.debug(type);
-
-		if (type.equalsIgnoreCase(Static.TUN_BASIC_TYPE)) {
-			log.debug("Replacing subvpn_name");
-			json.put("subvpn_name", "tun-basic-node-" + json.getInt("node"));
-
-		}
-
 		json = createProfileToString(json, cn, path, name);
 		json.put("subvpn_name", name);
 		return json.toString();
