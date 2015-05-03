@@ -29,6 +29,7 @@ public class GenerateProfile extends CommandExecutor {
 		json.put("profile_valid_days", days);
 
 		if (type.equalsIgnoreCase(Static.TUN_BASIC_TYPE)) {
+			log.debug("Replacing subvpn_name");
 			json.put("subvpn_name", "tun-basic-node-" + json.getInt("node"));
 
 		}
