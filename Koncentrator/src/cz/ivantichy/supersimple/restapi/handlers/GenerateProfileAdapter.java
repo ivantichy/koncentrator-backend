@@ -64,7 +64,7 @@ public class GenerateProfileAdapter implements GETHandlerInterface {
 				throw new IOException("Invalid character");
 			}
 			
-			log.debug("Going to generate profide" +subvpn_name);
+			log.debug("Going to generate profile " +subvpn_name);
 
 			return new Response(GenerateProfile.generateProfile(cn, domain,
 					days, subvpn_name, subvpn_type), true);
