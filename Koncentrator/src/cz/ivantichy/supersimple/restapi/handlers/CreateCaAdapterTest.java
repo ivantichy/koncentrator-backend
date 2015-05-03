@@ -31,6 +31,7 @@ public class CreateCaAdapterTest {
 		json.put("subvpn_type", type);
 		json.put("domain", domain);
 		json.put("ca_valid_days", days);
+		json.put("node", 1);
 
 		if (args.length > 2 && args[2].equalsIgnoreCase("override")) {
 			json.put("override", "y");
