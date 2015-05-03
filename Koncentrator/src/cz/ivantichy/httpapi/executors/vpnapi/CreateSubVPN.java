@@ -62,6 +62,7 @@ public class CreateSubVPN extends CommandExecutor implements Create {
 
 		// TODO not implemented
 		json.put("common_name", json.getString("subvpn_type"));
+		json.put("server_port", json.getString("1234"));
 		return createSubVPNTapAdvanced(json);
 
 		// return json;
