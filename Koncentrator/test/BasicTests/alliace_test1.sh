@@ -27,6 +27,8 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handler
 
 # druha vpn
 
+rm *.json
+
 
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.supersimple.restapi.handlers.GenerateProfileAdapterTest test tun-basic-12346 tun-basic 
 
