@@ -63,6 +63,8 @@ public class GenerateProfileAdapter implements GETHandlerInterface {
 			if (!Static.SAFE_STRING_TYPE_CHECK.matcher(subvpn_type).matches()) {
 				throw new IOException("Invalid character");
 			}
+			
+			log.debug("Going to generate profide" +subvpn_name);
 
 			return new Response(GenerateProfile.generateProfile(cn, domain,
 					days, subvpn_name, subvpn_type), true);
