@@ -23,6 +23,12 @@ public class RunnerVPN {
 		s.registerPUTHandler("/createserver/", new CreateServerAdapter());
 
 		s.registerPUTHandler("/createprofile/", new CreateProfileAdapter());
+		
+		s.registerPOSTHandler("/udpateserver/", new UpdateServerAdapter());
+
+		s.registerPOSTHandler("/updateprofile/", new UpdateProfileAdapter());
+
+		
 		s.registerPOSTHandler("/blockprofile/", new BlockProfileAdapter());
 		s.registerDELETEHandler("/deleteprofile/", new DeleteProfileAdapter());
 
