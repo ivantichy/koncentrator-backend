@@ -4,13 +4,13 @@ set -ex
 set -o pipefail
 
 #CERT createCa 
-curl -v -X PUT "http://digitalocean.ivantichy.cz:10001/createca" --data '{"subvpn_name" : "tun-basic-12345", "subvpn_type" : "tun-basic", "domain" : "tun-basic-12345.tun-basic.koncentrator.cz", "ca_valid_days" : 3650}' -o ca.json
+curl -v -X PUT "http://digitalocean.ivantichy.cz:10001/createca" --data '{"subvpn_name" : "tap-advanced-12345", "subvpn_type" : "tap-advanced", "domain" : "tap-advanced-12345.tap-advanced.koncentrator.cz", "ca_valid_days" : 3650}' -o ca.json
 
 #CERT generateServer
-wget "http://digitalocean.ivantichy.cz:10001/generateserver/?subvpn_name=tun-basic-12345&subvpn_type=tun-basic&common_name=tun-basic-12345&domain=koncentrator.cz&server_valid_days=3650" -O server.json
+wget "http://digitalocean.ivantichy.cz:10001/generateserver/?subvpn_name=tap-advanced-12345&subvpn_type=tap-advanced&common_name=tap-advanced-12345&domain=koncentrator.cz&server_valid_days=3650" -O server.json
 
 #CERT generateProfile
-wget "http://digitalocean.ivantichy.cz:10001/generateprofile/?subvpn_name=tun-basic-12345&subvpn_type=tun-basic&common_name=test1&domain=koncentrator.cz&profile_valid_days=90" -O profile.json -T 10
+wget "http://digitalocean.ivantichy.cz:10001/generateprofile/?subvpn_name=tap-advanced-12345&subvpn_type=tap-advanced&common_name=test1&domain=koncentrator.cz&profile_valid_days=90" -O profile.json -T 10
 
 chmod 666 *.json
 
@@ -47,4 +47,4 @@ curl -v -X PUT "http://digitalocean.ivantichy.cz:10002/createprofile" -d @profil
 
 
 #CERT deleteCa
-curl -v -X DELETE "http://digitalocean.ivantichy.cz:10001/deleteca?subvpn_name=tun-basic-12345&subvpn_type=tun-basic"
+curl -v -X DELETE "http://digitalocean.ivantichy.cz:10001/deleteca?subvpn_name=tap-advanced-12345&subvpn_type=tap-advanced"
