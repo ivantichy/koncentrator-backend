@@ -1,6 +1,8 @@
 package cz.ivantichy.httpapi.executors;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -47,8 +49,14 @@ public class CreateAdapter implements PUTHandlerInterface {
 				return new Response(m.invoke(c.newInstance(),
 						new Object[] { json }).toString(), true);
 			} catch (Exception e) {
-				
+
 				log.error(e.getCause().getMessage());
+
+				StringWriter sw = new StringWriter();
+				PrintWriter pw = new PrintWriter(sw);
+				e.printStackTrace(pw);
+
+				log.error(sw.toString());
 
 				throw new IOException("Create handling failed.");
 			}
@@ -63,5 +71,4 @@ public class CreateAdapter implements PUTHandlerInterface {
 
 		throw new IOException("subvpn_type not implemented");
 	}
-
 }
