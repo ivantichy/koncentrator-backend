@@ -38,7 +38,7 @@ public class GenerateProfile extends CommandExecutor {
 		json.put("profile_valid_days", days);
 
 		json = createProfileToString(json, cn, path, name);
-		json.put("subvpn_name", name);
+		
 		return json.toString();
 
 	}
