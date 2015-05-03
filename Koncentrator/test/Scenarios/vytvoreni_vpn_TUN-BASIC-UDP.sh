@@ -15,9 +15,6 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handler
 sleep 8
 
 
-#CERT generateServer
-wget "http://127.0.0.1:10001/generateserver/?subvpn_name=tun-basic-12345&subvpn_type=tun-basic&common_name=tun-basic-12345&domain=tun-basic-12345.tun-basic.koncentrator.cz&server_valid_days=3650" -O server.json
-
 chmod 666 *.json
 
 
