@@ -15,19 +15,29 @@ import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 public class GenerateProfile extends CommandExecutor {
 
 	public static synchronized String generateProfile(String cn, String domain,
-			int days, String name, String type) throws Exception {
+			int days, String name, String type, int node) throws Exception {
 		clear();
+		String orgname = name;
+
+		if (type.equalsIgnoreCase(Static.TUN_BASIC_TYPE)) {
+			log.debug("Replacing subvpn_name");
+
+			name = "tun-basic-node-" + 1;
+
+			// TODO implementace multinode
+
+		}
 
 		String path = "instances/" + type + "/" + name;
 		exec(cn, domain, days, path);
 
 		JSONObject json = new JSONObject();
 		json.put("common_name", cn);
-		json.put("subvpn_name", name);
+		json.put("subvpn_name", orgname);
 		json.put("subvpn_type", type);
 		json.put("domain", domain);
 		json.put("profile_valid_days", days);
-		
+
 		log.debug("jsem zde");
 		log.debug(type);
 

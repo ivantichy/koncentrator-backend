@@ -26,6 +26,7 @@ public class GenerateProfileAdapter implements GETHandlerInterface {
 			int days = Integer.valueOf(req.getparams.get("profile_valid_days"));
 			String subvpn_name = req.getparams.get("subvpn_name");
 			String subvpn_type = req.getparams.get("subvpn_type");
+			//int node = Integer.parseInt(req.getparams.get("node"));
 
 			log.info("Received request to generate profile: " + cn + " "
 					+ domain + " " + days + " " + subvpn_name);
@@ -64,6 +65,7 @@ public class GenerateProfileAdapter implements GETHandlerInterface {
 				throw new IOException("Invalid character");
 			}
 			
+			if 
 			log.debug("Going to generate profile " +subvpn_name);
 
 			return new Response(GenerateProfile.generateProfile(cn, domain,
