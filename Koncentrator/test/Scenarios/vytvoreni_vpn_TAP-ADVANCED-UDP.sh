@@ -32,7 +32,7 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.te
 
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter server.json server_commands ""
 
-#VPN createCa 
+#VPN createsubvpn
 curl -f -v -X PUT "http://127.0.0.1:10002/createsubvpn" -d @ca.json
 
 #VPN createServer
