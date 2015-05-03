@@ -48,7 +48,7 @@ public class CreateAdapter implements PUTHandlerInterface {
 						new Object[] { json }).toString(), true);
 			} catch (Exception e) {
 				
-				log.error(e);
+				log.error(e.getCause().getMessage());
 
 				throw new IOException("Create handling failed.");
 			}
