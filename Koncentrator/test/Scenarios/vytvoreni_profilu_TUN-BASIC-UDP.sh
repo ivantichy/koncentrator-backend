@@ -25,7 +25,7 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.te
 
 
 #VPN createProfile
-curl -f -v -X PUT "http://digitalocean.ivantichy.cz:10002/createprofile" -d @profile.json
+curl -f -v -X PUT "http://127.0.0.1:10002/createprofile" -d @profile.json
 
 pkill -e -f ".*cz.ivantichy.httpapi.handlers.vpnapi.*"
 
