@@ -30,7 +30,7 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.te
 
 
 
-#VPN createCa 
+#VPN createSUBVPN
 curl -v -X PUT "http://digitalocean.ivantichy.cz:10002/createsubvpn" -d @ca.json
 
 #VPN createServer

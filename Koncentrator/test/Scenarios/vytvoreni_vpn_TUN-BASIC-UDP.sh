@@ -14,8 +14,8 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handler
 
 sleep 8
 
-
-chmod 666 *.json
+(echo {}) >  ca.json
+chmod 666 ca.json
 
 
 # user api to add params to ca
