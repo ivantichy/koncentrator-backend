@@ -46,13 +46,25 @@ public class CreateServerAdapter extends CommandExecutor implements
 		log.debug("CA JSON: " + cajson.toString());
 
 		json.merge(cajson);
-		
-		json.put(
-				"ip_range",
-				IPMaskConverter.maskToRange(json.getString("ip_server"),
-						json.getString("ip_mask")));
 
-		
+		if (json.keySet().contains("ip_server")) {
+
+			json.put("ip_range", IPMaskConverter.maskToRange(
+					json.getString("ip_server"), json.getString("ip_mask")));
+		} else if (json.keySet().contains("ip_range")) {
+
+			json.put("ip_server", IPMaskConverter.rangeToIPAddress(json
+					.getString("ip_range")));
+			json.put("ip_mask",
+					IPMaskConverter.rangeToMask(json.getString("ip_range")));
+
+		}
+
+		if (!json.keySet().contains("ip_range")) {
+			throw new IOException("Missing server ip_range");
+
+		}
+
 		log.info("Going to fill config templace");
 
 		config = fillConfig(config, json);
@@ -68,7 +80,7 @@ public class CreateServerAdapter extends CommandExecutor implements
 		appendLine("set -ex \n");
 		appendLine("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n");
 		appendLine("./createsubvpn.sh {subvpn_name} {subvpn_type} {ip_range}\n");
-		
+
 		exec(json);
 		json.put("destination", destination.replaceAll("//", "/"));
 
