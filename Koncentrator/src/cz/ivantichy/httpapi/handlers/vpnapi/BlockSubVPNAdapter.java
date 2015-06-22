@@ -48,7 +48,7 @@ public class BlockSubVPNAdapter extends CommandExecutor implements
 
 		log.info("JSON updated");
 
-		return new Response(cajsonfile.toString(), true);
+		return new Response(cajson.toString(), true);
 
 	}
 }
