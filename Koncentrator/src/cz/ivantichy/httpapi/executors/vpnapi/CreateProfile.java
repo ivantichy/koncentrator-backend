@@ -80,10 +80,10 @@ public class CreateProfile extends CommandExecutor {
 		config = replaceField("server_common_name", config, json);
 		config = replaceField("subvpn_name", config, json);
 		config = replaceField("subvpn_type", config, json);
-		config = replaceField("ta", config, json);
-		config = replaceField("ca", config, json);
-		config = replaceField("key", config, json);
-		config = replaceField("cert", config, json);
+		config = replaceFieldB64("ta", config, json);
+		config = replaceFieldB64("ca", config, json);
+		config = replaceFieldB64("key", config, json);
+		config = replaceFieldB64("cert", config, json);
 		config += System.lineSeparator()
 				+ json.getString("profile_commands").replaceAll("[,]",
 						System.lineSeparator());

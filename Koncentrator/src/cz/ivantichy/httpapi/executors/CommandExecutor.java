@@ -29,7 +29,13 @@ public abstract class CommandExecutor {
 				.toString());
 
 	}
+	protected static String replaceFieldB64(String fieldname, String input,
+			JSONObject json) {
 
+		return input.replaceAll("[{]" + fieldname + "[}]", B64.decode(json.get(fieldname)
+				.toString()));
+
+	}
 	protected static String replaceAllFields(JSONObject json, String input)
 			throws IOException {
 
