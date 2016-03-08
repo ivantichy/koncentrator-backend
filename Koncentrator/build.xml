@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!-- Configuration of the Ant build system to generate a Jar file -->
+<project name="Koncentrator" default="CreateJar">
+
+
+	
+	<target name="clean">
+		<delete dir="build" />
+	</target>
+
+
+	<target name="compile">
+			<classpath>
+				<pathelement path="${classpath}" />
+				<fileset dir="lib">
+					<include name="**/*.jar" />
+				</fileset>
+			</classpath>
+		
+		<mkdir dir="build/bin" />
+		<javac srcdir="src" destdir="build/bin" />
+	</target>
+
+	<target name="CreateJar" description="Create Jar file" depends="clean,compile">
+
+		<jar jarfile="kon.jar" basedir="build/bin" />
+		<!--exec executable="c:\Program Files\WinSCP\WinSCP.com">
+  	      <arg value="/script=c:\Users\Ivan\Dropbox\work\Koncentrator\script.txt"/>
+  	    </exec> -->
+	</target>
+</project>
