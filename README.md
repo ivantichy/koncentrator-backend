@@ -1,1 +1,0 @@
-# koncentrator-backend
