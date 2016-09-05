@@ -24,5 +24,9 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Kon-CERT-API"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Kon-support"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Kon-VPN-API"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Kon-webserver"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

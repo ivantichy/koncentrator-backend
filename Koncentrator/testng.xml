@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="none">
+  <test name="Test">
+    <classes>
+      <class name="org.json.JSONObject"/>
+      <class name="cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapter"/>
+      <class name="cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest"/>
+      <class name="cz.ivantichy.httpapi.handlers.vpnapi.Runner"/>
+      <class name="cz.ivantichy.koncentrator.simple.certgen.CreateCaTest"/>
+      <class name="org.json.Null"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

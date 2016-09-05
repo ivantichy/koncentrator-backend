@@ -1,0 +1,33 @@
+19:06:13.467 [main] INFO  cz.ivantichy.supersimple.restapi.server.Server - Registering GET: /generateserver/
+19:06:13.481 [main] DEBUG cz.ivantichy.supersimple.restapi.server.RequestParser - parseURL /generateserver/
+19:06:13.484 [main] INFO  cz.ivantichy.supersimple.restapi.server.Server - Registering PUT: /createca/
+19:06:13.490 [main] DEBUG cz.ivantichy.supersimple.restapi.server.RequestParser - parseURL /createca/
+19:06:13.496 [main] DEBUG cz.ivantichy.supersimple.restapi.server.RequestParser - parseURL /deleteca/
+19:06:13.503 [main] INFO  cz.ivantichy.supersimple.restapi.server.Server - Registering DELETE: /deleteca/
+19:06:13.506 [main] INFO  cz.ivantichy.supersimple.restapi.server.Server - Registering GET: /generateprofile/
+19:06:13.516 [main] DEBUG cz.ivantichy.supersimple.restapi.server.RequestParser - parseURL /generateprofile/
+19:06:13.525 [main] DEBUG cz.ivantichy.supersimple.restapi.server.Server - Going to listen on port 9081
+19:06:19.581 [main] INFO  cz.ivantichy.supersimple.restapi.server.Server - Timeout set to: 180000
+19:06:19.589 [main] INFO  cz.ivantichy.supersimple.restapi.server.Server - Firstline: GET /generateserver/?subvpn_name=tun-basic-default&subvpn_type=tun-basic&common_name=tun-basic-default&domain=koncentrator.cz&server_valid_days=3650 HTTP/1.1
+19:06:19.590 [main] INFO  cz.ivantichy.supersimple.restapi.server.Server - Handling GET
+19:06:19.597 [main] DEBUG cz.ivantichy.supersimple.restapi.server.Server - handleGET URL: /generateserver/?subvpn_name=tun-basic-default&subvpn_type=tun-basic&common_name=tun-basic-default&domain=koncentrator.cz&server_valid_days=3650
+19:06:19.598 [main] DEBUG cz.ivantichy.supersimple.restapi.server.RequestParser - parseURL /generateserver/?subvpn_name=tun-basic-default&subvpn_type=tun-basic&common_name=tun-basic-default&domain=koncentrator.cz&server_valid_days=3650
+19:06:19.602 [main] INFO  cz.ivantichy.supersimple.restapi.server.Server - GETHandler found: /generateserver
+19:06:19.602 [main] INFO  cz.ivantichy.supersimple.restapi.server.RequestParser - parseGETRequest /generateserver
+19:06:19.604 [main] DEBUG cz.ivantichy.supersimple.restapi.server.RequestParser - Adding get param: subvpn_name=tun-basic-default
+19:06:19.605 [main] DEBUG cz.ivantichy.supersimple.restapi.server.RequestParser - Adding get param: subvpn_type=tun-basic
+19:06:19.605 [main] DEBUG cz.ivantichy.supersimple.restapi.server.RequestParser - Adding get param: common_name=tun-basic-default
+19:06:19.605 [main] DEBUG cz.ivantichy.supersimple.restapi.server.RequestParser - Adding get param: domain=koncentrator.cz
+19:06:19.606 [main] DEBUG cz.ivantichy.supersimple.restapi.server.RequestParser - Adding get param: server_valid_days=3650
+19:06:19.606 [main] DEBUG cz.ivantichy.supersimple.restapi.server.RequestParser - Get parametres: {subvpn_name=tun-basic-default, domain=koncentrator.cz, common_name=tun-basic-default, server_valid_days=3650, subvpn_type=tun-basic}
+19:06:19.608 [main] INFO  cz.ivantichy.supersimple.restapi.handlers.GenerateServerAdapter - Received request to generate server: tun-basic-default koncentrator.cz 3650 tun-basic-default
+java.lang.Exception: path does not exist
+	at cz.ivantichy.koncentrator.simple.certgen.GenerateServer.exec(GenerateServer.java:81)
+	at cz.ivantichy.koncentrator.simple.certgen.GenerateServer.generateServer(GenerateServer.java:18)
+	at cz.ivantichy.supersimple.restapi.handlers.GenerateServerAdapter.handleGET(GenerateServerAdapter.java:66)
+	at cz.ivantichy.supersimple.restapi.server.Server.handleGET(Server.java:93)
+	at cz.ivantichy.supersimple.restapi.server.Server.exec(Server.java:296)
+	at cz.ivantichy.supersimple.restapi.server.Server.listen(Server.java:335)
+	at cz.ivantichy.koncentrator.vpnapi.config.CERTAPIRunner.main(CERTAPIRunner.java:30)
+19:06:19.618 [main] ERROR cz.ivantichy.supersimple.restapi.server.Server - GET request handling failed, returning HTTP 500, Exception: path does not exist
+19:06:19.643 [main] DEBUG cz.ivantichy.supersimple.restapi.server.Server - Going to listen on port 9081

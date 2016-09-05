@@ -3,7 +3,7 @@
   <groupId>Koncentrator</groupId>
   <artifactId>Koncentrator</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
   
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -86,4 +86,10 @@
   		</dependency>
   	</dependencies>
   </dependencyManagement>
+  <modules>
+  	<module>../../Dropbox/work/Kon-CERT-API</module>
+  	<module>../../Dropbox/work/Kon-VPN-API</module>
+  	<module>../../Dropbox/work/Kon-support</module>
+  	<module>../../Dropbox/work/Kon-webserver</module>
+  </modules>
 </project>

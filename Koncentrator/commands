@@ -1,0 +1,44 @@
+
+wget "http://172.20.1.6:8081/generateprofile/?subvpn_name=tun-basic-default&common_name=XAAAAAAA&domain=koncentrator.cz&valid_days=90" -O profile1
+wget "http://172.20.1.6:8081/generateprofile/?subvpn_name=tun-basic-default&common_name=XAAAAAAB&domain=koncentrator.cz&valid_days=90" -O profile2
+wget "http://172.20.1.6:8081/generateprofile/?subvpn_name=tun-basic-default&common_name=XAAAAAAC&domain=koncentrator.cz&valid_days=90" -O profile3
+wget "http://172.20.1.6:8081/generateprofile/?subvpn_name=tun-basic-default&common_name=XAAAAAAD&domain=koncentrator.cz&valid_days=90" -O profile4
+
+curl -X "PUT" "http://172.16.0.1:8081/initsubvpn/?subvpn_name=tun-basic-default"
+
+curl -X "PUT" "http://172.16.0.1:8081/createsubvpn/?subvpn_name=tun-basic-default&ip_range=172.20.1.0/24"
+
+curl -X "PUT" "http://172.16.0.1:8081/createprofile/?subvpn_name=tun-basic-default&ip_remote=172.16.0.1&ip_local=172.20.1.2&common_name=XAAAAAAA"
+curl -X "PUT" "http://172.16.0.1:8081/createprofile/?subvpn_name=tun-basic-default&ip_remote=172.20.1.5&ip_local=172.20.1.6&common_name=XAAAAAAB"
+curl -X "PUT" "http://172.16.0.1:8081/createprofile/?subvpn_name=tun-basic-default&ip_remote=172.20.1.9&ip_local=172.16.0.10&common_name=XAAAAAAC"
+curl -X "PUT" "http://172.16.0.1:8081/createprofile/?subvpn_name=tun-basic-default&ip_remote=172.16.0.13&ip_local=172.16.0.14&common_name=XAAAAAAD"
+
+#################################
+
+wget "http://172.20.1.6:8081/generateprofile/?subvpn_name=tun-basic-default&common_name=XAAAAAAD&domain=koncentrator.cz&valid_days=90" -O profile4
+
+
+curl -X "PUT" "http://172.16.0.1:8081/initsubvpn/?subvpn_name=tun-basic-default-default"
+
+curl -X "PUT" "http://172.16.0.1:8081/createsubvpn/?subvpn_name=tun-basic-default&ip_range=172.1.1.0/24"
+
+curl -X "POST" "http://172.16.0.1:8081/blocksubvpn/?subvpn_name=tun-basic-default&ip_range=172.1.1.0/24"
+
+curl -X "DELETE" "http://172.16.0.1:8081/deletesubvpn/?subvpn_name=tun-basic-default&ip_range=172.1.1.0/24"
+
+
+curl -X "PUT" "http://172.16.0.1:8081/createprofile/?subvpn_name=tun-basic-default&ip_remote=172.1.1.1&ip_local=172.1.1.2&common_name=YAAAAAAA"
+
+curl -X "POST" "http://172.16.0.1:8081/blockprofile/?subvpn_name=tun-basic-default&common_name=YAAAAAAA"
+
+curl -X "DELETE" "http://172.16.0.1:8081/deleteprofile/?subvpn_name=tun-basic-default&common_name=YAAAAAAA"
+
+
+curl -X "PUT" "http://172.16.0.1:8081/createalliance/?subvpn_name=tun-basic-default&ip_range1=172.1.1.0/24&ip_range2=172.2.1.0/24"
+
+curl -X "POST" "http://172.16.0.1:8081/blockalliance/?subvpn_name=tun-basic-default&ip_range1=172.1.1.0/24&ip_range2=172.2.1.0/24"
+
+curl -X "DELETE" "http://172.16.0.1:8081/deletealliance/?subvpn_name=tun-basic-default&ip_range1=172.1.1.0/24&ip_range2=172.2.1.0/24"
+
+
+

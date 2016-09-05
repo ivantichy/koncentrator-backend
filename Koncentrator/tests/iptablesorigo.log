@@ -1,0 +1,44 @@
+Chain INPUT (policy DROP)
+target     prot opt source               destination         
+ACCEPT     all  --  anywhere             anywhere             ctstate RELATED,ESTABLISHED
+ACCEPT     udp  --  anywhere             anywhere             udp dpt:openvpn
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:ssh
+ACCEPT     udp  --  anywhere             anywhere             udp dpt:http
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:openvpn
+ACCEPT     udp  --  anywhere             anywhere             udp dpt:https
+ACCEPT     udp  --  anywhere             anywhere             udp dpt:25000
+ACCEPT     udp  --  anywhere             anywhere             udp dpt:domain
+ACCEPT     icmp --  anywhere             anywhere             icmp echo-request state NEW,RELATED,ESTABLISHED
+ACCEPT     icmp --  anywhere             anywhere             icmp echo-reply
+ACCEPT     udp  --  anywhere             anywhere             udp dpt:1195
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:1195
+ACCEPT     all  --  anywhere             anywhere            
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:tproxy
+ACCEPT     all  --  172.20.1.18          anywhere            
+
+Chain FORWARD (policy DROP)
+target     prot opt source               destination         
+ACCEPT     all  --  anywhere             anywhere             ctstate RELATED,ESTABLISHED
+ACCEPT     all  --  172.17.0.0/24        172.17.0.0/24       
+ACCEPT     all  --  172.17.0.0/24        172.17.0.0/24       
+ACCEPT     all  --  172.17.0.0/24        172.17.0.0/24       
+ACCEPT     all  --  172.17.0.0/24        172.17.0.0/24       
+ACCEPT     all  --  172.17.1.0/24        172.17.1.0/24       
+ACCEPT     all  --  172.17.1.0/24        172.17.1.0/24       
+ACCEPT     all  --  172.17.1.0/24        172.17.1.0/24       
+ACCEPT     all  --  172.17.1.0/24        172.17.1.0/24       
+ACCEPT     all  --  172.16.0.0/24        172.16.0.0/24       
+ACCEPT     all  --  172.16.0.0/24        172.16.0.0/24       
+ACCEPT     all  --  172.16.0.0/24        172.16.0.0/24       
+ACCEPT     all  --  172.16.0.0/24        172.16.0.0/24       
+ACCEPT     all  --  172.17.0.0/24        172.18.0.0/24       
+ACCEPT     all  --  172.18.0.0/24        172.17.0.0/24       
+ACCEPT     all  --  172.20.1.0/24        172.20.1.0/24       
+
+Chain OUTPUT (policy DROP)
+target     prot opt source               destination         
+ACCEPT     all  --  anywhere             anywhere             ctstate RELATED,ESTABLISHED
+ACCEPT     all  --  anywhere             172.20.1.18         
+ACCEPT     all  --  anywhere             anywhere            
+ACCEPT     all  --  anywhere             anywhere            
+ACCEPT     all  --  anywhere             anywhere            

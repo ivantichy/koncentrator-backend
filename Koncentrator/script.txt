@@ -1,0 +1,40 @@
+option batch abort
+
+option confirm off
+
+open sftp://java:dsjistrweiuryiuy7427DYSD6S87DAUSYFAS6@digitalocean.ivantichy.cz/ -hostkey="ssh-rsa 2048 8b:e6:87:1d:f4:ad:80:06:fa:a0:a8:58:b6:4f:32:bf"
+
+cd /home/java/
+
+#call /home/java/StopVPNAPI.sh
+
+option transfer binary
+
+put "c:\Users\Ivan\Dropbox\work\Koncentrator\kon.jar"
+
+put "c:\Users\Ivan\Dropbox\work\Koncentrator\config.conf"
+
+put "c:\Users\Ivan\Dropbox\work\Koncentrator\RunCERTAPI.sh"
+
+put "c:\Users\Ivan\Dropbox\work\Koncentrator\RunVPNAPI.sh"
+
+#call /home/java/RunVPNAPI.sh
+ 
+close
+
+
+open sftp://java:dsflksjflkshjt98SFGA@wedos.ivantichy.cz/ -hostkey="ssh-rsa 2048 83:97:72:f5:78:cf:7c:06:d0:f0:9c:fd:b3:64:b0:a0"
+
+cd /home/java/
+
+option transfer binary
+
+put "c:\Users\Ivan\Dropbox\work\Koncentrator\kon.jar" 
+
+put "c:\Users\Ivan\Dropbox\work\Koncentrator\config.conf"
+
+put "c:\Users\Ivan\Dropbox\work\Koncentrator\RunCERTAPI.sh"
+
+put "c:\Users\Ivan\Dropbox\work\Koncentrator\RunVPNAPI.sh"
+
+exit

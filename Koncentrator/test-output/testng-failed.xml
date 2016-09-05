@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest">
+        <methods>
+          <include name="main"/>
+        </methods>
+      </class> <!-- cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest -->
+      <class name="cz.ivantichy.koncentrator.simple.certgen.CreateCaTest">
+        <methods>
+          <include name="main"/>
+        </methods>
+      </class> <!-- cz.ivantichy.koncentrator.simple.certgen.CreateCaTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

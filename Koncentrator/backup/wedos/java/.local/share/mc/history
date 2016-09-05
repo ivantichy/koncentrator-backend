@@ -1,0 +1,15 @@
+[cmdline]
+0=
+
+[Dir Hist New Right Panel]
+0=/
+1=/etc
+2=/etc/openvpn
+3=/etc/openvpn/instances
+4=/etc/openvpn/instances/tun-advanced
+5=/etc/openvpn/instances/tun-advanced/tun-advanced-12345
+6=/etc/openvpn/instances/tun-advanced/tun-advanced-12345/cmds
+
+[Dir Hist New Left Panel]
+0=/
+1=/etc/openvpn
