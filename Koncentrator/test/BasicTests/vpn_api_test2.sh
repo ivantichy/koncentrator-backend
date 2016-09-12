@@ -34,7 +34,7 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handler
 
 # ^client.*[<]cert[>].*CN=$systemName\n.*[<]tls-auth[>].*[<]key[>].*[<]\/ca[>]$";
 
-java -classpath "*" cz.ivantichy.support.JSON.test.JSONReaderTest profile.json client_content_base64 > profile1
+java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONReaderTest profile.json client_content_base64 > profile1
 
 cat profile1
 
