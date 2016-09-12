@@ -32,6 +32,15 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.te
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter profile.json ip_local 10.10.12.11
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.UpdateProfileAdapterTest profile.json
 
+# ^client.*[<]cert[>].*CN=$systemName\n.*[<]tls-auth[>].*[<]key[>].*[<]\/ca[>]$";
+
+java -classpath "*" cz.ivantichy.support.JSON.test.JSONReaderTest profile.json client_content_base64 > profile1
+
+cat profile1
+
+# [ `cat ./profile1 | grep CN=test1 -c` != "1" ] && exit 1
+
+
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.BlockProfileAdapterTest profile.json
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.DeleteProfileAdapterTest tun-basic-12345 tun-basic test
 
