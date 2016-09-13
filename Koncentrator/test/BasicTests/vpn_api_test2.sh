@@ -7,8 +7,9 @@ rm *.json
 ## tun-basic
 echo tun-basic
 
+# this generates profile.json
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.supersimple.restapi.handlers.GenerateProfileAdapterTest test tun-basic-12345 tun-basic 
-
+cat profile.json
 
 # toto do ca.json prida parametr a ulozi to zase jako ca.json
 (echo {}) >  ca.json
@@ -31,8 +32,6 @@ java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handler
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter profile.json ip_remote 10.10.12.10
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONAddParameter profile.json ip_local 10.10.12.11
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.httpapi.handlers.vpnapi.UpdateProfileAdapterTest profile.json
-
-cat profile.json
 
 java -classpath "Koncentrator/*:Koncentrator/lib/*" cz.ivantichy.support.JSON.test.JSONReaderTest profile.json client_conf_base64 > profile1
 
