@@ -7,11 +7,18 @@ import java.io.OutputStream;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.JSONObject;
 
+import cz.ivantichy.base64.B64;
 import cz.ivantichy.koncentrator.simple.certgen.E_rrorLogSyncPipe;
 import cz.ivantichy.koncentrator.simple.certgen.LogSyncPipe;
 
 public class FileWork {
+
+	public static String replaceDoubleSlashes(String path) {
+
+		return path.replaceAll("//", "/");
+	}
 
 	public static String readFile(String file) throws IOException {
 
@@ -108,6 +115,21 @@ public class FileWork {
 		File d = new File(path);
 
 		return (d.exists() && d.isDirectory());
+
+	}
+
+	public static void readFileToJSON(JSONObject json, String path, String name)
+			throws IOException {
+
+		String f = new String(FileWork.readFile(path));
+
+		json.put(name, B64.encode(f));
+	}
+
+	public static void storeJSON(JSONObject json, String path)
+			throws IOException {
+
+		FileWork.saveFile(path, json.toString());
 
 	}
 }

@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Default_suite">
+              <span class="suite-name border-skipped">Default suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
+                    <span>C:\Users\Ivan\AppData\Local\Temp\testng-eclipse-1081016542\testng-customsuite.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Default_suite">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Default_suite">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Default_suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Default_suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Default_suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Default_suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">20 methods,  20 skipped,  </span>
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods skipped suite-Default_suite"> (hide)</a> <!-- hide-methods skipped suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods skipped suite-Default_suite"> (show)</a> <!-- show-methods skipped suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-Default_suite">
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.supersimple.restapi.handlers.CreateCaAdapterTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.httpapi.handlers.vpnapi.BlockProfileAdapterTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.httpapi.handlers.vpnapi.UpdateProfileAdapterTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.httpapi.handlers.vpnapi.alliance.BlockAllianceAdapterTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.httpapi.handlers.vpnapi.CreateServerAdapterTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.support.JSON.test.JSONAddParameter" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.httpapi.handlers.certapi.tun_basic.DummyTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.httpapi.handlers.vpnapi.DeleteProfileAdapterTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest2" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.httpapi.handlers.vpnapi.alliance.DeleteAllianceAdapterTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.httpapi.handlers.vpnapi.UpdateServerAdapterTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.supersimple.restapi.handlers.GenerateServerAdapterTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.httpapi.handlers.vpnapi.alliance.CreateAllianceAdapterTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.httpapi.handlers.certapi.tun_basic.CreateServerTUNBasicImplTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.supersimple.restapi.handlers.DeleteCaAdapterTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.supersimple.restapi.handlers.GenerateProfileAdapterTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.httpapi.handlers.vpnapi.BlockSubVPNAdapterTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.httpapi.handlers.vpnapi.CreateProfileAdapterTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cz.ivantichy.httpapi.handlers.vpnapi.DeleteSubVPNAdapterTest" hash-for-method="main">main</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-Default_suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Default_suite" class="panel Default_suite">
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.httpapi.handlers.vpnapi.BlockProfileAdapterTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest2</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.supersimple.restapi.handlers.DeleteCaAdapterTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.httpapi.handlers.vpnapi.alliance.BlockAllianceAdapterTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.supersimple.restapi.handlers.GenerateServerAdapterTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.httpapi.handlers.vpnapi.DeleteSubVPNAdapterTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.httpapi.handlers.certapi.tun_basic.DummyTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.httpapi.handlers.vpnapi.DeleteProfileAdapterTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.httpapi.handlers.certapi.tun_basic.CreateServerTUNBasicImplTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.httpapi.handlers.vpnapi.UpdateProfileAdapterTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.httpapi.handlers.vpnapi.alliance.DeleteAllianceAdapterTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.httpapi.handlers.vpnapi.alliance.CreateAllianceAdapterTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.supersimple.restapi.handlers.CreateCaAdapterTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.httpapi.handlers.vpnapi.CreateServerAdapterTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.support.JSON.test.JSONAddParameter</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.httpapi.handlers.vpnapi.BlockSubVPNAdapterTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.httpapi.handlers.vpnapi.CreateProfileAdapterTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.supersimple.restapi.handlers.GenerateProfileAdapterTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">cz.ivantichy.httpapi.handlers.vpnapi.UpdateServerAdapterTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="main">
+                  </a> <!-- main -->
+                  <span class="method-name">main</span>
+                  <div class="stack-trace">org.testng.TestNGException: 
+Method main requires 1 parameters but 0 were supplied in the @Test annotation.
+	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:199)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:135)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:377)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:452)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1335)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1051)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1140)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:137)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:58)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+        </div> <!-- panel Default_suite -->
+        <div panel-name="test-xml-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Users\Ivan\AppData\Local\Temp\testng-eclipse-1081016542\testng-customsuite.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Default suite&quot;&gt;
+  &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.config.UnixConfigReader&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.support.JSON.test.JSONAddParameter&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.scripts.StringPump&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.config.VPNAPIConfigReader&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.koncentrator.simple.certgen.SyncPipe&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.support.JSON.test.JSONReaderTest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.koncentrator.simple.certgen.E_rrorLogSyncPipe&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.alliance.CreateAllianceAdapter&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.executors.vpnapi.CreateSubVPN&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.handlers.interfaces.PUTHandlerInterface&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.alliance.BlockAllianceAdapterTest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.staticvariables.Static&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.koncentrator.simple.IPUtils.IPRangesGen&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.certapi.tun_basic.Create_CA_TUN_basicImpl&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.CreateProfileAdapterTest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.CreateProfileAdapter&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.executors.vpnapi.CreateProfile&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.DeleteProfileAdapter&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.koncentrator.simple.certgen.GenerateServer&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.handlers.interfaces.GETHandlerInterface&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.handlers.GenerateProfileAdapterTest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.server.POSTRequest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.executors.CommandExecutor&quot;/&gt;
+      &lt;class name=&quot;org.json.JSONStringer&quot;/&gt;
+      &lt;class name=&quot;org.json.JSONException&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.DeleteSubVPNAdapter&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.koncentrator.simple.IPUtils.IPUtil&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.UpdateProfileAdapterTest&quot;/&gt;
+      &lt;class name=&quot;org.json.JSONTokener&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.fileutils.FileWork&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.koncentrator.simple.certgen.CreateCa&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.RunnerCERT&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.BlockProfileAdapter&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.scripts.RunScriptWin&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.server.Response&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.certapi.tun_basic.DummyTest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.alliance.DeleteAllianceAdapterTest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.config.ConfigElement&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.handlers.VPNAPIScriptHandler&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.UpdateServerAdapterTest&quot;/&gt;
+      &lt;class name=&quot;org.json.JSONWriter&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.DeleteProfileAdapterTest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.handlers.DeleteCaAdapter&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.BlockSubVPNAdapterTest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.koncentrator.simple.iptables.IPTablesRulesGen&quot;/&gt;
+      &lt;class name=&quot;org.json.CookieList&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.server.Server&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.scripts.UnixScriptExecutor&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.koncentrator.simple.certgen.GenerateProfile&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.RunnerVPN&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.CreateServerAdapter&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.DeleteSubVPNAdapterTest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.alliance.DeleteAllianceAdapter&quot;/&gt;
+      &lt;class name=&quot;org.json.Cookie&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.certapi.tun_basic.CreateServerTUNBasicImpl&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.server.PUTRequest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.handlers.GenerateServerAdapter&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.handlers.GenerateServerAdapterTest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.server.HTTPResponse&quot;/&gt;
+      &lt;class name=&quot;org.json.JSONString&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest2&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.handlers.GenerateProfileAdapter&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.BlockSubVPNAdapter&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.executors.Create&quot;/&gt;
+      &lt;class name=&quot;org.json.CDL&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.UpdateServerAdapter&quot;/&gt;
+      &lt;class name=&quot;org.json.JSONML&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.UpdateProfileAdapter&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.config.WinConfigReader&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.CreateServerAdapterTest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.server.GETRequest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest&quot;/&gt;
+      &lt;class name=&quot;org.json.XML&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.koncentrator.simple.IPUtils.IPMaskConverter&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.handlers.GETEchoHandler&quot;/&gt;
+      &lt;class name=&quot;org.json.Property&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.handlers.UniversalScriptHandler&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.handlers.interfaces.POSTHandlerInterface&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.handlers.DeleteCaAdapterTest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.scripts.RunScriptUnix&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.support.JSON.JSONReader&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.executors.CreateAdapter&quot;/&gt;
+      &lt;class name=&quot;org.json.JSONArray&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.koncentrator.vpnapi.config.VPNAPIRunner&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.certapi.tun_basic.CreateServerTUNBasicImplTest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.certapi.tun_basic.VPN_Create_Factory&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.server.DELETERequest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.server.RequestParser&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.alliance.CreateAllianceAdapterTest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.server.ParsedURL&quot;/&gt;
+      &lt;class name=&quot;org.json.JSONObject&quot;/&gt;
+      &lt;class name=&quot;org.json.XMLTokener&quot;/&gt;
+      &lt;class name=&quot;org.json.HTTPTokener&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.BlockProfileAdapterTest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.koncentrator.simple.certgen.LogSyncPipe&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.config.ScriptConfigReader&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.handlers.POSTEchoHandler&quot;/&gt;
+      &lt;class name=&quot;org.json.HTTP&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.scripts.ExecutionResult&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.handlers.CreateCaAdapter&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.scripts.WindowsScriptExecutor&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.base64.B64&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.koncentrator.simple.certgen.DeleteCa&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.httpapi.handlers.vpnapi.alliance.BlockAllianceAdapter&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.koncentrator.vpnapi.config.CERTAPIRunner&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.handlers.CreateCaAdapterTest&quot;/&gt;
+      &lt;class name=&quot;cz.ivantichy.supersimple.restapi.handlers.interfaces.DELETEHandlerInterface&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Default test --&gt;
+&lt;/suite&gt; &lt;!-- Default suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Default test (107 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Default_suite');
+function tableData_Default_suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(20);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'main')
+data.setCell(0, 2, 'cz.ivantichy.supersimple.restapi.handlers.CreateCaAdapterTest')
+data.setCell(0, 3, 0);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'main')
+data.setCell(1, 2, 'cz.ivantichy.httpapi.handlers.vpnapi.BlockProfileAdapterTest')
+data.setCell(1, 3, 0);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'main')
+data.setCell(2, 2, 'cz.ivantichy.httpapi.handlers.vpnapi.UpdateProfileAdapterTest')
+data.setCell(2, 3, 0);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'main')
+data.setCell(3, 2, 'cz.ivantichy.httpapi.handlers.vpnapi.alliance.BlockAllianceAdapterTest')
+data.setCell(3, 3, 0);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'main')
+data.setCell(4, 2, 'cz.ivantichy.httpapi.handlers.vpnapi.CreateServerAdapterTest')
+data.setCell(4, 3, 0);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'main')
+data.setCell(5, 2, 'cz.ivantichy.support.JSON.test.JSONAddParameter')
+data.setCell(5, 3, 0);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'main')
+data.setCell(6, 2, 'cz.ivantichy.httpapi.handlers.certapi.tun_basic.DummyTest')
+data.setCell(6, 3, 0);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'main')
+data.setCell(7, 2, 'cz.ivantichy.httpapi.handlers.vpnapi.DeleteProfileAdapterTest')
+data.setCell(7, 3, 0);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'main')
+data.setCell(8, 2, 'cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest2')
+data.setCell(8, 3, 0);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'main')
+data.setCell(9, 2, 'cz.ivantichy.httpapi.handlers.vpnapi.alliance.DeleteAllianceAdapterTest')
+data.setCell(9, 3, 0);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'main')
+data.setCell(10, 2, 'cz.ivantichy.httpapi.handlers.vpnapi.UpdateServerAdapterTest')
+data.setCell(10, 3, 0);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'main')
+data.setCell(11, 2, 'cz.ivantichy.supersimple.restapi.handlers.GenerateServerAdapterTest')
+data.setCell(11, 3, 0);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'main')
+data.setCell(12, 2, 'cz.ivantichy.httpapi.handlers.vpnapi.alliance.CreateAllianceAdapterTest')
+data.setCell(12, 3, 0);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'main')
+data.setCell(13, 2, 'cz.ivantichy.httpapi.handlers.certapi.tun_basic.CreateServerTUNBasicImplTest')
+data.setCell(13, 3, 0);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'main')
+data.setCell(14, 2, 'cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest')
+data.setCell(14, 3, 0);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'main')
+data.setCell(15, 2, 'cz.ivantichy.supersimple.restapi.handlers.DeleteCaAdapterTest')
+data.setCell(15, 3, 0);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'main')
+data.setCell(16, 2, 'cz.ivantichy.supersimple.restapi.handlers.GenerateProfileAdapterTest')
+data.setCell(16, 3, 0);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'main')
+data.setCell(17, 2, 'cz.ivantichy.httpapi.handlers.vpnapi.BlockSubVPNAdapterTest')
+data.setCell(17, 3, 0);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'main')
+data.setCell(18, 2, 'cz.ivantichy.httpapi.handlers.vpnapi.CreateProfileAdapterTest')
+data.setCell(18, 3, 0);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'main')
+data.setCell(19, 2, 'cz.ivantichy.httpapi.handlers.vpnapi.DeleteSubVPNAdapterTest')
+data.setCell(19, 3, 0);
+window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 0 ms</span>
+              <div id="times-div-Default_suite">
+              </div> <!-- times-div-Default_suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

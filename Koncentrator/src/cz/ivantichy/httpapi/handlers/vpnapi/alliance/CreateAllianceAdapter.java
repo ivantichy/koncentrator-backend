@@ -62,7 +62,7 @@ public class CreateAllianceAdapter extends CommandExecutor implements
 
 		exec(json);
 
-		storeJSON(
+		FileWork.storeJSON(
 				json,
 				destination + slash + "alliances" + slash
 						+ json.getString("subvpn_type2") + slash

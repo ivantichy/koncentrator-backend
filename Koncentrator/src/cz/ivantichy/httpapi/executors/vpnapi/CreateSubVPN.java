@@ -10,9 +10,6 @@ import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.httpapi.executors.CommandExecutor;
 import cz.ivantichy.httpapi.executors.Create;
 import cz.ivantichy.koncentrator.simple.IPUtils.IPMaskConverter;
-import cz.ivantichy.supersimple.restapi.handlers.interfaces.PUTHandlerInterface;
-import cz.ivantichy.supersimple.restapi.server.PUTRequest;
-import cz.ivantichy.supersimple.restapi.server.Response;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
 public class CreateSubVPN extends CommandExecutor implements Create {
@@ -56,8 +53,8 @@ public class CreateSubVPN extends CommandExecutor implements Create {
 		json.put("destination", destination.replaceAll("//", "/"));
 		json.put("source", source.replaceAll("//", "/"));
 
-		storeJSON(json, destination + slash + json.getString("subvpn_name")
-				+ ".json");
+		FileWork.storeJSON(json,
+				destination + slash + json.getString("subvpn_name") + ".json");
 		log.info("JSON stored");
 		log.debug("Stored JSON: " + json.toString());
 
@@ -90,5 +87,11 @@ public class CreateSubVPN extends CommandExecutor implements Create {
 	@Override
 	public JSONObject createForTapAdvanced(JSONObject json) throws IOException {
 		return createSubVPNTapAdvanced(json);
+	}
+
+	@Override
+	public JSONObject create(JSONObject json) throws IOException {
+		throw new IOException("Not Implemented");
+
 	}
 }

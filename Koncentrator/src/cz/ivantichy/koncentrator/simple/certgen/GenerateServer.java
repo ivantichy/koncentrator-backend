@@ -6,12 +6,17 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import cz.ivantichy.base64.B64;
 import cz.ivantichy.httpapi.executors.CommandExecutor;
 
 public class GenerateServer extends CommandExecutor {
+	private static final Logger log = LogManager.getLogger(GenerateServer.class
+			.getName());
+
 
 	public static synchronized String generateServer(String type, String name,
 			String domain, int days, String common_name) throws Exception {

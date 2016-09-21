@@ -3,7 +3,6 @@ package cz.ivantichy.httpapi.executors;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import org.apache.logging.log4j.LogManager;

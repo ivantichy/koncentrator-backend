@@ -9,18 +9,18 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import cz.ivantichy.base64.B64;
-import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.koncentrator.simple.certgen.E_rrorLogSyncPipe;
 import cz.ivantichy.koncentrator.simple.certgen.LogSyncPipe;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
 public abstract class CommandExecutor {
 
-	protected static Logger log = LogManager.getLogger(CommandExecutor.class
+	private static Logger log = LogManager.getLogger(CommandExecutor.class
 			.getName());;
 	private static StringBuffer buff = new StringBuffer(1024);
-	protected static String location = Static.RSALOCATION;
-	protected static String slash = Static.FOLDERSEPARATOR;
+
+	 protected static String location = Static.RSALOCATION;
+	 protected static String slash = Static.FOLDERSEPARATOR;
 
 	protected static String replaceField(String fieldname, String input,
 			JSONObject json) {
@@ -29,13 +29,15 @@ public abstract class CommandExecutor {
 				.toString());
 
 	}
+
 	protected static String replaceFieldB64(String fieldname, String input,
 			JSONObject json) {
 
-		return input.replaceAll("[{]" + fieldname + "[}]", B64.decode(json.get(fieldname)
-				.toString()));
+		return input.replaceAll("[{]" + fieldname + "[}]",
+				B64.decode(json.get(fieldname).toString()));
 
 	}
+
 	protected static String replaceAllFields(JSONObject json, String input)
 			throws IOException {
 
@@ -105,19 +107,6 @@ public abstract class CommandExecutor {
 
 	}
 
-	protected static void readFileToJSON(JSONObject json, String path,
-			String name) throws IOException {
-
-		String f = new String(FileWork.readFile(path));
-
-		json.put(name, B64.encode(f));
-	}
-
-	protected static void storeJSON(JSONObject json, String path)
-			throws IOException {
-
-		FileWork.saveFile(path, json.toString());
-
-	}
+	
 
 }

@@ -6,6 +6,8 @@ import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import cz.ivantichy.base64.B64;
@@ -13,6 +15,8 @@ import cz.ivantichy.httpapi.executors.CommandExecutor;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
 public class GenerateProfile extends CommandExecutor {
+	private static final Logger log = LogManager
+			.getLogger(GenerateProfile.class.getName());
 
 	public static synchronized String generateProfile(String cn, String domain,
 			int days, String name, String type) throws Exception {
@@ -38,7 +42,7 @@ public class GenerateProfile extends CommandExecutor {
 		json.put("profile_valid_days", days);
 
 		json = createProfileToString(json, cn, path, name);
-		
+
 		return json.toString();
 
 	}

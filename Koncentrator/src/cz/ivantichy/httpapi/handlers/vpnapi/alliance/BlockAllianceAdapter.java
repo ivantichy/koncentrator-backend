@@ -75,7 +75,7 @@ public class BlockAllianceAdapter extends CommandExecutor implements
 
 		exec(alliancejson);
 
-		storeJSON(alliancejson, alliancejsonpath);
+		FileWork.storeJSON(alliancejson, alliancejsonpath);
 
 		log.info("JSON stored");
 		log.debug("Updated alliance JSON: " + json.toString());

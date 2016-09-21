@@ -73,7 +73,7 @@ public class UpdateProfileAdapter extends CommandExecutor implements
 
 		json.put("client_conf_base64", B64.encode(config));
 
-		storeJSON(
+		FileWork.storeJSON(
 				json,
 				destination + slash + "profiles" + slash
 						+ json.getString("common_name") + "_profile.json");

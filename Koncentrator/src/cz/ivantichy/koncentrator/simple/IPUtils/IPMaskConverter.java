@@ -2,7 +2,29 @@ package cz.ivantichy.koncentrator.simple.IPUtils;
 
 import java.io.IOException;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class IPMaskConverter {
+
+	public static JSONObject addIPRangeOrMask(JSONObject json)
+			throws JSONException, IOException {
+
+		if (json.keySet().contains("ip_server")) {
+
+			json.put("ip_range", IPMaskConverter.maskToRange(
+					json.getString("ip_server"), json.getString("ip_mask")));
+		} else if (json.keySet().contains("ip_range")) {
+
+			json.put("ip_server", IPMaskConverter.rangeToIPAddress(json
+					.getString("ip_range")));
+			json.put("ip_mask",
+					IPMaskConverter.rangeToMask(json.getString("ip_range")));
+
+		}
+
+		return json;
+	}
 
 	public static String rangeToMask(String ip_range) throws IOException {
 
@@ -17,7 +39,8 @@ public class IPMaskConverter {
 
 	}
 
-	public static String maskToRange(String ip_adress, String ip_mask) throws IOException {
+	public static String maskToRange(String ip_adress, String ip_mask)
+			throws IOException {
 
 		return ip_adress + "/" + longToShort(ip_mask);
 	}

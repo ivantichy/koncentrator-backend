@@ -1,9 +1,9 @@
 package cz.ivantichy.httpapi.handlers.vpnapi;
 
-import java.io.File;
 import java.io.IOException;
 
-import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import cz.ivantichy.fileutils.FileWork;
@@ -15,6 +15,8 @@ import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
 public class DeleteProfileAdapter extends CommandExecutor implements
 		DELETEHandlerInterface {
+	private static final Logger log = LogManager.getLogger(DeleteProfileAdapter.class
+			.getName());
 
 	@Override
 	public Response handleDELETE(DELETERequest req) throws IOException {

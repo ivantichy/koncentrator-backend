@@ -11,9 +11,7 @@ import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.httpapi.executors.CommandExecutor;
 import cz.ivantichy.koncentrator.simple.IPUtils.IPMaskConverter;
 import cz.ivantichy.supersimple.restapi.handlers.interfaces.POSTHandlerInterface;
-import cz.ivantichy.supersimple.restapi.handlers.interfaces.PUTHandlerInterface;
 import cz.ivantichy.supersimple.restapi.server.POSTRequest;
-import cz.ivantichy.supersimple.restapi.server.PUTRequest;
 import cz.ivantichy.supersimple.restapi.server.Response;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
@@ -75,7 +73,7 @@ public class UpdateServerAdapter extends CommandExecutor implements
 
 		json.put("server_conf_base64", B64.encode(config));
 
-		storeJSON(json, destination + slash + json.getString("subvpn_name")
+		FileWork.storeJSON(json, destination + slash + json.getString("subvpn_name")
 				+ ".json");
 
 		log.info("JSON updated");

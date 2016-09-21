@@ -1,0 +1,15 @@
+iptables --list -v > iptablesbefore.log
+cd /etc/openvpn
+find > dirtreebefore.log
+
+
+# run the test
+
+
+
+
+
+# test done
+
+
+# compare

@@ -2,6 +2,8 @@ package cz.ivantichy.httpapi.handlers.vpnapi;
 
 import java.io.IOException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import cz.ivantichy.fileutils.FileWork;
@@ -13,6 +15,9 @@ import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 
 public class BlockProfileAdapter extends CommandExecutor implements
 		POSTHandlerInterface {
+	private static final Logger log = LogManager.getLogger(BlockProfileAdapter.class
+			.getName());
+
 
 	@Override
 	public Response handlePOST(POSTRequest req) throws IOException {
@@ -48,7 +53,7 @@ public class BlockProfileAdapter extends CommandExecutor implements
 		appendLine("./blockprofile.sh {common_name} {subvpn_name} {subvpn_type}");
 		exec(profilejson);
 
-		storeJSON(profilejson, profilejsonfile);
+		FileWork.storeJSON(profilejson, profilejsonfile);
 
 		log.info("JSON updated");
 

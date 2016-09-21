@@ -2,9 +2,12 @@ package cz.ivantichy.supersimple.restapi.staticvariables;
 
 import java.util.regex.Pattern;
 
-import org.json.JSONObject;
-
 public class Static {
+
+	public static final String SERVER_NAME = "server_name";
+	public static final String STARTOPENVPNSERVICE = "service openvpn start";
+	public static final String SUBVPN_TYPE = "subvpn_type";
+	public static final String SUBVPN_NAME = "subvpn_name";
 
 	public static final Pattern STRING_TYPE_CHECK = Pattern
 			.compile("([a-zA-Z0-9_-]|[.])*");
@@ -47,6 +50,8 @@ public class Static {
 	public final static String OPENVPNLOCATION = "/etc/openvpn/";
 	public final static String FOLDERSEPARATOR = "/";
 	public final static String GENERATEFOLDER = "generate/";
+	public final static String TEMPLATEFOLDER = "template/";
+
 	public final static String INSTANCESFOLDER = "instances/";
 	public static final String RSALOCATION = "/etc/openvpn/easy-rsa/2.0/";
 	public static final String TUN_BASIC_TYPE = "tun-basic";
