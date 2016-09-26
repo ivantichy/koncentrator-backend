@@ -118,6 +118,16 @@ public class FileWork {
 
 	}
 
+	public static boolean fileExists(String path) {
+
+		log.info("Testing path: " + path);
+
+		File f = new File(path);
+
+		return (f.exists() && !f.isDirectory());
+
+	}
+
 	public static void readFileToJSON(JSONObject json, String path, String name)
 			throws IOException {
 

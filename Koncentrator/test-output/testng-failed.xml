@@ -1,108 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite verbose="3" name="Failed suite [Suite]">
+  <test name="Test(failed)">
     <classes>
-      <class name="cz.ivantichy.httpapi.handlers.vpnapi.BlockProfileAdapterTest">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.httpapi.handlers.vpnapi.BlockProfileAdapterTest -->
-      <class name="cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest2">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest2 -->
-      <class name="cz.ivantichy.supersimple.restapi.handlers.DeleteCaAdapterTest">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.supersimple.restapi.handlers.DeleteCaAdapterTest -->
-      <class name="cz.ivantichy.httpapi.handlers.vpnapi.alliance.BlockAllianceAdapterTest">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.httpapi.handlers.vpnapi.alliance.BlockAllianceAdapterTest -->
-      <class name="cz.ivantichy.supersimple.restapi.handlers.GenerateServerAdapterTest">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.supersimple.restapi.handlers.GenerateServerAdapterTest -->
-      <class name="cz.ivantichy.httpapi.handlers.vpnapi.DeleteSubVPNAdapterTest">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.httpapi.handlers.vpnapi.DeleteSubVPNAdapterTest -->
-      <class name="cz.ivantichy.httpapi.handlers.certapi.tun_basic.DummyTest">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.httpapi.handlers.certapi.tun_basic.DummyTest -->
-      <class name="cz.ivantichy.httpapi.handlers.vpnapi.DeleteProfileAdapterTest">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.httpapi.handlers.vpnapi.DeleteProfileAdapterTest -->
       <class name="cz.ivantichy.httpapi.handlers.certapi.tun_basic.CreateServerTUNBasicImplTest">
         <methods>
-          <include name="main"/>
+          <include name="test"/>
         </methods>
       </class> <!-- cz.ivantichy.httpapi.handlers.certapi.tun_basic.CreateServerTUNBasicImplTest -->
-      <class name="cz.ivantichy.httpapi.handlers.vpnapi.alliance.DeleteAllianceAdapterTest">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.httpapi.handlers.vpnapi.alliance.DeleteAllianceAdapterTest -->
-      <class name="cz.ivantichy.httpapi.handlers.vpnapi.UpdateProfileAdapterTest">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.httpapi.handlers.vpnapi.UpdateProfileAdapterTest -->
-      <class name="cz.ivantichy.httpapi.handlers.vpnapi.alliance.CreateAllianceAdapterTest">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.httpapi.handlers.vpnapi.alliance.CreateAllianceAdapterTest -->
-      <class name="cz.ivantichy.supersimple.restapi.handlers.CreateCaAdapterTest">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.supersimple.restapi.handlers.CreateCaAdapterTest -->
-      <class name="cz.ivantichy.httpapi.handlers.vpnapi.CreateServerAdapterTest">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.httpapi.handlers.vpnapi.CreateServerAdapterTest -->
-      <class name="cz.ivantichy.httpapi.handlers.vpnapi.BlockSubVPNAdapterTest">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.httpapi.handlers.vpnapi.BlockSubVPNAdapterTest -->
-      <class name="cz.ivantichy.httpapi.handlers.vpnapi.CreateProfileAdapterTest">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.httpapi.handlers.vpnapi.CreateProfileAdapterTest -->
-      <class name="cz.ivantichy.support.JSON.test.JSONAddParameter">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.support.JSON.test.JSONAddParameter -->
-      <class name="cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.httpapi.handlers.vpnapi.CreateSubVPNAdapterTest -->
-      <class name="cz.ivantichy.supersimple.restapi.handlers.GenerateProfileAdapterTest">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.supersimple.restapi.handlers.GenerateProfileAdapterTest -->
-      <class name="cz.ivantichy.httpapi.handlers.vpnapi.UpdateServerAdapterTest">
-        <methods>
-          <include name="main"/>
-        </methods>
-      </class> <!-- cz.ivantichy.httpapi.handlers.vpnapi.UpdateServerAdapterTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

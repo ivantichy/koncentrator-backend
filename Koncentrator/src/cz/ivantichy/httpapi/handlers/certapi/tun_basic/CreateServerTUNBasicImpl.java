@@ -25,6 +25,7 @@ public class CreateServerTUNBasicImpl extends CommandExecutor implements Create 
 				+ json.getString(Static.SUBVPN_TYPE) + Static.FOLDERSEPARATOR);
 		log.info("Source location:" + source);
 
+		log.info("wtf?");
 		String destination = FileWork
 				.replaceDoubleSlashes(Static.OPENVPNLOCATION
 						+ Static.FOLDERSEPARATOR + Static.INSTANCESFOLDER
@@ -49,7 +50,7 @@ public class CreateServerTUNBasicImpl extends CommandExecutor implements Create 
 		FileWork.storeJSON(
 				json,
 				destination + Static.FOLDERSEPARATOR
-						+ json.getString("subvpn_type") + ".json");
+						+ json.getString("server_name") + ".json");
 		log.info("JSON stored");
 		log.debug("Stored JSON: " + json.toString());
 
