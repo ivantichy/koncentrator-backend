@@ -25,88 +25,46 @@ public class Create_CA_TUN_basicImpl extends CommandExecutor implements Create {
 
 		clear();
 
-		json = IPMaskConverter.addIPRangeOrMask(json);
-
-		String destination = Static.OPENVPNLOCATION + Static.INSTANCESFOLDER
-				+ json.getString("subvpn_type") + Static.FOLDERSEPARATOR
-				+ json.getString("subvpn_name") + Static.FOLDERSEPARATOR;
+		String destination = PathConfigTUN_basic.getDestionationPath(json);
 		log.info("Destination location:" + destination);
-
 		FileWork.folderExists(destination);
-		String cajsonfile = destination + Static.FOLDERSEPARATOR
-				+ json.getString("server_name") + ".json";
 
+		String cajsonfile = PathConfigTUN_basic.getCAJsonPath(json);
 		log.info("Reading CA JSON: " + cajsonfile);
 		JSONObject cajson = new JSONObject(FileWork.readFile(cajsonfile));
-		log.debug("CA JSON: " + cajson.toString());
+		log.info("CA JSON: " + cajson.toString());
 
 		json = cajson.merge(json);
+		cajson = null;
 
-		appendLine("set -ex \n");
-		appendLine("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n");
+		json = IPMaskConverter.addIPRangeOrMask(json);
 
-		exec(json);
+		String config = FileWork.readFile(PathConfigTUN_basic
+				.getConfigTemplatePath(json));
 
-		FileWork.storeJSON(
-				json,
-				destination + Static.FOLDERSEPARATOR
-						+ json.getString("subvpn_name") + ".json");
-		log.info("JSON stored");
-		log.debug("Stored JSON: " + json.toString());
-
-		String config = FileWork.readFile("");
-		log.debug("Config read: " + config);
-
-	
-	
-		
-		
-		if (json.keySet().contains("ip_server")) {
-
-			json.put("ip_range", IPMaskConverter.maskToRange(
-					json.getString("ip_server"), json.getString("ip_mask")));
-		} else if (json.keySet().contains("ip_range")) {
-
-			json.put("ip_server", IPMaskConverter.rangeToIPAddress(json
-					.getString("ip_range")));
-			json.put("ip_mask",
-					IPMaskConverter.rangeToMask(json.getString("ip_range")));
-
-		}
-
-		if (!json.keySet().contains("ip_range")) {
-			throw new IOException("Missing server ip_range");
-
-		}
-
-		log.info("Going to fill config templace");
+		log.info("Config read: " + config);
+		log.debug("Going to fill config templace");
 
 		config = replaceAllFields(json, config);
 
-		String destconfigpath = Static.OPENVPNLOCATION
-				+ json.getString("subvpn_type") + "_" + json.get("subvpn_name");
+		String destconfigpath = PathConfigTUN_basic.getConfigInstancePath(json);
 
 		log.info("Destination config file path: " + destconfigpath);
 		FileWork.saveFile(destconfigpath, config);
-
 		log.debug("Config file written: \n" + config);
 
 		appendLine("set -ex \n");
-		appendLine("cd " + destination + Static.FOLDERSEPARATOR + "cmds\n");
-		appendLine("./createsubvpn.sh {subvpn_name} {subvpn_type} {ip_range}\n");
+		appendLine(PathConfigTUN_basic.getCMDspath(json) + "\n");
+		// appendLine("./createsubvpn.sh {subvpn_name} {subvpn_type} {ip_range}\n");
 
 		exec(json);
-		json.put("destination", destination.replaceAll("//", "/"));
-
+		json.put("destination", destination);
 		json.put("server_conf_base64", B64.encode(config));
 
-		FileWork.storeJSON(json,
-				destination + slash + json.getString("subvpn_name") + ".json");
-
+		FileWork.storeJSON(json, PathConfigTUN_basic.getCAJsonPath(json));
 		log.info("JSON stored");
-		log.debug("Stored CA/Server JSON: " + json.toString());
+		log.debug("Stored JSON: " + json.toString());
 
-		
 		return json;
 
 	}

@@ -22,6 +22,10 @@ public class IPMaskConverter {
 					IPMaskConverter.rangeToMask(json.getString("ip_range")));
 
 		}
+		if (!json.keySet().contains("ip_range")) {
+			throw new IOException("Missing server ip_range");
+
+		}
 
 		return json;
 	}

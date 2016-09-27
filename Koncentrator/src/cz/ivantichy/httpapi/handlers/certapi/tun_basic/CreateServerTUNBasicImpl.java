@@ -20,19 +20,10 @@ public class CreateServerTUNBasicImpl extends CommandExecutor implements Create 
 
 		log.info("Hi, I am CreateServerTUNBasicImpl");
 
-		String source = FileWork.replaceDoubleSlashes(Static.OPENVPNLOCATION
-				+ Static.TEMPLATEFOLDER + Static.FOLDERSEPARATOR
-				+ json.getString(Static.SUBVPN_TYPE) + Static.FOLDERSEPARATOR);
+		String source = PathConfigTUN_basic.getSourcePath(json);
 		log.info("Source location:" + source);
 
-		log.info("wtf?");
-		String destination = FileWork
-				.replaceDoubleSlashes(Static.OPENVPNLOCATION
-						+ Static.FOLDERSEPARATOR + Static.INSTANCESFOLDER
-						+ Static.FOLDERSEPARATOR
-						+ json.getString(Static.SUBVPN_TYPE)
-						+ Static.FOLDERSEPARATOR)
-				+ json.getString(Static.SERVER_NAME) + Static.FOLDERSEPARATOR;
+		String destination = PathConfigTUN_basic.getDestionationPath(json);
 		log.info("Destination location:" + destination);
 
 		// folder must not exist
@@ -47,10 +38,7 @@ public class CreateServerTUNBasicImpl extends CommandExecutor implements Create 
 		appendLine(Static.STARTOPENVPNSERVICE);
 		exec(json);
 
-		FileWork.storeJSON(
-				json,
-				destination + Static.FOLDERSEPARATOR
-						+ json.getString("server_name") + ".json");
+		FileWork.storeJSON(json, PathConfigTUN_basic.getCAJsonPath(json));
 		log.info("JSON stored");
 		log.debug("Stored JSON: " + json.toString());
 

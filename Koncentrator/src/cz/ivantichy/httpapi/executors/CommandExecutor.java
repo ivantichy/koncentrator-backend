@@ -52,8 +52,8 @@ public abstract class CommandExecutor {
 		}
 
 		if (input.indexOf('{') > -1) {
-			log.error("Missing param " + input + "  JSON:" + json.toString());
-			throw new IOException("Missing parameter " + input);
+			log.error("Missing param here: " + input.substring(input.indexOf('{')) + "  JSON:" + json.toString());
+			throw new IOException("Missing parameter here: "+ input.substring(input.indexOf('{')));
 		}
 
 		return input;
