@@ -13,6 +13,7 @@ import cz.ivantichy.supersimple.restapi.handlers.interfaces.POSTHandlerInterface
 import cz.ivantichy.supersimple.restapi.server.POSTRequest;
 import cz.ivantichy.supersimple.restapi.server.Response;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
+import cz.koncentrator_v2.api.common.VariableReplacer;
 
 public class UpdateProfileAdapter extends CommandExecutor implements
 		POSTHandlerInterface {
@@ -86,16 +87,16 @@ public class UpdateProfileAdapter extends CommandExecutor implements
 
 	private String fillConfig(String config, JSONObject json) {
 
-		config = replaceField("server_port", config, json);
-		config = replaceField("server_protocol", config, json);
-		config = replaceField("server_domain_name", config, json);
-		config = replaceField("server_common_name", config, json);
-		config = replaceField("subvpn_name", config, json);
-		config = replaceField("subvpn_type", config, json);
-		config = replaceField("ta", config, json);
-		config = replaceField("ca", config, json);
-		config = replaceField("key", config, json);
-		config = replaceField("cert", config, json);
+		config = VariableReplacer.replaceField("server_port", config, json);
+		config = VariableReplacer.replaceField("server_protocol", config, json);
+		config = VariableReplacer.replaceField("server_domain_name", config, json);
+		config = VariableReplacer.replaceField("server_common_name", config, json);
+		config = VariableReplacer.replaceField("subvpn_name", config, json);
+		config = VariableReplacer.replaceField("subvpn_type", config, json);
+		config = VariableReplacer.replaceField("ta", config, json);
+		config = VariableReplacer.replaceField("ca", config, json);
+		config = VariableReplacer.replaceField("key", config, json);
+		config = VariableReplacer.replaceField("cert", config, json);
 		config += System.lineSeparator()
 				+ json.getString("profile_commands").replaceAll("[,]",
 						System.lineSeparator());

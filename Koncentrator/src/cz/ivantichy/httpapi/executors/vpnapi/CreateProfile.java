@@ -10,6 +10,7 @@ import cz.ivantichy.base64.B64;
 import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.httpapi.executors.CommandExecutor;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
+import cz.koncentrator_v2.api.common.VariableReplacer;
 
 public class CreateProfile extends CommandExecutor {
 
@@ -71,16 +72,16 @@ public class CreateProfile extends CommandExecutor {
 
 	private static String fillConfig(String config, JSONObject json) {
 
-		config = replaceField("server_port", config, json);
-		config = replaceField("server_protocol", config, json);
-		config = replaceField("server_domain_name", config, json);
-		config = replaceField("server_common_name", config, json);
-		config = replaceField("subvpn_name", config, json);
-		config = replaceField("subvpn_type", config, json);
-		config = replaceFieldB64("ta", config, json);
-		config = replaceFieldB64("ca", config, json);
-		config = replaceFieldB64("key", config, json);
-		config = replaceFieldB64("cert", config, json);
+		config = VariableReplacer.replaceField("server_port", config, json);
+		config = VariableReplacer.replaceField("server_protocol", config, json);
+		config = VariableReplacer.replaceField("server_domain_name", config, json);
+		config = VariableReplacer.replaceField("server_common_name", config, json);
+		config = VariableReplacer.replaceField("subvpn_name", config, json);
+		config = VariableReplacer.replaceField("subvpn_type", config, json);
+		config = VariableReplacer.replaceFieldB64("ta", config, json);
+		config = VariableReplacer.replaceFieldB64("ca", config, json);
+		config = VariableReplacer.replaceFieldB64("key", config, json);
+		config = VariableReplacer.replaceFieldB64("cert", config, json);
 		config += System.lineSeparator()
 				+ json.getString("profile_commands").replaceAll("[,]",
 						System.lineSeparator());

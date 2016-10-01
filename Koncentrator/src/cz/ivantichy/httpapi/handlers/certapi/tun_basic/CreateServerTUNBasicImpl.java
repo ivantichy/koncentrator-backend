@@ -10,8 +10,9 @@ import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.httpapi.executors.CommandExecutor;
 import cz.ivantichy.httpapi.executors.Create;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
+import cz.koncentrator_v2.api.common.PathConfigTUN_basic;
 
-public class CreateServerTUNBasicImpl extends CommandExecutor implements Create {
+public class CreateServerTUNBasicImpl implements Create {
 	private static Logger log = LogManager
 			.getLogger(CreateServerTUNBasicImpl.class.getName());
 
@@ -34,13 +35,11 @@ public class CreateServerTUNBasicImpl extends CommandExecutor implements Create 
 		json.put("destination", destination);
 		json.put("source", source);
 
-		clear();
-		appendLine(Static.STARTOPENVPNSERVICE);
-		exec(json);
-
 		FileWork.storeJSON(json, PathConfigTUN_basic.getCAJsonPath(json));
 		log.info("JSON stored");
 		log.debug("Stored JSON: " + json.toString());
+
+		ServiceRestarter.restartAllProcesses(json);
 
 		return json;
 

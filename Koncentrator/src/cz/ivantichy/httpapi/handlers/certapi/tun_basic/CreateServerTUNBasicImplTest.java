@@ -1,6 +1,8 @@
 package cz.ivantichy.httpapi.handlers.certapi.tun_basic;
 
-import static org.testng.AssertJUnit.*;
+import static org.testng.AssertJUnit.assertFalse;
+import static org.testng.AssertJUnit.assertTrue;
+
 import java.io.IOException;
 
 import org.json.JSONObject;

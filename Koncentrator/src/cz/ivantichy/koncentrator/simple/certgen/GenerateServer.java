@@ -11,17 +11,17 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import cz.ivantichy.base64.B64;
+import cz.ivantichy.fileutils.FileWork;
 import cz.ivantichy.httpapi.executors.CommandExecutor;
 
 public class GenerateServer extends CommandExecutor {
 	private static final Logger log = LogManager.getLogger(GenerateServer.class
 			.getName());
 
-
 	public static synchronized String generateServer(String type, String name,
 			String domain, int days, String common_name) throws Exception {
 		clear();
-		String path = "instances/" + type + "/" + name;
+		String path = "instances/" + type + "/" + common_name;
 		exec(path, type, name, domain, days, common_name);
 		JSONObject json = new JSONObject();
 		json.put("common_name", common_name);
@@ -84,8 +84,8 @@ public class GenerateServer extends CommandExecutor {
 	public static int exec(String path, String type, String name,
 			String domain, int days, String common_name) throws Exception {
 
-		if (!new File(location + "/" + path).exists())
-			throw new Exception("path does not exist");
+		if (!new File(FileWork.replaceDoubleSlashes(location + "/" + path)).exists())
+			throw new Exception("path does not exist: " + location + "/" + path);
 
 		Runtime r = Runtime.getRuntime();
 

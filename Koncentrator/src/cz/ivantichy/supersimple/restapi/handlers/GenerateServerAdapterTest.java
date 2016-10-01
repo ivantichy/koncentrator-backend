@@ -24,6 +24,7 @@ public class GenerateServerAdapterTest {
 		getparams.put("subvpn_type", "tun-basic");
 
 		if (args.length > 0) {
+			
 			getparams.put("common_name", args[0]);
 			getparams.put("domain", args[1]);
 			getparams.put("subvpn_name", args[1]);

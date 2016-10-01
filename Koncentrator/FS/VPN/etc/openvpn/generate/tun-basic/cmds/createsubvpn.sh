@@ -1,5 +1,5 @@
 #!/bin/bash
-# subvpn_name subvpntype ip_range1
+# subvpn_name subvpn_type ip_range1
 set -x
 
 echo $1 $2 $3

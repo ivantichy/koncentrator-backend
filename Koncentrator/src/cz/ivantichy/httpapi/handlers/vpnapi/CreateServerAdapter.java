@@ -14,6 +14,7 @@ import cz.ivantichy.supersimple.restapi.handlers.interfaces.PUTHandlerInterface;
 import cz.ivantichy.supersimple.restapi.server.PUTRequest;
 import cz.ivantichy.supersimple.restapi.server.Response;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
+import cz.koncentrator_v2.api.common.VariableReplacer;
 
 public class CreateServerAdapter extends CommandExecutor implements
 		PUTHandlerInterface {
@@ -97,20 +98,20 @@ public class CreateServerAdapter extends CommandExecutor implements
 
 	private String fillConfig(String config, JSONObject json) {
 
-		config = replaceField("server_port", config, json);
-		config = replaceField("server_protocol", config, json);
-		config = replaceField("server_management_port", config, json);
-		config = replaceField("server_device", config, json);
-		config = replaceField("subvpn_name", config, json);
-		config = replaceField("subvpn_type", config, json);
-		config = replaceField("ta", config, json);
-		config = replaceField("ca", config, json);
-		config = replaceField("key", config, json);
-		config = replaceField("cert", config, json);
-		config = replaceField("dh", config, json);
-		config = replaceField("dh_size", config, json);
-		config = replaceField("ip_server", config, json);
-		config = replaceField("ip_mask", config, json);
+		config = VariableReplacer.replaceField("server_port", config, json);
+		config = VariableReplacer.replaceField("server_protocol", config, json);
+		config = VariableReplacer.replaceField("server_management_port", config, json);
+		config = VariableReplacer.replaceField("server_device", config, json);
+		config = VariableReplacer.replaceField("subvpn_name", config, json);
+		config = VariableReplacer.replaceField("subvpn_type", config, json);
+		config = VariableReplacer.replaceField("ta", config, json);
+		config = VariableReplacer.replaceField("ca", config, json);
+		config = VariableReplacer.replaceField("key", config, json);
+		config = VariableReplacer.replaceField("cert", config, json);
+		config = VariableReplacer.replaceField("dh", config, json);
+		config = VariableReplacer.replaceField("dh_size", config, json);
+		config = VariableReplacer.replaceField("ip_server", config, json);
+		config = VariableReplacer.replaceField("ip_mask", config, json);
 		config += System.lineSeparator()
 				+ json.getString("server_commands").replaceAll("[,]",
 						System.lineSeparator());

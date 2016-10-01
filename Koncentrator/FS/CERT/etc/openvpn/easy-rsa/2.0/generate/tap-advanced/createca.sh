@@ -1,64 +1,63 @@
 #!/bin/bash
+# arguments subvpn_type server_name
 
-type_name=$1;
-name=$2;
-#common_name=$3;
+subvpn_type=$1;
+server_name=$2;
+ 
+echo $subvpn_type
+echo $server_name
 
-echo $common_name 
-echo $name
-echo $type_name
-
-if [ -z "$name" ]; then
-    echo "name is empty"
+if [ -z "$server_name" ]; then
+    echo "server_name is empty"
     exit 1
 fi
 
 
-if [ -z "$type_name" ]; then
-    echo "type_name is empty"
+if [ -z "$subvpn_type" ]; then
+    echo "subvpn_type is empty"
     exit 1
 fi
 
 rootdir=/etc/openvpn/easy-rsa/2.0
 
-if [ ! -d "$rootdir/generate/$type_name" ]
+if [ ! -d "$rootdir/generate/$subvpn_type" ]
   then
   echo "type does not exist"
   exit 1
 fi
 
-#if [ -d "$rootdir/instances/$type_name/$name" ]
+#if [ -d "$rootdir/instances/$subvpn_type/$server_name" ]
 #  then
 #  echo "name already exist"
 #  exit 1
 #fi
 
 
-cd "$rootdir/generate/$type_name"
+cd "$rootdir/generate/$subvpn_type"
 
 #. ./vars
 #./clean-all
-#mkdir -p "$rootdir/instances/$type_name/$name"
-#cp -r -f $rootdir/generate/$type_name/* $rootdir/instances/$type_name/$name
+#mkdir -p "$rootdir/instances/$subvpn_type/$server_name"
+#cp -r -f $rootdir/generate/$subvpn_type/* $rootdir/instances/$subvpn_type/$server_name
 
-cd $rootdir/instances/$type_name/$name
+cd $rootdir/instances/$subvpn_type/$server_name
 
 echo pwd=`pwd`
-#echo "$rootdir/instances/$type_name/$name"
+#echo "$rootdir/instances/$subvpn_type/$server_name"
 
 
-if [ `pwd` != "$rootdir/instances/$type_name/$name" ]
+if [ `pwd` != "$rootdir/instances/$subvpn_type/$server_name" ]
   then
   echo "omg.. path is wrong"
   exit 1
 fi
 
-. ./pkitool --initca $name
+. ./pkitool --initca $server_name
 
 
-/usr/sbin/openvpn --genkey --secret $rootdir/instances/$type_name/$name/keys/ta.key
+/usr/sbin/openvpn --genkey --secret $rootdir/instances/$subvpn_type/$server_name/keys/ta.key
 
-cd $rootdir/instances/$type_name/$name/keys
+cd $rootdir/instances/$subvpn_type/$server_name/keys
 
 if [ ! -s "./ta.key" ]; then
     echo "ta.key not OK"

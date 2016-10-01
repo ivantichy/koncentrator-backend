@@ -5,6 +5,7 @@
     <classes>
       <class name="cz.ivantichy.httpapi.handlers.certapi.tun_basic.Create_CA_TUN_basicImplTest">
         <methods>
+          <include name="testWithRealCerts"/>
           <include name="test"/>
         </methods>
       </class> <!-- cz.ivantichy.httpapi.handlers.certapi.tun_basic.Create_CA_TUN_basicImplTest -->
