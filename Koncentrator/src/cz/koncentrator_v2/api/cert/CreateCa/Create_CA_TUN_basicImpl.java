@@ -1,4 +1,4 @@
-package cz.koncentrator_v2.api.cert.CaCreate;
+package cz.koncentrator_v2.api.cert.CreateCa;
 
 import java.io.IOException;
 
