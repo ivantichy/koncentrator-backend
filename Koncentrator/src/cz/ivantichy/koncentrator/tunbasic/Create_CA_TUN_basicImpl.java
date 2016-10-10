@@ -1,4 +1,4 @@
-package cz.koncentrator_v2.api.cert.CreateCa;
+package cz.ivantichy.koncentrator.tunbasic;
 
 import java.io.IOException;
 
@@ -6,14 +6,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
+import archive.Create;
 import cz.ivantichy.base64.B64;
 import cz.ivantichy.fileutils.FileWork;
-import cz.ivantichy.httpapi.executors.CommandExecutor;
-import cz.ivantichy.httpapi.executors.Create;
 import cz.ivantichy.httpapi.handlers.certapi.tun_basic.ConfigUpdaterTUNBasic;
 import cz.ivantichy.httpapi.handlers.certapi.tun_basic.ServiceRestarter;
 import cz.ivantichy.koncentrator.simple.IPUtils.IPMaskConverter;
-import cz.koncentrator_v2.api.common.PathConfigTUN_basic;
+import cz.koncentrator_v2.api.common.PathConfigVPN_TUN_basic;
 
 public class Create_CA_TUN_basicImpl implements Create {
 	private static Logger log = LogManager
@@ -24,11 +23,13 @@ public class Create_CA_TUN_basicImpl implements Create {
 
 		log.info("Hi, I am Create_CA_TUN_basicImpl");
 
-		String destination = PathConfigTUN_basic.getDestionationPath(json);
+		String destination = PathConfigVPN_TUN_basic.instance
+				.getDestinationPath(json);
 		log.info("Destination location:" + destination);
 		FileWork.folderExists(destination);
 
-		String cajsonfile = PathConfigTUN_basic.getCAJsonPath(json);
+		String cajsonfile = PathConfigVPN_TUN_basic.instance
+				.getCAJsonPath(json);
 		log.info("Reading CA JSON: " + cajsonfile);
 		JSONObject cajson = new JSONObject(FileWork.readFile(cajsonfile));
 		log.info("CA JSON: " + cajson.toString());
@@ -43,7 +44,8 @@ public class Create_CA_TUN_basicImpl implements Create {
 		json.put("destination", destination);
 		json.put("server_conf_base64", B64.encode(config));
 
-		FileWork.storeJSON(json, PathConfigTUN_basic.getCAJsonPath(json));
+		FileWork.storeJSON(json,
+				PathConfigVPN_TUN_basic.instance.getCAJsonPath(json));
 		log.info("JSON stored");
 		log.debug("Stored JSON: " + json.toString());
 

@@ -60,10 +60,22 @@ public class FileWork {
 		File s = new File(source);
 
 		if (d.exists() && d.isDirectory())
-			throw new IOException("destination path exists!");
+			throw new IOException("destination path exists! " + d);
 
 		if (!s.exists() || !s.isDirectory()) {
-			throw new IOException("souce path does not exists");
+			throw new IOException("souce path does not exists " + s);
+		}
+
+	}
+
+	public static void checkFolder(String folder) throws IOException {
+
+		log.info("Testing that this folder exists: " + folder);
+
+		File s = new File(folder);
+
+		if (!s.exists() || !s.isDirectory()) {
+			throw new IOException("folder path does not exists " + s);
 		}
 
 	}
@@ -140,6 +152,12 @@ public class FileWork {
 			throws IOException {
 
 		FileWork.saveFile(path, json.toString());
+
+	}
+
+	public static JSONObject readJSON(String path) throws Exception {
+
+		return new JSONObject(FileWork.readFile(path));
 
 	}
 }

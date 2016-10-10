@@ -1,4 +1,4 @@
-package cz.ivantichy.httpapi.executors;
+package cz.koncentrator_v2.api.common.commandexecution;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -18,8 +18,12 @@ public abstract class CommandExecutor {
 			.getName());;
 	private static StringBuffer buff = new StringBuffer(1024);
 
+	@Deprecated
 	protected static String rsalocation = Static.RSALOCATION;
+	@Deprecated
 	protected static String slash = Static.FOLDERSEPARATOR;
+	@Deprecated
+	protected static String location = Static.OPENVPNLOCATION;
 
 	protected static void appendLine(String line) {
 

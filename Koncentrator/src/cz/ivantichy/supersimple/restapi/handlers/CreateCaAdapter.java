@@ -10,7 +10,7 @@ import cz.ivantichy.supersimple.restapi.handlers.interfaces.PUTHandlerInterface;
 import cz.ivantichy.supersimple.restapi.server.PUTRequest;
 import cz.ivantichy.supersimple.restapi.server.Response;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
-import cz.koncentrator_v2.api.cert.CreateCa.CreateCa;
+
 
 public class CreateCaAdapter implements PUTHandlerInterface {
 	private static final Logger log = LogManager
@@ -59,14 +59,17 @@ public class CreateCaAdapter implements PUTHandlerInterface {
 
 			}
 
-			if (subvpn_type.equalsIgnoreCase(Static.TUN_BASIC_TYPE)) {
-				return new Response(CreateCa.createCaTunBasic(json), true);
-
-			}
-			if (subvpn_type.equalsIgnoreCase(Static.TAP_ADVANCED_TYPE)) {
-				return new Response(CreateCa.createCaTapAdvanced(json), true);
-			}
-
+			/*
+			 * 
+			 * //TODO commented to be able to run test of cert..
+			 * 
+			 * 
+			 * if (subvpn_type.equalsIgnoreCase(Static.TUN_BASIC_TYPE)) { return
+			 * new Response(CreateCa.createCaTunBasic(json), true);
+			 * 
+			 * } if (subvpn_type.equalsIgnoreCase(Static.TAP_ADVANCED_TYPE)) {
+			 * return new Response(CreateCa.createCaTapAdvanced(json), true); }
+			 */
 			throw new IOException("unsuported subvpn_type");
 
 		} catch (Exception e) {

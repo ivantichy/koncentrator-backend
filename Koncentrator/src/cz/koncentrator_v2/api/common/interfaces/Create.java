@@ -1,11 +1,9 @@
-package cz.koncentrator_v2.api.cert.CreateCa;
+package cz.koncentrator_v2.api.common.interfaces;
 
 import org.json.JSONObject;
 
-public interface Create {
+public interface Create extends TypedInterface {
 
-	abstract public String implementedType();
-
-	abstract public JSONObject create(JSONObject json);
+	abstract public JSONObject create(JSONObject json) throws Exception;
 
 }

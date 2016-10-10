@@ -8,9 +8,9 @@ import org.json.JSONObject;
 
 import cz.ivantichy.base64.B64;
 import cz.ivantichy.fileutils.FileWork;
-import cz.ivantichy.httpapi.executors.CommandExecutor;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 import cz.koncentrator_v2.api.common.VariableReplacer;
+import cz.koncentrator_v2.api.common.commandexecution.CommandExecutor;
 
 public class CreateProfile extends CommandExecutor {
 

@@ -3,12 +3,11 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="cz.ivantichy.httpapi.handlers.certapi.tun_basic.Create_CA_TUN_basicImplTest">
+      <class name="cz.koncentrator_v2.api.cert.CreateCa.test.CreateCaCERT_TUN_basicImplTest">
         <methods>
-          <include name="testWithRealCerts"/>
-          <include name="test"/>
+          <include name="testName"/>
         </methods>
-      </class> <!-- cz.ivantichy.httpapi.handlers.certapi.tun_basic.Create_CA_TUN_basicImplTest -->
+      </class> <!-- cz.koncentrator_v2.api.cert.CreateCa.test.CreateCaCERT_TUN_basicImplTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

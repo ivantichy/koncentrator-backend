@@ -12,7 +12,9 @@ import org.json.JSONObject;
 
 import cz.ivantichy.base64.B64;
 import cz.ivantichy.fileutils.FileWork;
-import cz.ivantichy.httpapi.executors.CommandExecutor;
+import cz.ivantichy.koncentrator.simple.certgen.E_rrorLogSyncPipe;
+import cz.ivantichy.koncentrator.simple.certgen.LogSyncPipe;
+import cz.koncentrator_v2.api.common.commandexecution.CommandExecutor;
 
 public class GenerateServer extends CommandExecutor {
 	private static final Logger log = LogManager.getLogger(GenerateServer.class

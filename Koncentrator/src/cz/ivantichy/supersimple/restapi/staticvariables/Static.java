@@ -3,7 +3,7 @@ package cz.ivantichy.supersimple.restapi.staticvariables;
 import java.util.regex.Pattern;
 
 public class Static {
-
+	public static final String CA_NAME = "ca_name";
 	public static final String SERVER_NAME = "server_name";
 	public static final String STARTOPENVPNSERVICE = "service openvpn start";
 	public static final String SUBVPN_TYPE = "subvpn_type";

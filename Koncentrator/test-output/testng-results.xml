@@ -2,22 +2,38 @@
 <testng-results skipped="0" failed="2" total="5" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="2468" started-at="2016-09-24T04:32:49Z" finished-at="2016-09-24T04:32:51Z">
+  <suite name="Suite" duration-ms="2355" started-at="2016-10-09T23:58:59Z" finished-at="2016-10-09T23:59:02Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="2468" started-at="2016-09-24T04:32:49Z" finished-at="2016-09-24T04:32:51Z">
-      <class name="cz.ivantichy.httpapi.handlers.certapi.tun_basic.Create_CA_TUN_basicImplTest">
-        <test-method status="FAIL" signature="test()[pri:0, instance:cz.ivantichy.httpapi.handlers.certapi.tun_basic.Create_CA_TUN_basicImplTest@60215eee]" name="test" duration-ms="229" started-at="2016-09-24T04:32:50Z" finished-at="2016-09-24T04:32:50Z">
-          <exception class="java.io.IOException">
+    <test name="Test" duration-ms="2355" started-at="2016-10-09T23:58:59Z" finished-at="2016-10-09T23:59:02Z">
+      <class name="cz.koncentrator_v2.api.cert.GenerateServer.test.GenerateServerCERT_TUN_basicImplTest">
+        <test-method status="PASS" signature="test()[pri:0, instance:cz.koncentrator_v2.api.cert.GenerateServer.test.GenerateServerCERT_TUN_basicImplTest@449b2d27]" name="test" duration-ms="194" started-at="2016-10-09T23:59:01Z" finished-at="2016-10-09T23:59:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+      </class> <!-- cz.koncentrator_v2.api.cert.GenerateServer.test.GenerateServerCERT_TUN_basicImplTest -->
+      <class name="cz.koncentrator_v2.api.cert.CreateCa.test.CreateCaCERT_TUN_basicImplTest">
+        <test-method status="PASS" signature="testName()[pri:0, instance:cz.koncentrator_v2.api.cert.CreateCa.test.CreateCaCERT_TUN_basicImplTest@5479e3f]" name="testName" duration-ms="1417" started-at="2016-10-09T23:58:59Z" finished-at="2016-10-09T23:59:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testName -->
+      </class> <!-- cz.koncentrator_v2.api.cert.CreateCa.test.CreateCaCERT_TUN_basicImplTest -->
+      <class name="cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest">
+        <test-method status="PASS" signature="test()[pri:0, instance:cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest@5ecddf8f]" name="test" duration-ms="394" started-at="2016-10-09T23:59:01Z" finished-at="2016-10-09T23:59:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+        <test-method status="FAIL" signature="test2()[pri:0, instance:cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest@5ecddf8f]" name="test2" duration-ms="165" started-at="2016-10-09T23:59:01Z" finished-at="2016-10-09T23:59:02Z">
+          <exception class="java.lang.ClassCastException">
             <message>
-              <![CDATA[process exited with non zero code 1]]>
+              <![CDATA[Cannot cast java.lang.Class to cz.koncentrator_v2.api.cert.CreateCa.CreateCaInterface]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.io.IOException: process exited with non zero code 1
-	at cz.ivantichy.httpapi.executors.CommandExecutor.exec(CommandExecutor.java:65)
-	at cz.ivantichy.httpapi.handlers.certapi.tun_basic.ServiceRestarter.restartAllProcesses(ServiceRestarter.java:16)
-	at cz.ivantichy.httpapi.handlers.certapi.tun_basic.Create_CA_TUN_basicImpl.create(Create_CA_TUN_basicImpl.java:47)
-	at cz.ivantichy.httpapi.handlers.certapi.tun_basic.Create_CA_TUN_basicImplTest.test(Create_CA_TUN_basicImplTest.java:38)
+              <![CDATA[java.lang.ClassCastException: Cannot cast java.lang.Class to cz.koncentrator_v2.api.cert.CreateCa.CreateCaInterface
+	at java.lang.Class.cast(Class.java:3369)
+	at cz.koncentrator_v2.api.cert.common.CERTFactory.findClassForInterface(CERTFactory.java:58)
+	at cz.koncentrator_v2.api.cert.common.CERTFactory.getInstanceForCreateCa(CERTFactory.java:127)
+	at cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest.test2(CERTFactoryTest.java:37)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -43,63 +59,51 @@
 	at org.testng.TestNG.main(TestNG.java:1333)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.io.IOException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test -->
-        <test-method status="FAIL" signature="testWithRealCerts()[pri:0, instance:cz.ivantichy.httpapi.handlers.certapi.tun_basic.Create_CA_TUN_basicImplTest@60215eee]" name="testWithRealCerts" duration-ms="788" started-at="2016-09-24T04:32:50Z" finished-at="2016-09-24T04:32:51Z">
-          <exception class="java.io.IOException">
-            <message>
-              <![CDATA[/etc/openvpn/easy-rsa/2.0/instances/tun-basic/test-server-123/keys/test-server-123.key]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.io.IOException: /etc/openvpn/easy-rsa/2.0/instances/tun-basic/test-server-123/keys/test-server-123.key
-	at cz.ivantichy.supersimple.restapi.handlers.GenerateServerAdapter.handleGET(GenerateServerAdapter.java:72)
-	at cz.ivantichy.httpapi.handlers.certapi.tun_basic.Create_CA_TUN_basicImplTest.testWithRealCerts(Create_CA_TUN_basicImplTest.java:91)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:696)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:882)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1189)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at org.testng.TestNG.privateMain(TestNG.java:1364)
-	at org.testng.TestNG.main(TestNG.java:1333)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.io.IOException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testWithRealCerts -->
-      </class> <!-- cz.ivantichy.httpapi.handlers.certapi.tun_basic.Create_CA_TUN_basicImplTest -->
-      <class name="cz.ivantichy.httpapi.handlers.certapi.tun_basic.CreateServerTUNBasicImplTest">
-        <test-method status="PASS" signature="test()[pri:0, instance:cz.ivantichy.httpapi.handlers.certapi.tun_basic.CreateServerTUNBasicImplTest@567d299b]" name="test" duration-ms="1065" started-at="2016-09-24T04:32:49Z" finished-at="2016-09-24T04:32:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test -->
-        <test-method status="PASS" signature="test3()[pri:0, instance:cz.ivantichy.httpapi.handlers.certapi.tun_basic.CreateServerTUNBasicImplTest@567d299b]" name="test3" duration-ms="15" started-at="2016-09-24T04:32:50Z" finished-at="2016-09-24T04:32:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test3 -->
-        <test-method status="PASS" signature="test2()[pri:0, instance:cz.ivantichy.httpapi.handlers.certapi.tun_basic.CreateServerTUNBasicImplTest@567d299b]" name="test2" duration-ms="275" started-at="2016-09-24T04:32:50Z" finished-at="2016-09-24T04:32:50Z">
+          </exception> <!-- java.lang.ClassCastException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test2 -->
-      </class> <!-- cz.ivantichy.httpapi.handlers.certapi.tun_basic.CreateServerTUNBasicImplTest -->
+        <test-method status="FAIL" signature="test3()[pri:0, instance:cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest@5ecddf8f]" name="test3" duration-ms="121" started-at="2016-10-09T23:59:02Z" finished-at="2016-10-09T23:59:02Z">
+          <exception class="java.lang.ClassCastException">
+            <message>
+              <![CDATA[Cannot cast java.lang.Class to cz.koncentrator_v2.api.cert.GenerateServer.GenerateServerInterface]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.ClassCastException: Cannot cast java.lang.Class to cz.koncentrator_v2.api.cert.GenerateServer.GenerateServerInterface
+	at java.lang.Class.cast(Class.java:3369)
+	at cz.koncentrator_v2.api.cert.common.CERTFactory.findClassForInterface(CERTFactory.java:58)
+	at cz.koncentrator_v2.api.cert.common.CERTFactory.getInstanceForGenerateServer(CERTFactory.java:135)
+	at cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest.test3(CERTFactoryTest.java:49)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:696)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:882)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1189)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.TestNG.privateMain(TestNG.java:1364)
+	at org.testng.TestNG.main(TestNG.java:1333)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.ClassCastException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test3 -->
+      </class> <!-- cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

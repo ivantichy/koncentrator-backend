@@ -7,11 +7,11 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
 import cz.ivantichy.fileutils.FileWork;
-import cz.ivantichy.httpapi.executors.CommandExecutor;
 import cz.ivantichy.supersimple.restapi.handlers.interfaces.POSTHandlerInterface;
 import cz.ivantichy.supersimple.restapi.server.POSTRequest;
 import cz.ivantichy.supersimple.restapi.server.Response;
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
+import cz.koncentrator_v2.api.common.commandexecution.CommandExecutor;
 
 public class BlockProfileAdapter extends CommandExecutor implements
 		POSTHandlerInterface {

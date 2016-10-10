@@ -11,7 +11,7 @@
 			<AppenderRef ref="Console" />
 		</Root>
 
-		<logger name="cz.ivantichy" level="TRACE" />
+		<logger name="cz.koncentrator_v2.api.cert.common" level="TRACE" />
 
 		<Root level="ERROR">
 			<AppenderRef ref="CONSOLE" />
