@@ -1,8 +1,9 @@
 package cz.koncentrator_v2.api.cert.CreateCa.test;
 
-
-
 import org.json.JSONObject;
+
+import cz.koncentrator_v2.api.cert.common.*;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -23,11 +24,24 @@ public class CreateCaCERT_TUN_basicImplTest {
 		json.put("ca_name", "testca123");
 		json.put("ca_valid_days", "1");
 		json.put("domain", "test.domain.koncentrator.cz");
-		
 
 		c.create(json);
 		Assert.assertTrue(FileWork
 				.folderExists("/etc/openvpn/easy-rsa/2.0/instances/tun-basic/testca123/"));
+
+	}
+
+	@Test
+	public static void testWithFactory() throws Exception {
+		JSONObject json = new JSONObject();
+
+		json.put("subvpn_name", "test1234");
+		json.put("subvpn_type", "tun-basic");
+		json.put("ca_name", "testca1234");
+		json.put("ca_valid_days", "1");
+		json.put("domain", "test2.domain.koncentrator.cz");
+
+		CERTFactory.getInstanceForCreateCa(json).create(json);
 
 	}
 }

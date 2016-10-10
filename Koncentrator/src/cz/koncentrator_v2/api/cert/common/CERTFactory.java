@@ -10,8 +10,6 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 import org.reflections.Reflections;
 
-import com.google.common.reflect.TypeResolver;
-
 import cz.ivantichy.supersimple.restapi.staticvariables.Static;
 import cz.koncentrator_v2.api.cert.CreateCa.CreateCaInterface;
 import cz.koncentrator_v2.api.cert.GenerateServer.GenerateServerInterface;
@@ -22,44 +20,58 @@ import cz.koncentrator_v2.api.common.interfaces.TypedInterface;
 
 public class CERTFactory extends Factory {
 
-	private HashMap<String, Factory> factories = new HashMap<>();
+	public static class InternalCache<K> {
 
-	public static class Test<T> extends HashSet<T> {// , Class<? extends T>> {
+		private  HashMap<String, HashMap<Class<K>, Class<? extends K>>> caches = new HashMap<>();
+
+		public void put(Class<K> key, String type, Class<? extends K> value) {
+			
+			
+			HashMap<Class<K>, Class <? extends K>> local = new HashMap<>();
+			local.put(key, value);
+			caches.put(type, local);
+
+		}
+
+		public Class<? extends K> get(Class<K> key, String type) {
+
+			
+			HashMap<Class<K>, Class <? extends K>> local = caches.get(type);
+			return null;
+		}
 
 	}
 
 	private static final Logger log = LogManager.getLogger(CERTFactory.class
 			.getName());
 
-	private static HashMap<Class<? extends TypedInterface>, Class<? extends TypedInterface>> internalcache = new HashMap<>();// CERTFactory.Test<>();
-
-	@SuppressWarnings("unchecked")
 	private static <T extends TypedInterface> Class<? extends T> findClassForInterface(
 			Class<T> interfc, String type) throws Exception {
+
+		// HashMap<Class<T>, Class<? extends T>> internalcache = new
+		// HashMap<>();// CERTFactory.Test<>();
+
+		CERTFactory.InternalCache<T> internalcache = new CERTFactory.InternalCache<>();
 
 		synchronized (internalcache) {
 
 			// TODO neuklada se to oddelene pro ruzne typy, prepisuje se to, tj.
 			// dodelat test
+			
+			//TODO softreference
 
 			// internalcache.add(interfc, interfc);
 
-			
-
-			
-
 			log.debug("Going to find implementation of " + interfc.getName());
 
-			Class<? extends TypedInterface> local = internalcache.get(interfc);
+			Class<? extends T> local = internalcache.get(interfc, type);
 
 			if (local != null) {
-				log.debug("This was found in internal cache: "+local.getName());
-				
-				T t2 = interfc.cast(local);
-				System.out.println(t2);
-				
-				return (Class<? extends T>) local;
-				
+				log.debug("This was found in internal cache: "
+						+ local.getName());
+
+				return local;
+
 			}
 
 			Reflections r = new Reflections("cz.koncentrator");
@@ -109,7 +121,7 @@ public class CERTFactory extends Factory {
 
 			}
 
-			internalcache.put(interfc, result);
+			internalcache.put(interfc, type, result);
 			if (found)
 				return result;
 
@@ -121,7 +133,7 @@ public class CERTFactory extends Factory {
 		}
 	}
 
-	public static Create getInstanceForCreateCa(JSONObject json)
+	public static CreateCaInterface getInstanceForCreateCa(JSONObject json)
 			throws Exception {
 
 		return findClassForInterface(CreateCaInterface.class,
@@ -129,8 +141,8 @@ public class CERTFactory extends Factory {
 
 	}
 
-	public static Generate getInstanceForGenerateServer(JSONObject json)
-			throws Exception {
+	public static GenerateServerInterface getInstanceForGenerateServer(
+			JSONObject json) throws Exception {
 
 		return findClassForInterface(GenerateServerInterface.class,
 				json.getString(Static.SUBVPN_TYPE)).newInstance();
