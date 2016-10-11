@@ -45,7 +45,7 @@ public class CERTFactory extends Factory {
 	private static final Logger log = LogManager.getLogger(CERTFactory.class
 			.getName());
 
-	private static <T extends TypedInterface> Class<? extends T> findClassForInterface(
+	private static <T extends TypedInterface> Class< T> findClassForInterface(
 			Class<T> interfc, String type) throws Exception {
 
 		// HashMap<Class<T>, Class<? extends T>> internalcache = new
@@ -70,7 +70,7 @@ public class CERTFactory extends Factory {
 				log.debug("This was found in internal cache: "
 						+ local.getName());
 
-				return local;
+				return (Class<T>) local;
 
 			}
 
@@ -123,7 +123,7 @@ public class CERTFactory extends Factory {
 
 			internalcache.put(interfc, type, result);
 			if (found)
-				return result;
+				return (Class<T>) result;
 
 			log.error("No implementation found for interface " + interfc);
 
