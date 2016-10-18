@@ -1,5 +1,6 @@
 package cz.koncentrator_v2.api.cert.common;
 
+import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -20,45 +21,82 @@ import cz.koncentrator_v2.api.common.interfaces.TypedInterface;
 
 public class CERTFactory extends Factory {
 
-	public static class InternalCache<K> {
+	public static class CacheRecord<T> extends HashMap<Class<T>, Class<T>> {
 
-		private  HashMap<String, HashMap<Class<K>, Class<? extends K>>> caches = new HashMap<>();
+		private static final long serialVersionUID = 1L;
 
-		public void put(Class<K> key, String type, Class<? extends K> value) {
-			
-			
-			HashMap<Class<K>, Class <? extends K>> local = new HashMap<>();
-			local.put(key, value);
-			caches.put(type, local);
+	}
+
+	public static class CacheObject<T extends CacheRecord<? extends TypedInterface>> {
+
+		private HashMap<String, T> internal = new HashMap<>();
+
+		public T put(String type, T record) {
+
+			return internal.put(type, record);
 
 		}
 
-		public Class<? extends K> get(Class<K> key, String type) {
-
-			
-			HashMap<Class<K>, Class <? extends K>> local = caches.get(type);
-			return null;
+		public T get(String type) {
+			return internal.get(type);
 		}
+
+	}
+
+	public static class InternalCache {
+
+		private CacheObject<CacheRecord<? extends TypedInterface>> caches = new CacheObject<>();
+
+		// private static HashMap<String, CacheRecord<? extends TypedInterface>>
+		// caches2 = new HashMap<>();
+
+		private <T extends TypedInterface> void createNewCache(Class<T> key,
+				Class<T> value, String type) {
+
+			CacheRecord<T> r = new CacheRecord<>();
+
+			r.put(key, value);
+
+			caches.put(type, r);
+
+		}
+
+		public <T extends TypedInterface> Class<T> get(Class<T> key, String type) {
+
+			@SuppressWarnings("unchecked")
+			CacheRecord<T> cache = (CacheRecord<T>) caches.get(type);
+
+			Class<T> record = cache.get(key);
+
+			HashSet<? super Long> xxx = new HashSet<Comparable<Long>>();
+
+			return record;
+
+		};
 
 	}
 
 	private static final Logger log = LogManager.getLogger(CERTFactory.class
 			.getName());
+	private static InternalCache internalcache = new CERTFactory.InternalCache();
 
-	private static <T extends TypedInterface> Class< T> findClassForInterface(
+	private static HashMap<Class<? extends TypedInterface>, Class<? extends TypedInterface>> neco = new HashMap<>();
+
+	private static <T extends TypedInterface> Class<T> findClassForInterface(
 			Class<T> interfc, String type) throws Exception {
 
 		// HashMap<Class<T>, Class<? extends T>> internalcache = new
 		// HashMap<>();// CERTFactory.Test<>();
 
-		CERTFactory.InternalCache<T> internalcache = new CERTFactory.InternalCache<>();
+		// CERTFactory.InternalCache<T> internalcache = new
+		// CERTFactory.InternalCache<>();
 
 		synchronized (internalcache) {
 
 			// TODO neuklada se to oddelene pro ruzne typy, prepisuje se to, tj.
 			// dodelat test
-			
-			//TODO softreference
+
+			// TODO softreference
 
 			// internalcache.add(interfc, interfc);
 
@@ -70,13 +108,17 @@ public class CERTFactory extends Factory {
 				log.debug("This was found in internal cache: "
 						+ local.getName());
 
-				return (Class<T>) local;
+				if (local.isAssignableFrom(interfc)) {
+					return (Class<T>) local;
+				}
 
 			}
 
 			Reflections r = new Reflections("cz.koncentrator");
 
 			Set<Class<? extends T>> all = r.getSubTypesOf(interfc);
+
+			neco.put(interfc, all.iterator().next());
 
 			// TODO genericke typy v return a filtery a scannery
 
