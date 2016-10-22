@@ -5,7 +5,6 @@
     <classes>
       <class name="cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest">
         <methods>
-          <include name="test2"/>
           <include name="test3"/>
         </methods>
       </class> <!-- cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest -->

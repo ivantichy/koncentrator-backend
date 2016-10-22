@@ -12,6 +12,8 @@
 		</Root>
 
 		<logger name="cz.koncentrator_v2.api.cert.common" level="TRACE" />
+		<logger name="cz.koncentrator_v2.api.common" level="TRACE" />
+		<logger name="cz.koncentrator_v2.api.cert.common.test" level="TRACE" />
 
 		<Root level="ERROR">
 			<AppenderRef ref="CONSOLE" />

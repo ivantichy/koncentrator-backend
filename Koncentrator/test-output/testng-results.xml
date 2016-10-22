@@ -2,36 +2,36 @@
 <testng-results skipped="0" failed="0" total="6" passed="6">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="3677" started-at="2016-10-11T15:18:04Z" finished-at="2016-10-11T15:18:08Z">
+  <suite name="Suite" duration-ms="4282" started-at="2016-10-22T23:06:58Z" finished-at="2016-10-22T23:07:02Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="3677" started-at="2016-10-11T15:18:04Z" finished-at="2016-10-11T15:18:08Z">
+    <test name="Test" duration-ms="4282" started-at="2016-10-22T23:06:58Z" finished-at="2016-10-22T23:07:02Z">
       <class name="cz.koncentrator_v2.api.cert.GenerateServer.test.GenerateServerCERT_TUN_basicImplTest">
-        <test-method status="PASS" signature="test()[pri:0, instance:cz.koncentrator_v2.api.cert.GenerateServer.test.GenerateServerCERT_TUN_basicImplTest@449b2d27]" name="test" duration-ms="452" started-at="2016-10-11T15:18:07Z" finished-at="2016-10-11T15:18:07Z">
+        <test-method status="PASS" signature="test()[pri:0, instance:cz.koncentrator_v2.api.cert.GenerateServer.test.GenerateServerCERT_TUN_basicImplTest@449b2d27]" name="test" duration-ms="291" started-at="2016-10-22T23:07:02Z" finished-at="2016-10-22T23:07:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test -->
       </class> <!-- cz.koncentrator_v2.api.cert.GenerateServer.test.GenerateServerCERT_TUN_basicImplTest -->
       <class name="cz.koncentrator_v2.api.cert.CreateCa.test.CreateCaCERT_TUN_basicImplTest">
-        <test-method status="PASS" signature="testName()[pri:0, instance:cz.koncentrator_v2.api.cert.CreateCa.test.CreateCaCERT_TUN_basicImplTest@5479e3f]" name="testName" duration-ms="1620" started-at="2016-10-11T15:18:04Z" finished-at="2016-10-11T15:18:06Z">
+        <test-method status="PASS" signature="testName()[pri:0, instance:cz.koncentrator_v2.api.cert.CreateCa.test.CreateCaCERT_TUN_basicImplTest@5479e3f]" name="testName" duration-ms="1953" started-at="2016-10-22T23:06:58Z" finished-at="2016-10-22T23:07:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testName -->
-        <test-method status="PASS" signature="testWithFactory()[pri:0, instance:cz.koncentrator_v2.api.cert.CreateCa.test.CreateCaCERT_TUN_basicImplTest@5479e3f]" name="testWithFactory" duration-ms="785" started-at="2016-10-11T15:18:06Z" finished-at="2016-10-11T15:18:07Z">
+        <test-method status="PASS" signature="testWithFactory()[pri:0, instance:cz.koncentrator_v2.api.cert.CreateCa.test.CreateCaCERT_TUN_basicImplTest@5479e3f]" name="testWithFactory" duration-ms="1568" started-at="2016-10-22T23:07:00Z" finished-at="2016-10-22T23:07:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testWithFactory -->
       </class> <!-- cz.koncentrator_v2.api.cert.CreateCa.test.CreateCaCERT_TUN_basicImplTest -->
       <class name="cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest">
-        <test-method status="PASS" signature="test()[pri:0, instance:cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest@5ecddf8f]" name="test" duration-ms="168" started-at="2016-10-11T15:18:07Z" finished-at="2016-10-11T15:18:07Z">
+        <test-method status="PASS" signature="test()[pri:0, instance:cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest@5ecddf8f]" name="test" duration-ms="179" started-at="2016-10-22T23:07:02Z" finished-at="2016-10-22T23:07:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test -->
-        <test-method status="PASS" signature="test2()[pri:0, instance:cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest@5ecddf8f]" name="test2" duration-ms="279" started-at="2016-10-11T15:18:07Z" finished-at="2016-10-11T15:18:07Z">
+        <test-method status="PASS" signature="test2()[pri:0, instance:cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest@5ecddf8f]" name="test2" duration-ms="14" started-at="2016-10-22T23:07:02Z" finished-at="2016-10-22T23:07:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test2 -->
-        <test-method status="PASS" signature="test3()[pri:0, instance:cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest@5ecddf8f]" name="test3" duration-ms="286" started-at="2016-10-11T15:18:07Z" finished-at="2016-10-11T15:18:08Z">
+        <test-method status="PASS" signature="test3()[pri:0, instance:cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest@5ecddf8f]" name="test3" duration-ms="173" started-at="2016-10-22T23:07:02Z" finished-at="2016-10-22T23:07:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test3 -->
