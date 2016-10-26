@@ -3,11 +3,11 @@
 <suite verbose="3" name="Failed suite [Suite]">
   <test name="Test(failed)">
     <classes>
-      <class name="cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest">
+      <class name="cz.koncentrator_v2.api.cert.GenerateProfile.test.GenerateProfileCERT_TUN_basicImplTest">
         <methods>
-          <include name="test3"/>
+          <include name="test"/>
         </methods>
-      </class> <!-- cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest -->
+      </class> <!-- cz.koncentrator_v2.api.cert.GenerateProfile.test.GenerateProfileCERT_TUN_basicImplTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -6,6 +6,7 @@
 		
 				<class name="cz.koncentrator_v2.api.cert.CreateCa.test.CreateCaCERT_TUN_basicImplTest"></class>
 				<class name="cz.koncentrator_v2.api.cert.GenerateServer.test.GenerateServerCERT_TUN_basicImplTest"></class>
+				<class name="cz.koncentrator_v2.api.cert.GenerateProfile.test.GenerateProfileCERT_TUN_basicImplTest"></class>
 		
 		<class name="cz.koncentrator_v2.api.cert.common.test.CERTFactoryTest"></class>
 		

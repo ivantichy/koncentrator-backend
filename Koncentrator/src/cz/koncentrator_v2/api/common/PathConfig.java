@@ -24,4 +24,10 @@ abstract public class PathConfig {
 
 	}
 
+	public String getProfileJsonPath(JSONObject json) {
+
+		return getDestinationPath(json) + Static.FOLDERSEPARATOR
+				+ json.getString(Static.COMMON_NAME) + ".json";
+
+	}
 }
